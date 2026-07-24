@@ -134,6 +134,22 @@
         }
       ],
       "id": "carne"
+    },
+    {
+      "emoji": "",
+      "tipo": "comida",
+      "tile": {
+        "pt": "MENUS DE GRUPO"
+      },
+      "grupos": [
+        {
+          "summary": {
+            "pt": "MENUS DE GRUPO"
+          },
+          "itens": []
+        }
+      ],
+      "id": "menus-de-grupo"
     }
   ]
 }
