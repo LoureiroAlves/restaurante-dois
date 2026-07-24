@@ -82,5 +82,9 @@
     "premio": ""
   },
   "layout": "4",
-  "jogos": false
+  "jogos": false,
+  "redes": {
+    "instagram": "",
+    "facebook": ""
+  }
 }
