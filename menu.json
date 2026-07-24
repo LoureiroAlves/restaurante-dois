@@ -131,7 +131,10 @@
               },
               "preco": "35€ KG"
             }
-          ]
+          ],
+          "subtitulo": {
+            "pt": "com 5 meses de maturação"
+          }
         }
       ],
       "id": "carne"
