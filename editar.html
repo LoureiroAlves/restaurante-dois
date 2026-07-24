@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editar Cardápio — Parque São Caetano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --branco:#ffffff; --bege-claro:#fbf8f2; --bege:#f5efe2;
+    --linha:#e6dcc8; --castanho:#4a3820; --castanho-suave:#8a7350;
+    --dourado:#a8712f; --dourado-escuro:#8a5a24;
+    --verde:#3b8a4f; --vermelho:#b3402f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Nunito',sans-serif; background:var(--bege-claro);
+    color:var(--castanho); padding:20px 14px 60px; line-height:1.5;
+  }
+  .wrap{max-width:620px; margin:0 auto;}
+  h1{font-family:'Fredoka',sans-serif; color:var(--dourado-escuro); font-size:1.5rem; margin-bottom:6px;}
+  .subtitulo{font-size:0.9rem; color:var(--castanho-suave); margin-bottom:18px;}
+  label{display:block; font-weight:700; font-size:0.85rem; color:var(--dourado-escuro); margin:14px 0 5px;}
+  input[type=text], input[type=password]{
+    width:100%; padding:10px 12px; border-radius:10px;
+    border:1.5px solid var(--linha); background:var(--branco);
+    font-size:0.95rem; color:var(--castanho); outline:none; font-family:inherit;
+  }
+  input[type=text]:focus, input[type=password]:focus{border-color:var(--dourado);}
+  input[type=file]{width:100%; font-size:0.82rem; color:var(--castanho-suave); margin-top:6px;}
+
+  .campo-token{display:flex; gap:8px; align-items:center;}
+  .campo-token input{flex:1;}
+  .campo-token button{
+    flex:0 0 auto; background:var(--bege); border:1.5px solid var(--linha);
+    color:var(--castanho); padding:10px 14px; border-radius:10px; cursor:pointer;
+    font-weight:700; font-size:0.85rem;
+  }
+  .lembrar{display:flex; align-items:center; gap:8px; margin-top:10px; font-size:0.8rem; color:var(--castanho-suave);}
+  .lembrar input{width:auto;}
+
+  details{
+    margin-top:14px; background:var(--branco); border:1.5px solid var(--linha);
+    border-radius:14px; overflow:hidden;
+  }
+  summary{
+    cursor:pointer; padding:14px 16px; font-family:'Fredoka',sans-serif;
+    font-size:1.05rem; color:var(--castanho); list-style:none; user-select:none;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:'▸ '; color:var(--dourado);}
+  details[open] summary::before{content:'▾ ';}
+  .bloco-conteudo{padding:0 16px 16px;}
+
+  .lista-fotos{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .foto-item{
+    display:flex; align-items:center; gap:10px; background:var(--bege);
+    border-radius:10px; padding:6px 8px;
+  }
+  .foto-item img{width:52px; height:52px; object-fit:cover; border-radius:8px; flex:0 0 auto; background:var(--linha);}
+  .foto-item .nome{flex:1; font-size:0.78rem; color:var(--castanho-suave); word-break:break-all;}
+  .foto-item button{
+    flex:0 0 auto; background:var(--vermelho); color:#fff; border:none;
+    width:30px; height:30px; border-radius:8px; cursor:pointer; font-size:1rem;
+  }
+  .vazio{font-size:0.8rem; color:var(--castanho-suave); font-style:italic; padding:6px 0;}
+
+  .campo-cor{display:flex; align-items:center; gap:10px;}
+  .campo-cor input[type=color]{
+    width:50px; height:38px; border:1.5px solid var(--linha); border-radius:8px;
+    background:var(--branco); cursor:pointer; padding:2px;
+  }
+  .campo-cor span{font-size:0.85rem; color:var(--castanho-suave); font-family:monospace;}
+
+  .acao{
+    display:block; width:100%; margin-top:22px; padding:15px;
+    background:var(--dourado); color:#fff; border:none; border-radius:12px;
+    font-family:'Fredoka',sans-serif; font-size:1.1rem; cursor:pointer;
+  }
+  .acao:hover{background:var(--dourado-escuro);}
+  .acao:disabled{background:var(--castanho-suave); cursor:not-allowed;}
+
+  .estado{margin-top:16px; padding:12px 14px; border-radius:10px; font-size:0.9rem; display:none;}
+  .estado.info{display:block; background:#eef4ff; color:#2a4d8f;}
+  .estado.ok{display:block; background:#eaf7ee; color:var(--verde);}
+  .estado.erro{display:block; background:#fdecea; color:var(--vermelho);}
+
+  .ajuda{margin-top:8px; font-size:0.82rem; color:var(--castanho-suave);}
+  .ajuda ol{margin:8px 0 0 18px;}
+  .ajuda li{margin:4px 0;}
+  code{background:var(--bege); padding:1px 5px; border-radius:5px; font-size:0.85em;}
+  a.voltar{display:inline-block; margin-bottom:12px; color:var(--castanho-suave); text-decoration:none; font-size:0.85rem;}
+
+  .limpeza-linha{ display:flex; align-items:center; gap:10px; padding:6px 4px; border-bottom:1px dotted var(--linha); }
+  .limpeza-linha img{ width:44px; height:44px; object-fit:cover; border-radius:6px; background:var(--linha); flex:0 0 auto; }
+  .limpeza-linha .nome{ flex:1; font-size:0.76rem; color:var(--castanho-suave); word-break:break-all; }
+  .limpeza-linha input[type=checkbox]{ width:20px; height:20px; flex:0 0 auto; }
+  .limpeza-usada{ opacity:0.55; }
+  .limpeza-tag{ font-size:0.68rem; font-weight:700; padding:1px 6px; border-radius:6px; flex:0 0 auto; }
+  .limpeza-tag.em-uso{ background:#eaf7ee; color:var(--verde); }
+  .limpeza-tag.livre{ background:#fdecea; color:var(--vermelho); }
+  .btn-apagar{ display:block; width:100%; margin-top:12px; padding:13px; background:var(--vermelho); color:#fff; border:none; border-radius:11px; cursor:pointer; font-weight:700; font-family:'Fredoka',sans-serif; }
+
+  /* ---- Editor visual do cardápio ---- */
+  .mv-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(88px,1fr)); gap:8px; margin-top:12px; }
+  .mv-tile{ background:var(--bege); border:1.5px solid var(--linha); border-radius:12px; padding:10px 6px; text-align:center; cursor:pointer; color:var(--castanho); }
+  .mv-tile.ativa{ background:var(--dourado); color:#fff; border-color:var(--dourado); }
+  .mv-tile.nova{ background:#eef7ee; border-style:dashed; color:var(--verde); }
+  .mv-tile .em{ font-size:1.5rem; display:block; line-height:1; }
+  .mv-tile .tl{ font-size:0.72rem; margin-top:5px; display:block; line-height:1.15; font-weight:700; }
+  .mv-painel{ margin-top:14px; background:var(--branco); border:1.5px solid var(--linha); border-radius:14px; padding:14px; }
+  .mv-painel-top{ display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+  .mv-titulo{ flex:1; font-family:'Fredoka',sans-serif; font-size:1.2rem; color:var(--castanho); border:none; border-bottom:2px dashed var(--linha); background:transparent; padding:4px 2px; }
+  .mv-titulo:focus{ outline:none; border-bottom-color:var(--dourado); }
+  .mv-emoji{ width:48px; text-align:center; font-size:1.2rem; border:1.5px solid var(--linha); border-radius:8px; background:var(--bege-claro); padding:6px 2px; }
+  .mv-item{ display:flex; align-items:center; gap:6px; padding:8px 2px; border-bottom:1px dotted var(--linha); }
+  .mv-nome{ flex:1; min-width:0; border:none; background:transparent; font-size:0.95rem; color:var(--castanho); padding:4px 2px; border-bottom:1px solid transparent; }
+  .mv-nome:focus{ outline:none; border-bottom-color:var(--dourado); }
+  .mv-preco{ width:90px; text-align:right; border:none; background:transparent; font-family:'Fredoka',sans-serif; color:var(--dourado-escuro); font-size:0.9rem; padding:4px 2px; border-bottom:1px solid transparent; }
+  .mv-preco:focus{ outline:none; border-bottom-color:var(--dourado); }
+  .mv-mini{ border:none; background:transparent; cursor:pointer; font-size:1rem; padding:2px 3px; color:var(--castanho-suave); flex:0 0 auto; }
+  .mv-mini.del{ color:var(--vermelho); }
+  .mv-add{ display:block; width:100%; margin-top:10px; padding:11px; background:var(--verde); color:#fff; border:none; border-radius:10px; font-family:'Fredoka',sans-serif; cursor:pointer; font-size:0.95rem; }
+  .mv-barra{ display:flex; gap:6px; }
+  .mv-grupo{ border:1.5px solid var(--linha); border-radius:10px; padding:10px; margin:10px 0; background:var(--bege-claro); }
+  .mv-grupo-tit{ font-family:'Fredoka',sans-serif; color:var(--castanho); border:none; border-bottom:1px dashed var(--linha); background:transparent; width:100%; padding:3px 2px; margin-bottom:4px; font-size:1rem; }
+  .mv-grupo-tit:focus{ outline:none; border-bottom-color:var(--dourado); }
+
+  /* ---- Seletor de layout/tema ---- */
+  .layout-cards{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; margin-top:8px; }
+  .layout-card{ border:2px solid var(--linha); border-radius:12px; padding:10px; cursor:pointer; background:var(--branco); }
+  .layout-card.sel{ border-color:var(--dourado); }
+  .layout-card .nome{ font-weight:700; font-size:0.82rem; margin-bottom:6px; color:var(--castanho); }
+  .layout-card .sws{ display:flex; gap:5px; }
+  .layout-card .sw{ width:24px; height:24px; border-radius:6px; border:1px solid rgba(0,0,0,0.08); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="voltar" href="cardapio.html">← Voltar ao cardápio</a>
+  <h1>Editar Cardápio</h1>
+  <div class="subtitulo">Edita os textos e as fotos do cabeçalho e da barra fixa. Guarda com um clique — só precisas do teu token do GitHub.</div>
+
+  <label for="token">Token de acesso do GitHub</label>
+  <div class="campo-token">
+    <input type="password" id="token" placeholder="cola aqui o teu token (github_pat_...)">
+    <button type="button" id="mostrarToken">Ver</button>
+  </div>
+  <div class="lembrar">
+    <input type="checkbox" id="lembrar" checked>
+    <label for="lembrar" style="margin:0; font-weight:400; color:inherit; display:inline;">Lembrar neste aparelho</label>
+  </div>
+
+  <details class="ajuda-token">
+    <summary>Ainda não tenho token — como crio?</summary>
+    <div class="bloco-conteudo ajuda">
+      <ol>
+        <li>No GitHub: <code>Settings → Developer settings → Personal access tokens → Fine-grained tokens</code>.</li>
+        <li><code>Generate new token</code>.</li>
+        <li>Em "Repository access": <code>Only select repositories</code> → <code>cardapio-parque-sao-caetano</code>.</li>
+        <li>Em "Permissions" → <code>Repository permissions</code> → <code>Contents</code> = <code>Read and write</code>.</li>
+        <li><code>Generate token</code>, copia (começa por <code>github_pat_</code>) e cola acima.</li>
+      </ol>
+    </div>
+  </details>
+
+  <button type="button" class="acao" id="btnCarregar" style="background:var(--castanho);">📥 Carregar definições atuais</button>
+
+  <!-- LAYOUT / ASPETO -->
+  <details id="secLayout">
+    <summary>🎨 Aspeto do cardápio (layout)</summary>
+    <div class="bloco-conteudo">
+      <div class="subtitulo" style="margin-top:6px;">Escolhe o visual — cores e tipos de letra. A estrutura é a mesma; muda a "cara" do cardápio.</div>
+      <div id="layoutCards" class="layout-cards"></div>
+    </div>
+  </details>
+
+  <!-- CABEÇALHO -->
+  <details id="secHeader">
+    <summary>Cabeçalho (topo da página)</summary>
+    <div class="bloco-conteudo">
+      <label for="titulo">Título</label>
+      <input type="text" id="titulo" placeholder="Rest & Bar Parque São Caetano">
+
+      <label for="subtitulo">Subtítulo</label>
+      <input type="text" id="subtitulo" placeholder="Tradição, sabor e conforto à mesa">
+
+      <label for="corHeader">Cor do texto</label>
+      <div class="campo-cor">
+        <input type="color" id="corHeader" value="#ffffff">
+        <span id="corHeaderVal">#ffffff</span>
+      </div>
+
+      <div class="lembrar" style="margin-top:12px;">
+        <input type="checkbox" id="realceHeader" checked>
+        <label for="realceHeader" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Realçar texto (negrito + sombra)</label>
+      </div>
+
+      <div class="lembrar" style="margin-top:16px;">
+        <input type="checkbox" id="fotosHeaderAtivas" checked>
+        <label for="fotosHeaderAtivas" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Mostrar fotos no cabeçalho</label>
+      </div>
+
+      <label>Fotos do cabeçalho (rodam automaticamente)</label>
+      <div class="lista-fotos" id="listaFotosHeader"></div>
+      <input type="file" id="novaFotoHeader" accept="image/*" multiple>
+    </div>
+  </details>
+
+  <!-- BARRA FIXA -->
+  <details id="secRodape">
+    <summary>Barra fixa (fundo da página)</summary>
+    <div class="bloco-conteudo">
+      <label for="linha1">Linha 1 (a negrito)</label>
+      <input type="text" id="linha1" placeholder="Ex: Contamos contigo!">
+
+      <label for="linha2">Linha 2</label>
+      <input type="text" id="linha2" placeholder="Ex: Terça a Domingo — Almoço e Jantar">
+
+      <label for="linha3">Linha 3</label>
+      <input type="text" id="linha3" placeholder="Ex: Reservas: 962 202 622">
+
+      <label for="linha4">Linha 4</label>
+      <input type="text" id="linha4" placeholder="Ex: Avenida de São Caetano, nº17">
+
+      <div class="lembrar" style="margin-top:18px;">
+        <input type="checkbox" id="especialAtivo">
+        <label for="especialAtivo" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Ativar texto especial por horário</label>
+      </div>
+      <div id="blocoEspecial" style="display:none; margin-top:8px; padding:12px; background:var(--bege); border-radius:10px;">
+        <div style="font-size:0.8rem; color:var(--castanho-suave); margin-bottom:8px;">Durante o horário indicado, a barra mostra este texto em vez do normal.</div>
+        <div style="display:flex; gap:10px;">
+          <div style="flex:1;">
+            <label for="especialInicio" style="margin-top:0;">Começa às</label>
+            <input type="time" id="especialInicio" style="width:100%; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit;">
+          </div>
+          <div style="flex:1;">
+            <label for="especialFim" style="margin-top:0;">Termina às</label>
+            <input type="time" id="especialFim" style="width:100%; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit;">
+          </div>
+        </div>
+        <label for="especialL1">Linha 1 especial (negrito)</label>
+        <input type="text" id="especialL1" placeholder="Ex: Prato do Dia">
+        <label for="especialL2">Linha 2 especial</label>
+        <input type="text" id="especialL2" placeholder="Ex: Francesinha">
+        <label for="especialL3">Linha 3 especial</label>
+        <input type="text" id="especialL3">
+        <label for="especialL4">Linha 4 especial</label>
+        <input type="text" id="especialL4">
+      </div>
+
+      <div class="lembrar" style="margin-top:18px;">
+        <input type="checkbox" id="carrosselAtivo">
+        <label for="carrosselAtivo" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Ativar slideshow (Prato do Dia / Na Brasa / Sugestão)</label>
+      </div>
+      <div id="blocoCarrossel" style="display:none; margin-top:8px; padding:12px; background:var(--bege); border-radius:10px;">
+        <div style="font-size:0.8rem; color:var(--castanho-suave); margin-bottom:10px;">A barra do fundo passa a rodar entre estes cartões. Escreve um prato por linha.</div>
+
+        <label for="carrIntervalo" style="margin-top:0;">Tempo de cada cartão (segundos)</label>
+        <input type="number" id="carrIntervalo" min="2" max="60" step="1" value="5" style="width:100px; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit;">
+
+        <label style="margin-top:14px;">Passa só neste horário (deixa vazio para passar sempre)</label>
+        <div style="display:flex; gap:12px;">
+          <div style="flex:1;">
+            <label for="carrInicio" style="margin-top:0; font-weight:400; color:var(--castanho-suave);">Início</label>
+            <input type="time" id="carrInicio" style="width:100%; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit;">
+          </div>
+          <div style="flex:1;">
+            <label for="carrFim" style="margin-top:0; font-weight:400; color:var(--castanho-suave);">Fim</label>
+            <input type="time" id="carrFim" style="width:100%; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit;">
+          </div>
+        </div>
+
+        <label for="carrTitulo1" style="margin-top:14px;">Cartão 1 — título</label>
+        <input type="text" id="carrTitulo1" placeholder="Ex: Prato do Dia">
+        <label for="carrLinhas1">Pratos (um por linha)</label>
+        <textarea id="carrLinhas1" rows="3" placeholder="Francesinha&#10;Bifana no Prato&#10;Salada de Bacalhau" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
+        <div class="lembrar" style="margin-top:6px;">
+          <input type="checkbox" id="carrDomingo1" checked>
+          <label for="carrDomingo1" style="margin:0; font-weight:400; color:var(--castanho-suave); display:inline;">Esconder este cartão ao domingo</label>
+        </div>
+
+        <label for="carrTitulo2" style="margin-top:14px;">Cartão 2 — título</label>
+        <input type="text" id="carrTitulo2" placeholder="Ex: Na Brasa">
+        <label for="carrLinhas2">Pratos (um por linha)</label>
+        <textarea id="carrLinhas2" rows="3" placeholder="Picanha&#10;Costelinhas" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
+
+        <label for="carrTitulo3" style="margin-top:14px;">Cartão 3 — título</label>
+        <input type="text" id="carrTitulo3" placeholder="Ex: Sugestão">
+        <label for="carrLinhas3">Pratos (um por linha)</label>
+        <textarea id="carrLinhas3" rows="3" placeholder="Bacalhau à Lagareiro&#10;Polvo à Lagareiro" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
+      </div>
+
+      <label for="corRodape">Cor do texto</label>
+      <div class="campo-cor">
+        <input type="color" id="corRodape" value="#ffffff">
+        <span id="corRodapeVal">#ffffff</span>
+      </div>
+
+      <div class="lembrar" style="margin-top:12px;">
+        <input type="checkbox" id="realceRodape" checked>
+        <label for="realceRodape" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Realçar texto (negrito + sombra)</label>
+      </div>
+
+      <div class="lembrar" style="margin-top:16px;">
+        <input type="checkbox" id="fotosRodapeAtivas" checked>
+        <label for="fotosRodapeAtivas" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Mostrar fotos na barra fixa</label>
+      </div>
+
+      <label>Fotos da barra fixa (rodam automaticamente)</label>
+      <div class="lista-fotos" id="listaFotosRodape"></div>
+      <input type="file" id="novaFotoRodape" accept="image/*" multiple>
+    </div>
+  </details>
+
+  <!-- RODAPÉ FINAL -->
+  <details id="secFooter">
+    <summary>Rodapé final (só aparece ao fazer scroll até ao fim)</summary>
+    <div class="bloco-conteudo">
+      <label for="footerNome">Nome do restaurante</label>
+      <input type="text" id="footerNome" placeholder="Rest & Bar Parque São Caetano">
+
+      <label for="footerMorada">Morada</label>
+      <input type="text" id="footerMorada" placeholder="Avenida de São Caetano, nº17">
+
+      <label for="footerTelefone">Telefone</label>
+      <input type="text" id="footerTelefone" placeholder="📞 962 202 622 / 227 130 614">
+
+      <label for="corFooter">Cor do texto</label>
+      <div class="campo-cor">
+        <input type="color" id="corFooter" value="#ffffff">
+        <span id="corFooterVal">#ffffff</span>
+      </div>
+
+      <div class="lembrar" style="margin-top:16px;">
+        <input type="checkbox" id="fotosFooterAtivas">
+        <label for="fotosFooterAtivas" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Mostrar foto no rodapé (cantos arredondados, texto por cima)</label>
+      </div>
+
+      <label>Fotos do rodapé (rodam automaticamente)</label>
+      <div class="lista-fotos" id="listaFotosFooter"></div>
+      <input type="file" id="novaFotoFooter" accept="image/*" multiple>
+
+      <label style="margin-top:16px;">Posição da foto e do texto</label>
+      <div id="footerPreview" style="position:relative; width:100%; max-width:320px; margin:6px auto; aspect-ratio:3/4; border-radius:12px; overflow:hidden; background:#4a3820; touch-action:none; user-select:none; -webkit-user-select:none;">
+        <img id="fpImg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transform-origin:center;">
+        <div id="fpVeu" style="position:absolute; inset:0; background:rgba(0,0,0,0); pointer-events:none;"></div>
+        <div id="fpTexto" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); color:#fff; text-align:center; cursor:move; padding:6px 8px; text-shadow:0 1px 3px rgba(0,0,0,0.6); line-height:1.25;">
+          <div id="fpNome" style="font-weight:800; font-family:'Fredoka',sans-serif;"></div>
+          <div id="fpMorada" style="font-size:0.85em;"></div>
+          <div id="fpTelefone" style="font-size:0.85em;"></div>
+        </div>
+        <div id="fpVazio" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#c9b892; font-size:0.85rem; text-align:center; padding:0 20px;">Adiciona uma foto para posicionar</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; margin-top:8px;">
+        <span style="font-size:0.82rem; color:var(--castanho-suave); flex:0 0 auto;">Tamanho da foto</span>
+        <input type="range" id="fpZoom" min="100" max="400" step="1" value="100" style="flex:1;">
+      </div>
+      <div style="font-size:0.78rem; color:var(--castanho-suave); margin-top:4px;">Arrasta a <strong>foto</strong> para a posicionar e o <strong>texto</strong> para o colocar onde quiseres.</div>
+    </div>
+  </details>
+
+  <!-- PUBLICIDADE NOS JOGOS -->
+  <details id="secAdJogos">
+    <summary>Publicidade nos jogos</summary>
+    <div class="bloco-conteudo">
+      <div style="font-size:0.82rem; color:var(--castanho-suave); margin-bottom:8px;">Um popup de patrocínio aparece no fim de cada jogo (Stop, Velha, Forca, Adivinhas). Só surge se estiver ativo e tiver foto.</div>
+      <div class="lembrar">
+        <input type="checkbox" id="adjAtivo">
+        <label for="adjAtivo" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Ativar publicidade no fim dos jogos</label>
+      </div>
+
+      <label for="adjTexto">Texto do anúncio (opcional)</label>
+      <input type="text" id="adjTexto" placeholder="Ex: O teu negócio aqui!">
+
+      <label for="corAdj">Cor do texto</label>
+      <div class="campo-cor">
+        <input type="color" id="corAdj" value="#ffffff">
+        <span id="corAdjVal">#ffffff</span>
+      </div>
+
+      <label for="adjDuracao">Duração do popup (segundos)</label>
+      <input type="number" id="adjDuracao" min="2" max="20" step="1" value="5" style="width:100px; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit;">
+
+      <label style="margin-top:14px;">Foto e posição</label>
+      <div id="adjPreview" style="position:relative; width:100%; max-width:320px; margin:6px auto; aspect-ratio:3/4; border-radius:12px; overflow:hidden; background:#4a3820; touch-action:none; user-select:none; -webkit-user-select:none;">
+        <img id="ajImg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transform-origin:center;">
+        <div id="ajTexto" style="position:absolute; left:50%; top:80%; transform:translate(-50%,-50%); color:#fff; text-align:center; cursor:move; padding:6px 8px; font-weight:800; font-family:'Fredoka',sans-serif; text-shadow:0 1px 3px rgba(0,0,0,0.6);"></div>
+        <div id="ajVazio" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#c9b892; font-size:0.85rem; text-align:center; padding:0 20px;">Adiciona uma foto para posicionar</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; margin-top:8px;">
+        <span style="font-size:0.82rem; color:var(--castanho-suave); flex:0 0 auto;">Tamanho da foto</span>
+        <input type="range" id="ajZoom" min="100" max="400" step="1" value="100" style="flex:1;">
+      </div>
+      <div style="font-size:0.78rem; color:var(--castanho-suave); margin-top:4px;">Arrasta a <strong>foto</strong> e o <strong>texto</strong> para os posicionares.</div>
+      <label for="novaFotoAdj" style="margin-top:10px;">Foto do anúncio</label>
+      <input type="file" id="novaFotoAdj" accept="image/*">
+    </div>
+  </details>
+
+  <!-- EXTRAS: sazonal + fidelidade -->
+  <details id="secExtras">
+    <summary>Extras (decoração e fidelidade)</summary>
+    <div class="bloco-conteudo">
+      <div class="lembrar">
+        <input type="checkbox" id="jogosAtivo" checked>
+        <label for="jogosAtivo" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Mostrar a secção de Jogos no cardápio</label>
+      </div>
+
+      <div class="lembrar" style="margin-top:18px;">
+        <input type="checkbox" id="sazonalAtivo" checked>
+        <label for="sazonalAtivo" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Decoração sazonal automática (neve no Natal, etc.)</label>
+      </div>
+
+      <div class="lembrar" style="margin-top:18px;">
+        <input type="checkbox" id="fidAtivo">
+        <label for="fidAtivo" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Ativar cartão de fidelidade</label>
+      </div>
+      <div id="blocoFid" style="display:none; margin-top:8px; padding:12px; background:var(--bege); border-radius:10px;">
+        <div style="font-size:0.8rem; color:var(--castanho-suave); margin-bottom:8px;">O cliente junta carimbos. Para carimbar, pede o <strong>código</strong> ao empregado (muda-o de vez em quando por segurança). Só um carimbo por dia por telemóvel.</div>
+        <label for="fidCodigo" style="margin-top:0;">Código do carimbo</label>
+        <input type="text" id="fidCodigo" placeholder="Ex: CAETANO25">
+        <label for="fidTotal">Número de carimbos para o prémio</label>
+        <input type="number" id="fidTotal" min="4" max="16" step="1" value="8" style="width:100px; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit;">
+        <label for="fidPremio">Prémio</label>
+        <input type="text" id="fidPremio" placeholder="Ex: Uma sobremesa grátis!">
+      </div>
+    </div>
+  </details>
+
+  <button type="button" class="acao" id="btnGuardar">💾 Guardar tudo</button>
+  <div class="estado" id="estado"></div>
+
+  <details id="secMenu" style="margin-top:22px;">
+    <summary>🍽️ Menu — pratos, preços e traduções</summary>
+    <div class="bloco-conteudo">
+      <div class="subtitulo" style="margin-top:6px;">Edita o menu do cardápio (o <code>menu.json</code>). Usa o mesmo token lá em cima. Carrega, altera e guarda — as alterações aparecem no cardápio dentro de 1-2 minutos.</div>
+      <button type="button" class="acao" id="btnCarregarMenu" style="background:var(--castanho); margin-top:6px;">📥 Carregar menu</button>
+      <div id="menuEditor" style="margin-top:14px;"></div>
+      <div id="menuAcoes" style="display:none;">
+        <button type="button" class="acao" id="btnGuardarMenu">💾 Guardar menu</button>
+      </div>
+      <div class="estado" id="estadoMenu"></div>
+    </div>
+  </details>
+
+  <!-- LIMPEZA DE FOTOS -->
+  <details id="secLimpeza" style="margin-top:20px;">
+    <summary>🧹 Limpeza de fotos (avançado)</summary>
+    <div class="bloco-conteudo">
+      <div style="font-size:0.82rem; color:var(--castanho-suave); margin-bottom:8px;">
+        Mostra as fotos da pasta <code>imagens/</code> que já <strong>não são usadas</strong> em lado nenhum, para as poderes apagar e libertar espaço.
+        <br><br>⚠️ As fotos que abrem ao <strong>clicar num prato</strong> não aparecem no config — para segurança, só ficam pré-selecionadas as fotos carregadas por este editor.
+      </div>
+      <button type="button" class="acao" id="btnVerLimpeza" style="background:var(--castanho); margin-top:0;">🔍 Verificar fotos não usadas</button>
+      <div id="limpezaResultado" style="margin-top:12px;"></div>
+    </div>
+  </details>
+</div>
+
+<script>
+  // Deteta automaticamente o repositório a partir do endereço (GitHub Pages).
+  // Assim este editor é igual em todos os restaurantes; só muda o site onde está.
+  const REPO = (function(){
+    try{
+      const h = location.hostname, seg = location.pathname.split('/').filter(Boolean);
+      if(h.endsWith('github.io') && seg.length) return h.split('.')[0] + '/' + seg[0];
+    }catch(e){}
+    return 'rest-bar-parque-sao-caetano/cardapio-parque-sao-caetano';
+  })();
+  const CONFIG_PATH = 'config.json';
+  const CONFIG_API = 'https://api.github.com/repos/' + REPO + '/contents/' + CONFIG_PATH;
+  const RAW_BASE = 'https://raw.githubusercontent.com/' + REPO + '/main/';
+
+  const tokenInput = document.getElementById('token');
+  const lembrarInput = document.getElementById('lembrar');
+  const estadoEl = document.getElementById('estado');
+
+  // Estado em memória
+  let config = {
+    header: { titulo:'', subtitulo:'', cor:'#ffffff', realce:true, fotosAtivas:true, fotos:[] },
+    rodape: { linha1:'', linha2:'', linha3:'', linha4:'', cor:'#ffffff', realce:true, fotosAtivas:true, fotos:[],
+      especial:{ ativo:false, inicio:'', fim:'', l1:'', l2:'', l3:'', l4:'' },
+      carrossel:{ ativo:false, intervalo:5, inicio:'', fim:'', slides:[
+        { titulo:'Prato do Dia', linhas:[], ocultarDomingo:true },
+        { titulo:'Na Brasa', linhas:[], ocultarDomingo:false },
+        { titulo:'Sugestão', linhas:[], ocultarDomingo:false }
+      ] } },
+    footer: { nome:'', morada:'', telefone:'', cor:'#ffffff', fotosAtivas:false, fotos:[], fotoZoom:100, fotoPanX:0, fotoPanY:0, textoX:50, textoY:50 },
+    adJogos: { ativo:false, foto:'', fotoZoom:100, fotoPanX:0, fotoPanY:0, texto:'', textoX:50, textoY:80, cor:'#ffffff', duracao:5 },
+    sazonal: true,
+    fidelidade: { ativo:false, codigo:'', total:8, premio:'' },
+    layout: '1',
+    jogos: true
+  };
+
+  // Pré-visualização dos layouts (cores principais para o seletor)
+  const LAYOUTS_PREVIEW = {
+    '1': { nome:'Layout 1 — Rústico', cores:['#4a3820','#a8712f','#f5efe2'] },
+    '2': { nome:'Layout 2 — Verde',   cores:['#26402a','#4e8d3f','#e9f2e4'] },
+    '3': { nome:'Layout 3 — Vinho',   cores:['#3f1f24','#9c2b3b','#f3e7e2'] },
+    '4': { nome:'Layout 4 — Azul',    cores:['#1f3550','#2f6fb0','#e6eef7'] }
+  };
+  let layoutSelecionado = '1';
+  function renderLayoutCards(){
+    const box = document.getElementById('layoutCards');
+    if(!box) return;
+    box.innerHTML = '';
+    Object.keys(LAYOUTS_PREVIEW).forEach(k=>{
+      const L = LAYOUTS_PREVIEW[k];
+      const c = document.createElement('div'); c.className = 'layout-card' + (layoutSelecionado===k ? ' sel' : '');
+      const n = document.createElement('div'); n.className='nome'; n.textContent=L.nome; c.appendChild(n);
+      const sws = document.createElement('div'); sws.className='sws';
+      L.cores.forEach(cor=>{ const s=document.createElement('div'); s.className='sw'; s.style.background=cor; sws.appendChild(s); });
+      c.appendChild(sws);
+      c.addEventListener('click',()=>{ layoutSelecionado=k; renderLayoutCards(); });
+      box.appendChild(c);
+    });
+  }
+  renderLayoutCards();
+  let configSha = null; // sha do config.json existente (para atualizar)
+  let configCarregado = false; // só se pode guardar depois de carregar
+
+  // ---- Token lembrado ----
+  const tokenGuardado = localStorage.getItem('cardapioEditorToken');
+  if(tokenGuardado){ tokenInput.value = tokenGuardado; } else { lembrarInput.checked = false; }
+  document.getElementById('mostrarToken').addEventListener('click', () => {
+    tokenInput.type = tokenInput.type === 'password' ? 'text' : 'password';
+  });
+
+  function setEstado(msg, tipo){
+    estadoEl.className = 'estado ' + (tipo || 'info');
+    estadoEl.textContent = msg;
+  }
+
+  // ---- Base64 UTF-8 helpers ----
+  function utf8ParaBase64(str){
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+  function base64ParaUtf8(b64){
+    return decodeURIComponent(escape(atob(b64.replace(/\n/g, ''))));
+  }
+
+  // ---- Comprimir imagem antes do upload ----
+  // PNG mantém-se PNG (preserva transparência); o resto vira JPEG.
+  function comprimirImagem(file){
+    const ehPng = file.type === 'image/png';
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const reader = new FileReader();
+      reader.onload = e => { img.src = e.target.result; };
+      reader.onerror = reject;
+      img.onload = () => {
+        const maxLado = 1400;
+        let { width, height } = img;
+        if(width > maxLado || height > maxLado){
+          if(width > height){ height = Math.round(height * maxLado / width); width = maxLado; }
+          else { width = Math.round(width * maxLado / height); height = maxLado; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width; canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        // Para PNG mantemos o fundo transparente (não pintamos nada por baixo)
+        ctx.drawImage(img, 0, 0, width, height);
+        if(ehPng){
+          canvas.toBlob(blob => {
+            const r2 = new FileReader();
+            r2.onload = () => resolve({ base64:r2.result.split(',')[1], ext:'png' });
+            r2.onerror = reject;
+            r2.readAsDataURL(blob);
+          }, 'image/png');
+        } else {
+          canvas.toBlob(blob => {
+            const r2 = new FileReader();
+            r2.onload = () => resolve({ base64:r2.result.split(',')[1], ext:'jpg' });
+            r2.onerror = reject;
+            r2.readAsDataURL(blob);
+          }, 'image/jpeg', 0.82);
+        }
+      };
+      img.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function nomeLimpo(nome){
+    return nome.toLowerCase().replace(/[^a-z0-9.]+/g, '-').replace(/-+/g, '-');
+  }
+
+  // ---- Upload de uma foto para imagens/ ----
+  async function enviarFoto(file, token){
+    const { base64, ext } = await comprimirImagem(file);
+    const caminho = 'imagens/' + Date.now() + '-' + nomeLimpo(file.name).replace(/\.[^.]+$/, '') + '.' + ext;
+    const resp = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + caminho, {
+      method:'PUT',
+      headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json', 'Content-Type':'application/json' },
+      body: JSON.stringify({ message:'Adicionar foto '+caminho, content: base64 })
+    });
+    if(!resp.ok){ const e = await resp.json().catch(()=>({})); throw new Error('Upload falhou: '+(e.message||resp.status)); }
+    return caminho;
+  }
+
+  // ---- Carregar config.json ----
+  async function carregarConfig(){
+    const token = tokenInput.value.trim();
+    if(!token){ setEstado('Cola primeiro o teu token.', 'erro'); return; }
+    setEstado('A carregar definições atuais…', 'info');
+    try{
+      const resp = await fetch(CONFIG_API + '?t=' + Date.now(), {
+        headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json' }
+      });
+      if(resp.status === 404){
+        // Ainda não existe → começar com valores por defeito
+        configSha = null;
+        setEstado('Ainda não há definições guardadas. Preenche e guarda para criar.', 'info');
+      } else if(resp.ok){
+        const data = await resp.json();
+        configSha = data.sha;
+        const parsed = JSON.parse(base64ParaUtf8(data.content));
+        config = Object.assign(config, parsed);
+        config.header = Object.assign({ titulo:'', subtitulo:'', cor:'#ffffff', realce:true, fotosAtivas:true, fotos:[] }, parsed.header || {});
+        config.rodape = Object.assign({ linha1:'', linha2:'', linha3:'', linha4:'', cor:'#ffffff', realce:true, fotosAtivas:true, fotos:[], especial:{ ativo:false, inicio:'', fim:'', l1:'', l2:'', l3:'', l4:'' } }, parsed.rodape || {});
+        config.rodape.especial = Object.assign({ ativo:false, inicio:'', fim:'', l1:'', l2:'', l3:'', l4:'' }, (parsed.rodape && parsed.rodape.especial) || {});
+        const carDef = { ativo:false, slides:[
+          { titulo:'Prato do Dia', linhas:[], ocultarDomingo:true },
+          { titulo:'Na Brasa', linhas:[], ocultarDomingo:false },
+          { titulo:'Sugestão', linhas:[], ocultarDomingo:false }
+        ] };
+        const carGuardado = (parsed.rodape && parsed.rodape.carrossel) || {};
+        config.rodape.carrossel = { ativo: !!carGuardado.ativo, intervalo: carGuardado.intervalo || 5, inicio: carGuardado.inicio || '', fim: carGuardado.fim || '', slides: (Array.isArray(carGuardado.slides) && carGuardado.slides.length) ? carGuardado.slides : carDef.slides };
+        config.footer = Object.assign({ nome:'', morada:'', telefone:'', cor:'#ffffff', fotosAtivas:false, fotos:[], fotoZoom:100, fotoPanX:0, fotoPanY:0, textoX:50, textoY:50 }, parsed.footer || {});
+        config.adJogos = Object.assign({ ativo:false, foto:'', fotoZoom:100, fotoPanX:0, fotoPanY:0, texto:'', textoX:50, textoY:80, cor:'#ffffff', duracao:5 }, parsed.adJogos || {});
+        config.sazonal = parsed.sazonal !== false;
+        config.fidelidade = Object.assign({ ativo:false, codigo:'', total:8, premio:'' }, parsed.fidelidade || {});
+        config.layout = parsed.layout || '1';
+        layoutSelecionado = config.layout;
+        renderLayoutCards();
+        config.jogos = parsed.jogos !== false;
+        setEstado('Definições carregadas ✓', 'ok');
+      } else {
+        throw new Error('HTTP ' + resp.status + ' — verifica o token.');
+      }
+      preencherFormulario();
+      configCarregado = true;
+      document.getElementById('btnGuardar').disabled = false;
+      if(lembrarInput.checked) localStorage.setItem('cardapioEditorToken', token);
+      else localStorage.removeItem('cardapioEditorToken');
+    }catch(err){
+      setEstado('Erro: ' + err.message, 'erro');
+    }
+  }
+
+  function preencherFormulario(){
+    document.getElementById('titulo').value = config.header.titulo || '';
+    document.getElementById('subtitulo').value = config.header.subtitulo || '';
+    document.getElementById('linha1').value = config.rodape.linha1 || '';
+    document.getElementById('linha2').value = config.rodape.linha2 || '';
+    document.getElementById('linha3').value = config.rodape.linha3 || '';
+    document.getElementById('linha4').value = config.rodape.linha4 || '';
+    document.getElementById('fotosHeaderAtivas').checked = config.header.fotosAtivas !== false;
+    document.getElementById('fotosRodapeAtivas').checked = config.rodape.fotosAtivas !== false;
+    const ch = config.header.cor || '#ffffff';
+    const cr = config.rodape.cor || '#ffffff';
+    document.getElementById('corHeader').value = ch;
+    document.getElementById('corHeaderVal').textContent = ch;
+    document.getElementById('corRodape').value = cr;
+    document.getElementById('corRodapeVal').textContent = cr;
+    document.getElementById('realceHeader').checked = config.header.realce !== false;
+    document.getElementById('realceRodape').checked = config.rodape.realce !== false;
+    const esp = config.rodape.especial || {};
+    document.getElementById('especialAtivo').checked = !!esp.ativo;
+    document.getElementById('especialInicio').value = esp.inicio || '';
+    document.getElementById('especialFim').value = esp.fim || '';
+    document.getElementById('especialL1').value = esp.l1 || '';
+    document.getElementById('especialL2').value = esp.l2 || '';
+    document.getElementById('especialL3').value = esp.l3 || '';
+    document.getElementById('especialL4').value = esp.l4 || '';
+    document.getElementById('blocoEspecial').style.display = esp.ativo ? 'block' : 'none';
+    // Carrossel
+    const car = config.rodape.carrossel || { ativo:false, slides:[] };
+    const sl = car.slides || [];
+    document.getElementById('carrosselAtivo').checked = !!car.ativo;
+    document.getElementById('blocoCarrossel').style.display = car.ativo ? 'block' : 'none';
+    document.getElementById('carrIntervalo').value = car.intervalo || 5;
+    document.getElementById('carrInicio').value = car.inicio || '';
+    document.getElementById('carrFim').value = car.fim || '';
+    document.getElementById('carrTitulo1').value = (sl[0] && sl[0].titulo) || '';
+    document.getElementById('carrLinhas1').value = (sl[0] && Array.isArray(sl[0].linhas)) ? sl[0].linhas.join('\n') : '';
+    document.getElementById('carrDomingo1').checked = sl[0] ? sl[0].ocultarDomingo !== false : true;
+    document.getElementById('carrTitulo2').value = (sl[1] && sl[1].titulo) || '';
+    document.getElementById('carrLinhas2').value = (sl[1] && Array.isArray(sl[1].linhas)) ? sl[1].linhas.join('\n') : '';
+    document.getElementById('carrTitulo3').value = (sl[2] && sl[2].titulo) || '';
+    document.getElementById('carrLinhas3').value = (sl[2] && Array.isArray(sl[2].linhas)) ? sl[2].linhas.join('\n') : '';
+    document.getElementById('footerNome').value = config.footer.nome || '';
+    document.getElementById('footerMorada').value = config.footer.morada || '';
+    document.getElementById('footerTelefone').value = config.footer.telefone || '';
+    const cf = config.footer.cor || '#ffffff';
+    document.getElementById('corFooter').value = cf;
+    document.getElementById('corFooterVal').textContent = cf;
+    document.getElementById('fotosFooterAtivas').checked = config.footer.fotosAtivas === true;
+    document.getElementById('fpZoom').value = config.footer.fotoZoom || 100;
+    // Publicidade dos jogos
+    const aj = config.adJogos || {};
+    document.getElementById('adjAtivo').checked = !!aj.ativo;
+    document.getElementById('adjTexto').value = aj.texto || '';
+    document.getElementById('adjDuracao').value = aj.duracao || 5;
+    const ca = aj.cor || '#ffffff';
+    document.getElementById('corAdj').value = ca;
+    document.getElementById('corAdjVal').textContent = ca;
+    document.getElementById('ajZoom').value = aj.fotoZoom || 100;
+    // Extras
+    document.getElementById('sazonalAtivo').checked = config.sazonal !== false;
+    document.getElementById('jogosAtivo').checked = config.jogos !== false;
+    const fid = config.fidelidade || {};
+    document.getElementById('fidAtivo').checked = !!fid.ativo;
+    document.getElementById('blocoFid').style.display = fid.ativo ? 'block' : 'none';
+    document.getElementById('fidCodigo').value = fid.codigo || '';
+    document.getElementById('fidTotal').value = fid.total || 8;
+    document.getElementById('fidPremio').value = fid.premio || '';
+    renderListaFotos('header');
+    renderListaFotos('rodape');
+    renderListaFotos('footer');
+    atualizarPreviewFooter();
+    atualizarPreviewAdj();
+  }
+
+  // ---- Pré-visualização / posicionamento da publicidade dos jogos ----
+  function atualizarPreviewAdj(){
+    const a = config.adJogos;
+    const img = document.getElementById('ajImg');
+    const vazio = document.getElementById('ajVazio');
+    if(a.foto){
+      img.src = RAW_BASE + a.foto;
+      img.style.display = 'block'; vazio.style.display = 'none';
+    } else {
+      img.removeAttribute('src'); img.style.display = 'none'; vazio.style.display = 'flex';
+    }
+    img.style.transform = 'translate(' + (a.fotoPanX || 0) + '%, ' + (a.fotoPanY || 0) + '%) scale(' + ((a.fotoZoom || 100) / 100) + ')';
+    const t = document.getElementById('ajTexto');
+    t.style.left = (a.textoX ?? 50) + '%';
+    t.style.top = (a.textoY ?? 80) + '%';
+    t.style.color = a.cor || '#ffffff';
+    t.textContent = document.getElementById('adjTexto').value || '';
+  }
+
+  // ---- Pré-visualização / posicionamento do rodapé ----
+  function atualizarPreviewFooter(){
+    const f = config.footer;
+    const img = document.getElementById('fpImg');
+    const vazio = document.getElementById('fpVazio');
+    const temFoto = Array.isArray(f.fotos) && f.fotos.length > 0;
+    if(temFoto){
+      img.src = RAW_BASE + f.fotos[0];
+      img.style.display = 'block';
+      vazio.style.display = 'none';
+    } else {
+      img.removeAttribute('src');
+      img.style.display = 'none';
+      vazio.style.display = 'flex';
+    }
+    img.style.transform = 'translate(' + (f.fotoPanX || 0) + '%, ' + (f.fotoPanY || 0) + '%) scale(' + ((f.fotoZoom || 100) / 100) + ')';
+
+    const t = document.getElementById('fpTexto');
+    t.style.left = (f.textoX ?? 50) + '%';
+    t.style.top = (f.textoY ?? 50) + '%';
+    t.style.color = f.cor || '#ffffff';
+    document.getElementById('fpNome').textContent = document.getElementById('footerNome').value || 'Nome';
+    document.getElementById('fpMorada').textContent = document.getElementById('footerMorada').value || 'Morada';
+    document.getElementById('fpTelefone').textContent = document.getElementById('footerTelefone').value || 'Telefone';
+  }
+
+  function renderListaFotos(qual){
+    const lista = qual === 'header' ? config.header.fotos : (qual === 'rodape' ? config.rodape.fotos : config.footer.fotos);
+    const idCont = qual === 'header' ? 'listaFotosHeader' : (qual === 'rodape' ? 'listaFotosRodape' : 'listaFotosFooter');
+    const cont = document.getElementById(idCont);
+    cont.innerHTML = '';
+    if(!lista || lista.length === 0){
+      cont.innerHTML = '<div class="vazio">Sem fotos ainda.</div>';
+      return;
+    }
+    lista.forEach((caminho, i) => {
+      const div = document.createElement('div');
+      div.className = 'foto-item';
+      div.innerHTML =
+        '<img src="' + RAW_BASE + caminho + '" alt="">' +
+        '<span class="nome">' + caminho.replace('imagens/','') + '</span>' +
+        '<button type="button" title="Remover">✕</button>';
+      div.querySelector('button').addEventListener('click', () => {
+        lista.splice(i, 1);
+        renderListaFotos(qual);
+      });
+      cont.appendChild(div);
+    });
+  }
+
+  // ---- Escolher novos ficheiros (guarda em memória; upload só ao Guardar) ----
+  let filasUpload = { header:[], rodape:[], footer:[] };
+  let filaAdj = null;
+  document.getElementById('novaFotoAdj').addEventListener('change', e => {
+    const f = e.target.files[0];
+    if(!f) return;
+    filaAdj = f;
+    const img = document.getElementById('ajImg');
+    img.src = URL.createObjectURL(f);
+    img.style.display = 'block';
+    document.getElementById('ajVazio').style.display = 'none';
+    if(!config.adJogos.foto) config.adJogos._previewLocal = true;
+    setEstado('Foto do anúncio pronta. Clica em Guardar tudo.', 'info');
+  });
+  document.getElementById('novaFotoHeader').addEventListener('change', e => {
+    filasUpload.header.push(...e.target.files);
+    marcarPendentes('header', e.target.files.length);
+  });
+  document.getElementById('novaFotoRodape').addEventListener('change', e => {
+    filasUpload.rodape.push(...e.target.files);
+    marcarPendentes('rodape', e.target.files.length);
+  });
+  document.getElementById('novaFotoFooter').addEventListener('change', e => {
+    filasUpload.footer.push(...e.target.files);
+    marcarPendentes('footer', e.target.files.length);
+    // Mostrar já a nova foto na pré-visualização (antes de guardar)
+    if(e.target.files[0]){
+      const img = document.getElementById('fpImg');
+      img.src = URL.createObjectURL(e.target.files[0]);
+      img.style.display = 'block';
+      document.getElementById('fpVazio').style.display = 'none';
+      // permitir arrastar a foto mesmo antes de estar em config.footer.fotos
+      if(!(config.footer.fotos && config.footer.fotos.length)) config.footer._previewLocal = true;
+    }
+  });
+  function marcarPendentes(qual, n){
+    const nome = qual==='header'?'Cabeçalho':(qual==='rodape'?'Barra fixa':'Rodapé');
+    setEstado(n + ' foto(s) prontas para enviar em "' + nome + '". Clica em Guardar tudo.', 'info');
+  }
+
+  // ---- Guardar tudo ----
+  async function guardarTudo(){
+    const token = tokenInput.value.trim();
+    if(!token){ setEstado('Cola primeiro o teu token.', 'erro'); return; }
+    if(!configCarregado){
+      setEstado('Clica primeiro em "📥 Carregar definições atuais" antes de guardar.', 'erro');
+      return;
+    }
+
+    document.getElementById('btnGuardar').disabled = true;
+    try{
+      // 1. Upload das fotos pendentes
+      for(const file of filasUpload.header){
+        setEstado('A enviar foto do cabeçalho…', 'info');
+        const caminho = await enviarFoto(file, token);
+        config.header.fotos.push(caminho);
+      }
+      for(const file of filasUpload.rodape){
+        setEstado('A enviar foto da barra fixa…', 'info');
+        const caminho = await enviarFoto(file, token);
+        config.rodape.fotos.push(caminho);
+      }
+      for(const file of filasUpload.footer){
+        setEstado('A enviar foto do rodapé…', 'info');
+        const caminho = await enviarFoto(file, token);
+        config.footer.fotos.push(caminho);
+      }
+      if(filaAdj){
+        setEstado('A enviar foto do anúncio…', 'info');
+        config.adJogos.foto = await enviarFoto(filaAdj, token);
+        filaAdj = null;
+      }
+      filasUpload = { header:[], rodape:[], footer:[] };
+      document.getElementById('novaFotoHeader').value = '';
+      document.getElementById('novaFotoRodape').value = '';
+      document.getElementById('novaFotoFooter').value = '';
+      document.getElementById('novaFotoAdj').value = '';
+
+      // 2. Atualizar textos a partir do formulário
+      config.header.titulo = document.getElementById('titulo').value.trim();
+      config.header.subtitulo = document.getElementById('subtitulo').value.trim();
+      config.rodape.linha1 = document.getElementById('linha1').value.trim();
+      config.rodape.linha2 = document.getElementById('linha2').value.trim();
+      config.rodape.linha3 = document.getElementById('linha3').value.trim();
+      config.rodape.linha4 = document.getElementById('linha4').value.trim();
+      config.header.fotosAtivas = document.getElementById('fotosHeaderAtivas').checked;
+      config.rodape.fotosAtivas = document.getElementById('fotosRodapeAtivas').checked;
+      config.header.cor = document.getElementById('corHeader').value;
+      config.rodape.cor = document.getElementById('corRodape').value;
+      config.header.realce = document.getElementById('realceHeader').checked;
+      config.rodape.realce = document.getElementById('realceRodape').checked;
+      config.rodape.especial = {
+        ativo: document.getElementById('especialAtivo').checked,
+        inicio: document.getElementById('especialInicio').value,
+        fim: document.getElementById('especialFim').value,
+        l1: document.getElementById('especialL1').value.trim(),
+        l2: document.getElementById('especialL2').value.trim(),
+        l3: document.getElementById('especialL3').value.trim(),
+        l4: document.getElementById('especialL4').value.trim()
+      };
+      const linhasDe = id => document.getElementById(id).value.split('\n').map(s => s.trim()).filter(Boolean);
+      config.rodape.carrossel = {
+        ativo: document.getElementById('carrosselAtivo').checked,
+        intervalo: parseInt(document.getElementById('carrIntervalo').value, 10) || 5,
+        inicio: document.getElementById('carrInicio').value,
+        fim: document.getElementById('carrFim').value,
+        slides: [
+          { titulo: document.getElementById('carrTitulo1').value.trim(), linhas: linhasDe('carrLinhas1'), ocultarDomingo: document.getElementById('carrDomingo1').checked },
+          { titulo: document.getElementById('carrTitulo2').value.trim(), linhas: linhasDe('carrLinhas2'), ocultarDomingo: false },
+          { titulo: document.getElementById('carrTitulo3').value.trim(), linhas: linhasDe('carrLinhas3'), ocultarDomingo: false }
+        ]
+      };
+      config.footer = {
+        nome: document.getElementById('footerNome').value.trim(),
+        morada: document.getElementById('footerMorada').value.trim(),
+        telefone: document.getElementById('footerTelefone').value.trim(),
+        cor: document.getElementById('corFooter').value,
+        fotosAtivas: document.getElementById('fotosFooterAtivas').checked,
+        fotos: config.footer.fotos,
+        fotoZoom: config.footer.fotoZoom || 100,
+        fotoPanX: config.footer.fotoPanX || 0,
+        fotoPanY: config.footer.fotoPanY || 0,
+        textoX: config.footer.textoX ?? 50,
+        textoY: config.footer.textoY ?? 50
+      };
+      config.adJogos = {
+        ativo: document.getElementById('adjAtivo').checked,
+        foto: config.adJogos.foto || '',
+        fotoZoom: config.adJogos.fotoZoom || 100,
+        fotoPanX: config.adJogos.fotoPanX || 0,
+        fotoPanY: config.adJogos.fotoPanY || 0,
+        texto: document.getElementById('adjTexto').value.trim(),
+        textoX: config.adJogos.textoX ?? 50,
+        textoY: config.adJogos.textoY ?? 80,
+        cor: document.getElementById('corAdj').value,
+        duracao: parseInt(document.getElementById('adjDuracao').value, 10) || 5
+      };
+      config.sazonal = document.getElementById('sazonalAtivo').checked;
+      config.jogos = document.getElementById('jogosAtivo').checked;
+      config.fidelidade = {
+        ativo: document.getElementById('fidAtivo').checked,
+        codigo: document.getElementById('fidCodigo').value.trim(),
+        total: parseInt(document.getElementById('fidTotal').value, 10) || 8,
+        premio: document.getElementById('fidPremio').value.trim()
+      };
+      config.layout = layoutSelecionado;
+
+      // 3. Gravar config.json
+      setEstado('A guardar definições…', 'info');
+
+      // Garantir que temos o sha atual (caso o ficheiro já exista e não tenha sido carregado)
+      if(!configSha){
+        try{
+          const check = await fetch(CONFIG_API + '?t=' + Date.now(), {
+            headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json' }
+          });
+          if(check.ok){ const d = await check.json(); configSha = d.sha; }
+        }catch(e){ /* se não existir, fica null e cria de novo */ }
+      }
+
+      const corpo = {
+        message: 'Atualizar config.json via editor',
+        content: utf8ParaBase64(JSON.stringify(config, null, 2))
+      };
+      if(configSha) corpo.sha = configSha;
+
+      const resp = await fetch(CONFIG_API, {
+        method:'PUT',
+        headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json', 'Content-Type':'application/json' },
+        body: JSON.stringify(corpo)
+      });
+      if(!resp.ok){ const e = await resp.json().catch(()=>({})); throw new Error(e.message || ('HTTP '+resp.status)); }
+      const data = await resp.json();
+      configSha = data.content.sha;
+
+      renderListaFotos('header');
+      renderListaFotos('rodape');
+      setEstado('✅ Guardado! As alterações aparecem no cardápio dentro de 1-2 minutos.', 'ok');
+    }catch(err){
+      setEstado('Erro ao guardar: ' + err.message, 'erro');
+    }finally{
+      document.getElementById('btnGuardar').disabled = false;
+    }
+  }
+
+  document.getElementById('especialAtivo').addEventListener('change', e => {
+    document.getElementById('blocoEspecial').style.display = e.target.checked ? 'block' : 'none';
+  });
+  document.getElementById('carrosselAtivo').addEventListener('change', e => {
+    document.getElementById('blocoCarrossel').style.display = e.target.checked ? 'block' : 'none';
+  });
+  document.getElementById('fidAtivo').addEventListener('change', e => {
+    document.getElementById('blocoFid').style.display = e.target.checked ? 'block' : 'none';
+  });
+
+  document.getElementById('corHeader').addEventListener('input', e => {
+    document.getElementById('corHeaderVal').textContent = e.target.value;
+  });
+  document.getElementById('corRodape').addEventListener('input', e => {
+    document.getElementById('corRodapeVal').textContent = e.target.value;
+  });
+  document.getElementById('corFooter').addEventListener('input', e => {
+    document.getElementById('corFooterVal').textContent = e.target.value;
+  });
+
+  // ---- Interação da pré-visualização do rodapé (arrastar foto/texto + zoom) ----
+  (function(){
+    const prev = document.getElementById('footerPreview');
+    const txt = document.getElementById('fpTexto');
+    const img = document.getElementById('fpImg');
+    let dragging = null, startX, startY, baseX, baseY, rect;
+
+    txt.addEventListener('pointerdown', e => {
+      e.stopPropagation();
+      dragging = 'texto';
+      rect = prev.getBoundingClientRect();
+      startX = e.clientX; startY = e.clientY;
+      baseX = config.footer.textoX ?? 50; baseY = config.footer.textoY ?? 50;
+      try{ txt.setPointerCapture(e.pointerId); }catch(err){}
+    });
+    prev.addEventListener('pointerdown', e => {
+      if(e.target === txt || txt.contains(e.target)) return;
+      const temFoto = (config.footer.fotos && config.footer.fotos.length) || config.footer._previewLocal;
+      if(!temFoto) return;
+      dragging = 'foto';
+      rect = prev.getBoundingClientRect();
+      startX = e.clientX; startY = e.clientY;
+      baseX = config.footer.fotoPanX || 0; baseY = config.footer.fotoPanY || 0;
+      try{ prev.setPointerCapture(e.pointerId); }catch(err){}
+    });
+    document.addEventListener('pointermove', e => {
+      if(!dragging || !rect) return;
+      const dx = (e.clientX - startX) / rect.width * 100;
+      const dy = (e.clientY - startY) / rect.height * 100;
+      if(dragging === 'texto'){
+        config.footer.textoX = Math.max(2, Math.min(98, baseX + dx));
+        config.footer.textoY = Math.max(6, Math.min(94, baseY + dy));
+        txt.style.left = config.footer.textoX + '%';
+        txt.style.top = config.footer.textoY + '%';
+      } else {
+        config.footer.fotoPanX = Math.max(-150, Math.min(150, baseX + dx));
+        config.footer.fotoPanY = Math.max(-150, Math.min(150, baseY + dy));
+        img.style.transform = 'translate(' + config.footer.fotoPanX + '%, ' + config.footer.fotoPanY + '%) scale(' + ((config.footer.fotoZoom || 100) / 100) + ')';
+      }
+    });
+    document.addEventListener('pointerup', () => { dragging = null; });
+
+    document.getElementById('fpZoom').addEventListener('input', e => {
+      config.footer.fotoZoom = parseInt(e.target.value, 10) || 100;
+      img.style.transform = 'translate(' + (config.footer.fotoPanX || 0) + '%, ' + (config.footer.fotoPanY || 0) + '%) scale(' + (config.footer.fotoZoom / 100) + ')';
+    });
+
+    ['footerNome','footerMorada','footerTelefone'].forEach(id => {
+      document.getElementById(id).addEventListener('input', atualizarPreviewFooter);
+    });
+    document.getElementById('corFooter').addEventListener('input', () => {
+      txt.style.color = document.getElementById('corFooter').value;
+    });
+  })();
+
+  // ---- Interação da pré-visualização do anúncio dos jogos ----
+  (function(){
+    const prev = document.getElementById('adjPreview');
+    const txt = document.getElementById('ajTexto');
+    const img = document.getElementById('ajImg');
+    let dragging = null, startX, startY, baseX, baseY, rect;
+
+    txt.addEventListener('pointerdown', e => {
+      e.stopPropagation();
+      dragging = 'texto';
+      rect = prev.getBoundingClientRect();
+      startX = e.clientX; startY = e.clientY;
+      baseX = config.adJogos.textoX ?? 50; baseY = config.adJogos.textoY ?? 80;
+      try{ txt.setPointerCapture(e.pointerId); }catch(err){}
+    });
+    prev.addEventListener('pointerdown', e => {
+      if(e.target === txt || txt.contains(e.target)) return;
+      if(!(config.adJogos.foto || config.adJogos._previewLocal)) return;
+      dragging = 'foto';
+      rect = prev.getBoundingClientRect();
+      startX = e.clientX; startY = e.clientY;
+      baseX = config.adJogos.fotoPanX || 0; baseY = config.adJogos.fotoPanY || 0;
+      try{ prev.setPointerCapture(e.pointerId); }catch(err){}
+    });
+    document.addEventListener('pointermove', e => {
+      if(!dragging || !rect) return;
+      const dx = (e.clientX - startX) / rect.width * 100;
+      const dy = (e.clientY - startY) / rect.height * 100;
+      if(dragging === 'texto'){
+        config.adJogos.textoX = Math.max(2, Math.min(98, baseX + dx));
+        config.adJogos.textoY = Math.max(6, Math.min(94, baseY + dy));
+        txt.style.left = config.adJogos.textoX + '%';
+        txt.style.top = config.adJogos.textoY + '%';
+      } else {
+        config.adJogos.fotoPanX = Math.max(-150, Math.min(150, baseX + dx));
+        config.adJogos.fotoPanY = Math.max(-150, Math.min(150, baseY + dy));
+        img.style.transform = 'translate(' + config.adJogos.fotoPanX + '%, ' + config.adJogos.fotoPanY + '%) scale(' + ((config.adJogos.fotoZoom || 100) / 100) + ')';
+      }
+    });
+    document.addEventListener('pointerup', () => { dragging = null; });
+
+    document.getElementById('ajZoom').addEventListener('input', e => {
+      config.adJogos.fotoZoom = parseInt(e.target.value, 10) || 100;
+      img.style.transform = 'translate(' + (config.adJogos.fotoPanX || 0) + '%, ' + (config.adJogos.fotoPanY || 0) + '%) scale(' + (config.adJogos.fotoZoom / 100) + ')';
+    });
+    document.getElementById('adjTexto').addEventListener('input', () => { txt.textContent = document.getElementById('adjTexto').value; });
+    document.getElementById('corAdj').addEventListener('input', e => {
+      document.getElementById('corAdjVal').textContent = e.target.value;
+      txt.style.color = e.target.value;
+    });
+  })();
+
+  // ---- Limpeza de fotos não usadas ----
+  document.getElementById('btnVerLimpeza').addEventListener('click', verificarFotosNaoUsadas);
+
+  async function verificarFotosNaoUsadas(){
+    const token = tokenInput.value.trim();
+    const out = document.getElementById('limpezaResultado');
+    if(!token){ out.innerHTML = '<div style="color:var(--vermelho);font-size:0.85rem;">Cola primeiro o teu token.</div>'; return; }
+    out.innerHTML = 'A analisar…';
+    try{
+      // Fotos usadas (config atual, fresco via API)
+      let usados = [];
+      const cResp = await fetch(CONFIG_API + '?t=' + Date.now(), { headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json' } });
+      if(cResp.ok){
+        const cData = await cResp.json();
+        const cfg = JSON.parse(base64ParaUtf8(cData.content));
+        const grp = o => (o && Array.isArray(o.fotos)) ? o.fotos : [];
+        usados = [].concat(grp(cfg.header), grp(cfg.rodape), grp(cfg.footer));
+        if(cfg.adJogos && cfg.adJogos.foto) usados.push(cfg.adJogos.foto);
+      }
+      // Listagem da pasta imagens/
+      const lResp = await fetch('https://api.github.com/repos/' + REPO + '/contents/imagens?t=' + Date.now(), { headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json' } });
+      if(!lResp.ok){ out.innerHTML = '<div style="color:var(--vermelho);">Não consegui listar a pasta imagens/ (verifica o token).</div>'; return; }
+      const ficheiros = (await lResp.json()).filter(f => f.type === 'file');
+
+      const naoUsadas = ficheiros.filter(f => !usados.includes('imagens/' + f.name));
+      const emUso = ficheiros.length - naoUsadas.length;
+
+      if(naoUsadas.length === 0){
+        out.innerHTML = '<div style="color:var(--verde);font-size:0.9rem;">✓ Não há fotos por limpar. ' + emUso + ' em uso.</div>';
+        return;
+      }
+
+      let html = '<div style="font-size:0.85rem;margin-bottom:8px;">' + ficheiros.length + ' fotos na pasta · <strong>' + emUso + '</strong> em uso · <strong style="color:var(--vermelho);">' + naoUsadas.length + '</strong> não usadas</div>';
+      html += '<div class="limpeza-linha" style="background:var(--bege);border-radius:8px;"><input type="checkbox" id="limpezaTodas" checked><span class="nome" style="font-weight:700;color:var(--castanho);">Selecionar todas</span></div>';
+      naoUsadas.forEach(f => {
+        html += '<div class="limpeza-linha">' +
+          '<input type="checkbox" class="limpeza-check" data-path="' + f.path + '" data-sha="' + f.sha + '" checked>' +
+          '<img src="' + RAW_BASE + f.path + '" alt="" loading="lazy">' +
+          '<span class="nome">' + f.name + '</span>' +
+          '<span class="limpeza-tag livre">livre</span>' +
+          '</div>';
+      });
+      html += '<button type="button" class="btn-apagar" id="btnApagarFotos">🗑️ Apagar selecionadas</button>';
+      out.innerHTML = html;
+      document.getElementById('btnApagarFotos').addEventListener('click', apagarFotosSelecionadas);
+      document.getElementById('limpezaTodas').addEventListener('change', e => {
+        document.querySelectorAll('.limpeza-check').forEach(c => { c.checked = e.target.checked; });
+      });
+    }catch(err){
+      out.innerHTML = '<div style="color:var(--vermelho);">Erro: ' + err.message + '</div>';
+    }
+  }
+
+  async function apagarFotosSelecionadas(){
+    const token = tokenInput.value.trim();
+    const checks = Array.from(document.querySelectorAll('.limpeza-check:checked'));
+    if(checks.length === 0){ alert('Não selecionaste nenhuma foto.'); return; }
+    if(!confirm('Apagar ' + checks.length + ' foto(s) do GitHub?\n\nElas ficam no histórico do Git, mas deixam de estar na pasta.')) return;
+    const btn = document.getElementById('btnApagarFotos');
+    btn.disabled = true;
+    let apagadas = 0;
+    for(const ch of checks){
+      try{
+        const r = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + ch.dataset.path, {
+          method:'DELETE',
+          headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json', 'Content-Type':'application/json' },
+          body: JSON.stringify({ message:'Apagar foto não usada: ' + ch.dataset.path, sha: ch.dataset.sha })
+        });
+        if(r.ok) apagadas++;
+      }catch(e){ /* continua */ }
+    }
+    setEstado('🧹 ' + apagadas + ' foto(s) apagada(s).', 'ok');
+    verificarFotosNaoUsadas();
+  }
+
+  // ================= EDITOR DO MENU (menu.json) =================
+  (function(){
+    const MENU_PATH = 'menu.json';
+    const MENU_API = 'https://api.github.com/repos/' + REPO + '/contents/' + MENU_PATH;
+    const editorEl = document.getElementById('menuEditor');
+    const acoesEl = document.getElementById('menuAcoes');
+    const estadoMenuEl = document.getElementById('estadoMenu');
+    let menuData = null;
+    let menuSha = null;
+
+    function setEstadoMenu(msg, tipo){ estadoMenuEl.className = 'estado ' + (tipo||'info'); estadoMenuEl.textContent = msg; }
+    function slugMenu(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+    function mover(arr,i,dir){ const j=i+dir; if(j<0||j>=arr.length) return; const t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
+
+    // ---- Helpers de UI ----
+    function mkInput(val, ph, oninput, small){
+      const i=document.createElement('input'); i.type='text'; i.value=(val==null?'':val); i.placeholder=ph||'';
+      if(small) i.style.fontSize='0.82rem';
+      i.addEventListener('input',()=>oninput(i.value));
+      return i;
+    }
+    function mkBtn(txt, cor, onclick){
+      const b=document.createElement('button'); b.type='button'; b.textContent=txt;
+      b.style.cssText='border:none;border-radius:8px;cursor:pointer;padding:6px 10px;font-weight:700;font-size:0.8rem;color:#fff;background:'+cor+';';
+      b.addEventListener('click',onclick); return b;
+    }
+    function mkLabel(txt){
+      const l=document.createElement('div'); l.textContent=txt;
+      l.style.cssText='font-weight:700;font-size:0.78rem;color:var(--dourado-escuro);margin:8px 0 2px;';
+      return l;
+    }
+    function campoMulti(obj, nome){
+      const box=document.createElement('div'); box.style.margin='2px 0 6px';
+      box.appendChild(mkInput(obj.pt, nome+' (PT)', v=>{ obj.pt=v; }));
+      const row=document.createElement('div'); row.style.cssText='display:flex;gap:6px;margin-top:4px;';
+      [['en','EN'],['fr','FR'],['es','ES']].forEach(([k,lab])=>{
+        const inp=mkInput(obj[k], lab, v=>{ v=v.trim(); if(v) obj[k]=v; else delete obj[k]; }, true);
+        inp.style.flex='1 1 0'; inp.style.minWidth='0';
+        row.appendChild(inp);
+      });
+      box.appendChild(row);
+      return box;
+    }
+
+    // Só EN/FR/ES (o PT fica na linha principal)
+    function campoTraducoes(obj){
+      const row=document.createElement('div'); row.style.cssText='display:flex;gap:6px;';
+      [['en','EN'],['fr','FR'],['es','ES']].forEach(([k,lab])=>{
+        const inp=mkInput(obj[k], lab, v=>{ v=v.trim(); if(v) obj[k]=v; else delete obj[k]; }, true);
+        inp.style.flex='1 1 0'; inp.style.minWidth='0';
+        row.appendChild(inp);
+      });
+      return row;
+    }
+
+    let abertaCi = null; // qual secção está aberta no editor visual
+
+    // ---- Render visual de um prato (nome + preço editáveis na hora) ----
+    function mvItem(g, it, idx){
+      it.nome = it.nome || {pt:''};
+      const box=document.createElement('div');
+
+      if(it.tabela){
+        box.style.cssText='padding:8px 2px;border-bottom:1px dotted var(--linha);';
+        const t=document.createElement('div'); t.style.cssText='font-size:0.8rem;font-weight:700;color:var(--dourado-escuro);margin-bottom:4px;'; t.textContent='Tabela de doses';
+        box.appendChild(t);
+        box.appendChild(mkLabel('Tamanhos (separados por vírgula)'));
+        box.appendChild(mkInput((it.tabela.doses||[]).join(', '),'0,25 L, 0,50 L, 1 L', v=>{ it.tabela.doses=v.split(',').map(s=>s.trim()).filter(Boolean); }));
+        box.appendChild(mkLabel('Preços (pela mesma ordem)'));
+        box.appendChild(mkInput((it.tabela.precos||[]).join(', '),'2,50€, 3,50€, 7,50€', v=>{ it.tabela.precos=v.split(',').map(s=>s.trim()).filter(Boolean); }));
+        const del=mkBtn('🗑 remover tabela','var(--vermelho)',()=>{ g.itens.splice(idx,1); renderEditor(); }); del.style.marginTop='6px';
+        box.appendChild(del);
+        return box;
+      }
+
+      const row=document.createElement('div'); row.className='mv-item';
+      const nome=document.createElement('input'); nome.className='mv-nome'; nome.value=it.nome.pt||''; nome.placeholder='Nome do prato';
+      nome.addEventListener('input',()=>{ it.nome.pt=nome.value; });
+      const preco=document.createElement('input'); preco.className='mv-preco'; preco.value=(it.preco==null?'':it.preco); preco.placeholder='Preço';
+      preco.addEventListener('input',()=>{ it.preco=preco.value; });
+      const bMais=document.createElement('button'); bMais.className='mv-mini'; bMais.type='button'; bMais.textContent='⋯'; bMais.title='Mais opções';
+      const bDel=document.createElement('button'); bDel.className='mv-mini del'; bDel.type='button'; bDel.textContent='🗑';
+      bDel.addEventListener('click',()=>{ g.itens.splice(idx,1); renderEditor(); });
+      row.appendChild(nome); row.appendChild(preco); row.appendChild(bMais); row.appendChild(bDel);
+      box.appendChild(row);
+
+      const mais=document.createElement('div'); mais.style.cssText='display:none;padding:8px 6px 10px;background:var(--bege-claro);border-radius:8px;margin:4px 0;';
+      bMais.addEventListener('click',()=>{ mais.style.display = (mais.style.display==='none'?'block':'none'); });
+      const barra=document.createElement('div'); barra.className='mv-barra'; barra.style.marginBottom='6px';
+      barra.appendChild(mkBtn('↑ subir','var(--castanho-suave)',()=>{ mover(g.itens,idx,-1); renderEditor(); }));
+      barra.appendChild(mkBtn('↓ descer','var(--castanho-suave)',()=>{ mover(g.itens,idx,1); renderEditor(); }));
+      mais.appendChild(barra);
+      mais.appendChild(mkLabel('Nome noutras línguas'));
+      mais.appendChild(campoTraducoes(it.nome));
+      it.desc = it.desc || {pt:''};
+      mais.appendChild(mkLabel('Descrição (opcional)'));
+      mais.appendChild(campoMulti(it.desc,'Descrição'));
+      mais.appendChild(mkLabel('Chave do vinho (ⓘ, opcional)'));
+      mais.appendChild(mkInput(it.vinho,'ex: monte-velho-tinto', v=>{ v=v.trim(); if(v) it.vinho=v; else delete it.vinho; }));
+      mais.appendChild(mkLabel('Foto (imagens/…, sem .jpg)'));
+      mais.appendChild(mkInput(it.foto,'ex: francesinha-forno-com-ovo', v=>{ v=v.trim(); if(v) it.foto=v; else delete it.foto; }));
+      box.appendChild(mais);
+      return box;
+    }
+
+    // ---- Render visual de um grupo (só para a secção de vinhos) ----
+    function mvGrupo(cat, g, gi){
+      g.summary = g.summary || {pt:''};
+      g.itens = g.itens || [];
+      const wrap=document.createElement('div'); wrap.className='mv-grupo';
+      const tb=document.createElement('div'); tb.className='mv-barra'; tb.style.justifyContent='flex-end'; tb.style.marginBottom='4px';
+      tb.appendChild(mkBtn('↑','var(--castanho-suave)',()=>{ mover(cat.grupos,gi,-1); renderEditor(); }));
+      tb.appendChild(mkBtn('↓','var(--castanho-suave)',()=>{ mover(cat.grupos,gi,1); renderEditor(); }));
+      tb.appendChild(mkBtn('🗑 grupo','var(--vermelho)',()=>{ cat.grupos.splice(gi,1); renderEditor(); }));
+      wrap.appendChild(tb);
+
+      const tit=document.createElement('input'); tit.className='mv-grupo-tit'; tit.value=g.summary.pt||''; tit.placeholder='Título do grupo';
+      tit.addEventListener('input',()=>{ g.summary.pt=tit.value; });
+      wrap.appendChild(tit);
+
+      const trd=document.createElement('details'); trd.style.cssText='border:none;background:transparent;';
+      const trs=document.createElement('summary'); trs.textContent='traduções / subtítulo';
+      trs.style.cssText='font-size:0.75rem;padding:2px 0;color:var(--castanho-suave);';
+      trd.appendChild(trs);
+      trd.appendChild(mkLabel('Título noutras línguas'));
+      trd.appendChild(campoTraducoes(g.summary));
+      g.subtitulo = g.subtitulo || {pt:''};
+      trd.appendChild(mkLabel('Subtítulo (opcional)'));
+      trd.appendChild(campoMulti(g.subtitulo,'Subtítulo'));
+      wrap.appendChild(trd);
+
+      const itensBox=document.createElement('div');
+      g.itens.forEach((it,idx)=> itensBox.appendChild(mvItem(g,it,idx)));
+      wrap.appendChild(itensBox);
+
+      const addItem=document.createElement('button'); addItem.className='mv-add'; addItem.type='button'; addItem.textContent='＋ prato';
+      addItem.addEventListener('click',()=>{ g.itens.push({nome:{pt:''},preco:''}); renderEditor(); });
+      wrap.appendChild(addItem);
+      const addTab=document.createElement('button'); addTab.className='mv-add'; addTab.type='button'; addTab.textContent='＋ tabela de doses'; addTab.style.cssText='background:var(--dourado);margin-top:6px;';
+      addTab.addEventListener('click',()=>{ g.itens.push({nome:{pt:''},tabela:{doses:[],precos:[]}}); renderEditor(); });
+      wrap.appendChild(addTab);
+      return wrap;
+    }
+
+    // ---- Painel de edição de uma secção (abre ao clicar no separador) ----
+    function mvPainel(cat, ci){
+      cat.tile = cat.tile || {pt:''};
+      cat.tipo = cat.tipo || 'comida';
+      cat.grupos = cat.grupos || [];
+      if(cat.tipo!=='vinhos' && cat.grupos.length===0) cat.grupos.push({ summary:{pt:''}, itens:[] });
+
+      const tituloObj = cat.tipo==='vinhos' ? cat.tile : cat.grupos[0].summary;
+
+      const p=document.createElement('div'); p.className='mv-painel';
+      const top=document.createElement('div'); top.className='mv-painel-top';
+      const emoji=document.createElement('input'); emoji.className='mv-emoji'; emoji.value=cat.emoji||''; emoji.placeholder='🙂';
+      emoji.addEventListener('input',()=>{ cat.emoji=emoji.value; });
+      const tit=document.createElement('input'); tit.className='mv-titulo'; tit.value=tituloObj.pt||''; tit.placeholder='Título da secção';
+      tit.addEventListener('input',()=>{ tituloObj.pt=tit.value; });
+      const bFechar=document.createElement('button'); bFechar.className='mv-mini'; bFechar.type='button'; bFechar.textContent='✕'; bFechar.title='Fechar';
+      bFechar.addEventListener('click',()=>{ abertaCi=null; renderEditor(); });
+      top.appendChild(emoji); top.appendChild(tit); top.appendChild(bFechar);
+      p.appendChild(top);
+
+      const barra=document.createElement('div'); barra.className='mv-barra'; barra.style.margin='0 0 8px';
+      barra.appendChild(mkBtn('↑ subir','var(--castanho-suave)',()=>{ mover(menuData.categorias,ci,-1); abertaCi=Math.max(0,ci-1); renderEditor(); }));
+      barra.appendChild(mkBtn('↓ descer','var(--castanho-suave)',()=>{ mover(menuData.categorias,ci,1); abertaCi=Math.min(menuData.categorias.length-1,ci+1); renderEditor(); }));
+      barra.appendChild(mkBtn('🗑 apagar secção','var(--vermelho)',()=>{ if(confirm('Apagar a secção "'+(tituloObj.pt||'')+'"?')){ menuData.categorias.splice(ci,1); abertaCi=null; renderEditor(); } }));
+      p.appendChild(barra);
+
+      const trd=document.createElement('details'); trd.style.cssText='border:none;background:transparent;margin-bottom:4px;';
+      const trs=document.createElement('summary'); trs.textContent='traduções do título'; trs.style.cssText='font-size:0.75rem;color:var(--castanho-suave);';
+      trd.appendChild(trs); trd.appendChild(campoTraducoes(tituloObj)); p.appendChild(trd);
+
+      if(cat.tipo==='vinhos'){
+        const av=document.createElement('details'); av.style.margin='6px 0';
+        const avs=document.createElement('summary'); avs.textContent='Cabeçalho e nota final'; av.appendChild(avs);
+        const avb=document.createElement('div'); avb.style.padding='6px 2px';
+        cat.h2=cat.h2||{pt:''}; avb.appendChild(mkLabel('Título grande')); avb.appendChild(campoMulti(cat.h2,'Título'));
+        cat.subtitulo=cat.subtitulo||{pt:''}; avb.appendChild(mkLabel('Subtítulo')); avb.appendChild(campoMulti(cat.subtitulo,'Subtítulo'));
+        cat.notaFinal=cat.notaFinal||{pt:''}; avb.appendChild(mkLabel('Nota final (ex: IVA incluído…)')); avb.appendChild(campoMulti(cat.notaFinal,'Nota'));
+        av.appendChild(avb); p.appendChild(av);
+        cat.grupos.forEach((g,gi)=> p.appendChild(mvGrupo(cat,g,gi)));
+        const addG=document.createElement('button'); addG.className='mv-add'; addG.type='button'; addG.textContent='＋ grupo de vinhos'; addG.style.background='var(--dourado)';
+        addG.addEventListener('click',()=>{ cat.grupos.push({summary:{pt:''},itens:[]}); renderEditor(); });
+        p.appendChild(addG);
+      } else {
+        const g = cat.grupos[0]; g.itens = g.itens || [];
+        const sd=document.createElement('details'); sd.style.cssText='border:none;background:transparent;margin:2px 0 6px;';
+        const ss=document.createElement('summary'); ss.textContent='subtítulo (opcional)'; ss.style.cssText='font-size:0.75rem;color:var(--castanho-suave);';
+        sd.appendChild(ss); g.subtitulo=g.subtitulo||{pt:''}; sd.appendChild(campoMulti(g.subtitulo,'Subtítulo')); if(g.subtitulo.pt) sd.open=true; p.appendChild(sd);
+        const lista=document.createElement('div'); g.itens.forEach((it,idx)=> lista.appendChild(mvItem(g,it,idx))); p.appendChild(lista);
+        const add=document.createElement('button'); add.className='mv-add'; add.type='button'; add.textContent='＋ adicionar prato';
+        add.addEventListener('click',()=>{ g.itens.push({nome:{pt:''},preco:''}); renderEditor(); });
+        p.appendChild(add);
+      }
+
+      const tp=document.createElement('details'); tp.style.cssText='border:none;background:transparent;margin-top:8px;';
+      const tps=document.createElement('summary'); tps.textContent='tipo de secção'; tps.style.cssText='font-size:0.72rem;color:var(--castanho-suave);';
+      tp.appendChild(tps);
+      const sel=document.createElement('select'); sel.style.cssText='width:100%;padding:8px 10px;border-radius:10px;border:1.5px solid var(--linha);background:var(--branco);font-family:inherit;color:var(--castanho);';
+      [['comida','Pratos e preços (normal)'],['vinhos','Vinhos & Bebidas (grupos + doses)']].forEach(([v,t])=>{ const o=document.createElement('option'); o.value=v; o.textContent=t; if(cat.tipo===v) o.selected=true; sel.appendChild(o); });
+      sel.addEventListener('change',()=>{ cat.tipo=sel.value; if(cat.tipo!=='vinhos' && cat.grupos.length===0) cat.grupos.push({summary:{pt:''},itens:[]}); renderEditor(); });
+      tp.appendChild(sel); p.appendChild(tp);
+
+      return p;
+    }
+
+    // ---- Réplica editável do cardápio: grelha de secções + painel aberto ----
+    function renderEditor(){
+      editorEl.innerHTML='';
+      if(!menuData || !Array.isArray(menuData.categorias)) return;
+      const grid=document.createElement('div'); grid.className='mv-grid';
+      menuData.categorias.forEach((cat,ci)=>{
+        const t=document.createElement('button'); t.type='button'; t.className='mv-tile'+(abertaCi===ci?' ativa':'');
+        const em=document.createElement('span'); em.className='em'; em.textContent=cat.emoji||'🍽️';
+        const tl=document.createElement('span'); tl.className='tl';
+        tl.textContent = cat.tipo==='vinhos'
+          ? ((cat.tile&&cat.tile.pt)||'Vinhos')
+          : ((cat.grupos&&cat.grupos[0]&&cat.grupos[0].summary&&cat.grupos[0].summary.pt)||'(sem título)');
+        t.appendChild(em); t.appendChild(tl);
+        t.addEventListener('click',()=>{ abertaCi = (abertaCi===ci ? null : ci); renderEditor(); });
+        grid.appendChild(t);
+      });
+      const nova=document.createElement('button'); nova.type='button'; nova.className='mv-tile nova';
+      const ne=document.createElement('span'); ne.className='em'; ne.textContent='＋';
+      const nt=document.createElement('span'); nt.className='tl'; nt.textContent='Nova secção';
+      nova.appendChild(ne); nova.appendChild(nt);
+      nova.addEventListener('click',()=>{
+        menuData.categorias.push({ emoji:'', tipo:'comida', tile:{pt:''}, grupos:[{summary:{pt:''},itens:[]}] });
+        abertaCi = menuData.categorias.length-1; renderEditor();
+      });
+      grid.appendChild(nova);
+      editorEl.appendChild(grid);
+      if(abertaCi!=null && menuData.categorias[abertaCi]) editorEl.appendChild(mvPainel(menuData.categorias[abertaCi], abertaCi));
+    }
+
+    // ---- Limpar objetos vazios antes de guardar ----
+    function limparLang(o){ if(!o) return; ['en','fr','es'].forEach(k=>{ if(o[k]!=null && String(o[k]).trim()==='') delete o[k]; }); }
+    function vazioLang(o){ return !o || (!(''+(o.pt||'')).trim() && !o.en && !o.fr && !o.es); }
+    function pruneMenu(){
+      const usados={};
+      menuData.categorias.forEach(cat=>{
+        if(!cat.tipo) cat.tipo='comida';
+        // Nas secções normais, o botão do topo (tile) segue automaticamente o título da secção
+        if(cat.tipo!=='vinhos' && cat.grupos && cat.grupos[0] && cat.grupos[0].summary){
+          cat.tile = JSON.parse(JSON.stringify(cat.grupos[0].summary));
+        }
+        cat.tile = cat.tile || {pt:''};
+        const baseNome = (cat.tile.pt) || (cat.grupos&&cat.grupos[0]&&cat.grupos[0].summary&&cat.grupos[0].summary.pt) || 'seccao';
+        if(!cat.id || !cat.id.trim()) cat.id = slugMenu(baseNome) || 'seccao';
+        let base=cat.id, n=2; while(usados[cat.id]){ cat.id=base+'-'+n; n++; } usados[cat.id]=1;
+        limparLang(cat.tile);
+        if(cat.tipo==='vinhos'){ ['h2','subtitulo','notaFinal'].forEach(k=>{ if(cat[k]){ limparLang(cat[k]); if(vazioLang(cat[k])) delete cat[k]; } }); }
+        else { delete cat.h2; delete cat.subtitulo; delete cat.notaFinal; }
+        (cat.grupos||[]).forEach(g=>{
+          limparLang(g.summary);
+          if(g.subtitulo){ limparLang(g.subtitulo); if(vazioLang(g.subtitulo)) delete g.subtitulo; }
+          (g.itens||[]).forEach(it=>{
+            if(it.nome) limparLang(it.nome);
+            if(it.desc){ limparLang(it.desc); if(vazioLang(it.desc)) delete it.desc; }
+            if(it.preco!=null && String(it.preco).trim()==='') delete it.preco;
+            if(it.vinho!=null && String(it.vinho).trim()==='') delete it.vinho;
+            if(it.foto!=null && String(it.foto).trim()==='') delete it.foto;
+            if(it.tabela){ it.tabela.doses=(it.tabela.doses||[]).filter(Boolean); it.tabela.precos=(it.tabela.precos||[]).filter(Boolean); if(vazioLang(it.nome)) delete it.nome; }
+          });
+        });
+      });
+    }
+
+    async function carregarMenu(){
+      const token = tokenInput.value.trim();
+      if(!token){ setEstadoMenu('Cola primeiro o teu token (lá em cima).', 'erro'); return; }
+      setEstadoMenu('A carregar menu…', 'info');
+      try{
+        const resp = await fetch(MENU_API + '?t=' + Date.now(), { headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json' } });
+        if(resp.status === 404){ menuData = { restaurante:'', categorias:[] }; menuSha = null; setEstadoMenu('Ainda não existe menu.json. Cria categorias e guarda para o criar.', 'info'); }
+        else if(resp.ok){ const data = await resp.json(); menuSha = data.sha; menuData = JSON.parse(base64ParaUtf8(data.content)); if(!Array.isArray(menuData.categorias)) menuData.categorias=[]; setEstadoMenu('Menu carregado ✓', 'ok'); }
+        else throw new Error('HTTP ' + resp.status + ' — verifica o token.');
+        renderEditor();
+        acoesEl.style.display = 'block';
+      }catch(err){ setEstadoMenu('Erro: ' + err.message, 'erro'); }
+    }
+
+    async function guardarMenu(){
+      const token = tokenInput.value.trim();
+      if(!token){ setEstadoMenu('Cola primeiro o teu token.', 'erro'); return; }
+      if(!menuData){ setEstadoMenu('Carrega o menu primeiro.', 'erro'); return; }
+      document.getElementById('btnGuardarMenu').disabled = true;
+      try{
+        pruneMenu();
+        setEstadoMenu('A guardar menu…', 'info');
+        if(!menuSha){ try{ const c=await fetch(MENU_API+'?t='+Date.now(),{headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}}); if(c.ok){ const d=await c.json(); menuSha=d.sha; } }catch(e){} }
+        const corpo = { message:'Atualizar menu.json via editor', content: utf8ParaBase64(JSON.stringify(menuData, null, 2)) };
+        if(menuSha) corpo.sha = menuSha;
+        const resp = await fetch(MENU_API, { method:'PUT', headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'}, body: JSON.stringify(corpo) });
+        if(!resp.ok){ const e=await resp.json().catch(()=>({})); throw new Error(e.message || ('HTTP '+resp.status)); }
+        const data = await resp.json(); menuSha = data.content.sha;
+        setEstadoMenu('✅ Menu guardado! Aparece no cardápio dentro de 1-2 minutos.', 'ok');
+      }catch(err){ setEstadoMenu('Erro ao guardar: ' + err.message, 'erro'); }
+      finally{ document.getElementById('btnGuardarMenu').disabled = false; }
+    }
+
+    document.getElementById('btnCarregarMenu').addEventListener('click', carregarMenu);
+    document.getElementById('btnGuardarMenu').addEventListener('click', guardarMenu);
+  })();
+
+  document.getElementById('btnCarregar').addEventListener('click', carregarConfig);
+  document.getElementById('btnGuardar').addEventListener('click', guardarTudo);
+
+  // Guardar começa desativado até carregar (evita apagar dados sem querer)
+  document.getElementById('btnGuardar').disabled = true;
+
+  // Auto-carregar ao abrir, se já houver token lembrado
+  if(tokenInput.value.trim()){
+    carregarConfig();
+  } else {
+    setEstado('Cola o token e clica em "Carregar definições atuais" para começar.', 'info');
+  }
+</script>
+</body>
+</html>

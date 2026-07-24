@@ -1,0 +1,40 @@
+{
+  "header": {
+    "titulo": "Nome do Restaurante 2",
+    "subtitulo": "O teu slogan aqui",
+    "cor": "#ffffff",
+    "realce": true,
+    "fotosAtivas": false,
+    "fotos": []
+  },
+  "rodape": {
+    "linha1": "Bem-vindos!",
+    "linha2": "Horário de funcionamento",
+    "linha3": "",
+    "linha4": "",
+    "cor": "#ffffff",
+    "realce": true,
+    "fotosAtivas": false,
+    "fotos": [],
+    "especial": { "ativo": false, "inicio": "", "fim": "", "l1": "", "l2": "", "l3": "", "l4": "" },
+    "carrossel": { "ativo": false, "intervalo": 5, "inicio": "", "fim": "", "slides": [
+      { "titulo": "Prato do Dia", "linhas": [], "ocultarDomingo": true },
+      { "titulo": "Na Brasa", "linhas": [], "ocultarDomingo": false },
+      { "titulo": "Sugestão", "linhas": [], "ocultarDomingo": false }
+    ] }
+  },
+  "footer": {
+    "nome": "Nome do Restaurante 2",
+    "morada": "Morada aqui",
+    "telefone": "📞 000 000 000",
+    "cor": "#ffffff",
+    "fotosAtivas": false,
+    "fotos": [],
+    "fotoZoom": 100, "fotoPanX": 0, "fotoPanY": 0, "textoX": 50, "textoY": 50
+  },
+  "adJogos": { "ativo": false, "foto": "", "fotoZoom": 100, "fotoPanX": 0, "fotoPanY": 0, "texto": "", "textoX": 50, "textoY": 80, "cor": "#ffffff", "duracao": 5 },
+  "sazonal": true,
+  "fidelidade": { "ativo": false, "codigo": "", "total": 8, "premio": "" },
+  "layout": "2",
+  "jogos": true
+}

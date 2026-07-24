@@ -1,0 +1,54 @@
+{
+  "restaurante": "Nome do Restaurante 2",
+  "categorias": [
+    {
+      "id": "entradas",
+      "emoji": "🥖",
+      "tipo": "comida",
+      "tile": { "pt": "Entradas" },
+      "grupos": [
+        {
+          "summary": { "pt": "Entradas" },
+          "itens": [
+            { "nome": { "pt": "Exemplo — Pão e azeitonas" }, "preco": "2,50€" },
+            { "nome": { "pt": "Exemplo — Tábua de enchidos" }, "preco": "12,00€" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pratos",
+      "emoji": "🍽️",
+      "tipo": "comida",
+      "tile": { "pt": "Pratos" },
+      "grupos": [
+        {
+          "summary": { "pt": "Pratos Principais" },
+          "itens": [
+            { "nome": { "pt": "Exemplo — Bife da casa" }, "desc": { "pt": "Com batata e salada" }, "preco": "14,00€" },
+            { "nome": { "pt": "Exemplo — Bacalhau à brás" }, "preco": "13,50€" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "emoji": "🍷",
+      "tipo": "vinhos",
+      "tile": { "pt": "Bebidas" },
+      "h2": { "pt": "Bebidas" },
+      "subtitulo": { "pt": "Carta de bebidas" },
+      "notaFinal": { "pt": "IVA incluído à taxa legal em vigor." },
+      "grupos": [
+        {
+          "summary": { "pt": "Vinho da Casa" },
+          "itens": [
+            { "nome": { "pt": "Copo de vinho" }, "preco": "1,50€" },
+            { "nome": { "pt": "Caneca" } },
+            { "tabela": { "doses": ["0,25 L", "0,50 L", "1 L"], "precos": ["2,50€", "3,50€", "7,50€"] } }
+          ]
+        }
+      ]
+    }
+  ]
+}
