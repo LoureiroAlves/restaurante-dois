@@ -112,6 +112,28 @@
           ]
         }
       ]
+    },
+    {
+      "emoji": "",
+      "tipo": "comida",
+      "tile": {
+        "pt": "CARNE"
+      },
+      "grupos": [
+        {
+          "summary": {
+            "pt": "CARNE"
+          },
+          "itens": [
+            {
+              "nome": {
+                "pt": ""
+              }
+            }
+          ]
+        }
+      ],
+      "id": "carne"
     }
   ]
 }
