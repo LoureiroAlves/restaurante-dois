@@ -692,7 +692,8 @@
             "en": "Couvert and soup of the day\nStarters to share: codfish fritters and Padrón peppers\nMain course of your choice: rump steak or codfish à Brás (with side)\nHouse dessert\nWater, house wine and coffee",
             "fr": "Couvert et soupe du jour\nEntrées à partager : beignets de morue et piments Padrón\nPlat au choix : rumsteck ou morue à Brás (avec accompagnement)\nDessert maison\nEau, vin de la maison et café",
             "es": "Cubierto y sopa del día\nEntrantes para compartir: buñuelos de bacalao y pimientos de Padrón\nPlato a elegir: tapa de cadera o bacalao a Brás (con guarnición)\nPostre de la casa\nAgua, vino de la casa y café"
-          }
+          },
+          "preco": "20€ por pessoa"
         },
         {
           "nome": {
@@ -706,11 +707,12 @@
             "en": "Couvert\nStarters to share: Singular mixed board and garlic prawns\nPasta: Della Nonna\nMain of your choice: veal steak or salmon fillet\nDessert\nWater, house wine and coffee",
             "fr": "Couvert\nEntrées à partager : planche mixte Singular et crevettes à l'ail\nPâtes : Della Nonna\nPlat au choix : pavé de veau ou filet de saumon\nDessert\nEau, vin de la maison et café",
             "es": "Cubierto\nEntrantes para compartir: tabla mixta Singular y gambas al ajillo\nPasta: Della Nonna\nPlato a elegir: filete de ternera o lomo de salmón\nPostre\nAgua, vino de la casa y café"
-          }
+          },
+          "preco": "25€ por pessoa"
         },
         {
           "nome": {
-            "pt": "Menu Especial",
+            "pt": "Menu 3",
             "en": "Special Menu",
             "fr": "Menu Spécial",
             "es": "Menú Especial"
@@ -720,9 +722,11 @@
             "en": "Couvert\nStarters: grilled tiger prawns, crispy squid and cured ham board\nMain: tomahawk to share or octopus Lagareiro-style\nDessert\nWater, wines, sparkling wine and coffee",
             "fr": "Couvert\nEntrées : gambas tigre grillées, encornet croustillant et planche de jambon\nPlat : tomahawk à partager ou poulpe à la lagareiro\nDessert\nEau, vins, mousseux et café",
             "es": "Cubierto\nEntrantes: langostinos tigre a la parrilla, crujiente de pota y tabla de jamón\nPlato: tomahawk para compartir o pulpo a la lagareiro\nPostre\nAgua, vinos, espumoso y café"
-          }
+          },
+          "preco": "30€ por pessoa"
         }
-      ]
+      ],
+      "grupos": []
     }
   ]
 }
