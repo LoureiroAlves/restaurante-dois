@@ -1,14 +1,13 @@
 {
   "header": {
     "titulo": "SINGULAR",
-    "subtitulo": "O teu slogan aqui",
+    "subtitulo": "O teu slogan aqui!",
     "cor": "#ffffff",
     "realce": true,
     "fotosAtivas": true,
     "fotos": [
       "imagens/1784939100333-ver-fotografias-recentes.png",
-      "imagens/1784939103898-whatsapp-image-2026-03-13-at-17.36.23.jpg",
-      "imagens/1784939105388-whatsapp-image-2026-03-13-at-17.36.23.jpg"
+      "imagens/1784939103898-whatsapp-image-2026-03-13-at-17.36.23.jpg"
     ]
   },
   "rodape": {
