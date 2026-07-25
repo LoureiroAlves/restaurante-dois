@@ -23,13 +23,13 @@
       "imagens/1784939166901-ver-fotografias-recentes.png"
     ],
     "especial": {
-      "ativo": false,
-      "inicio": "",
-      "fim": "",
-      "l1": "",
-      "l2": "",
-      "l3": "",
-      "l4": ""
+      "ativo": true,
+      "inicio": "08:53",
+      "fim": "08:50",
+      "l1": "Quarta feira - Prato do Dia",
+      "l2": "Bla bla",
+      "l3": "Bla bla bla",
+      "l4": "Bla bla bla bla"
     },
     "carrossel": {
       "ativo": false,
@@ -87,7 +87,7 @@
     "total": 8,
     "premio": ""
   },
-  "layout": "4",
+  "layout": "3",
   "jogos": false,
   "redes": {
     "instagram": "",
