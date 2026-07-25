@@ -60,10 +60,12 @@
     "telefone": "📞 000 000 000",
     "cor": "#ffffff",
     "fotosAtivas": false,
-    "fotos": [],
-    "fotoZoom": 100,
-    "fotoPanX": 0,
-    "fotoPanY": 0,
+    "fotos": [
+      "imagens/1784980733830-gemini-generated-image-h2pookh2pookh2po.png"
+    ],
+    "fotoZoom": 136,
+    "fotoPanX": -0.596923828125,
+    "fotoPanY": 17.50773625327303,
     "textoX": 50,
     "textoY": 50
   },
