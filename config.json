@@ -58,7 +58,7 @@
     "morada": "Morada aqui",
     "telefone": "📞 000 000 000",
     "cor": "#ffffff",
-    "fotosAtivas": false,
+    "fotosAtivas": true,
     "fotos": [
       "imagens/1784980733830-gemini-generated-image-h2pookh2pookh2po.png"
     ],
