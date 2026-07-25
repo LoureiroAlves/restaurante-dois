@@ -668,6 +668,47 @@
           ]
         }
       ]
+    },
+    {
+      "emoji": "",
+      "tipo": "comida",
+      "tile": {
+        "pt": "Menu de Grupo"
+      },
+      "grupos": [
+        {
+          "summary": {
+            "pt": "Menu de Grupo"
+          },
+          "itens": [
+            {
+              "nome": {
+                "pt": "gwrtertet"
+              },
+              "preco": "45€"
+            },
+            {
+              "nome": {
+                "pt": "ewwetwet"
+              },
+              "preco": "34€"
+            },
+            {
+              "nome": {
+                "pt": "wetwertwert"
+              },
+              "preco": "24€"
+            },
+            {
+              "nome": {
+                "pt": "ergwrgerg"
+              },
+              "preco": "12€"
+            }
+          ]
+        }
+      ],
+      "id": "menu-de-grupo"
     }
   ]
 }
