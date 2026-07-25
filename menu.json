@@ -1,162 +1,40 @@
 {
-  "restaurante": "Rest & Bar Parque São Caetano",
+  "restaurante": "Rest. Singular",
   "categorias": [
     {
-      "id": "entradas",
-      "emoji": "🥖",
+      "id": "entradas-petiscos",
+      "emoji": "🍤",
       "tipo": "comida",
       "tile": {
-        "pt": "Entradas",
-        "en": "Starters",
-        "fr": "Entrées",
-        "es": "Entrada"
+        "pt": "Entradas e Petiscos",
+        "en": "Starters & Snacks",
+        "fr": "Entrées et Amuse-bouches",
+        "es": "Entrantes y Aperitivos"
       },
       "grupos": [
         {
           "summary": {
-            "pt": "Entradas",
-            "en": "Starters",
-            "fr": "Entrées",
-            "es": "Entrada"
+            "pt": "Entradas e Petiscos",
+            "en": "Starters & Snacks",
+            "fr": "Entrées et Amuse-bouches",
+            "es": "Entrantes y Aperitivos"
           },
           "itens": [
             {
               "nome": {
-                "pt": "Pão",
-                "en": "Bread",
-                "fr": "Pain",
-                "es": "Pan"
-              },
-              "preco": "2,00€"
-            },
-            {
-              "nome": {
-                "pt": "Paté",
-                "en": "Pâté",
-                "fr": "Pâté",
-                "es": "Paté"
-              },
-              "preco": "2,00€"
-            },
-            {
-              "nome": {
-                "pt": "Azeitonas",
-                "en": "Olives",
-                "fr": "Olives",
-                "es": "Aceitunas"
-              },
-              "preco": "2,00€"
-            },
-            {
-              "nome": {
-                "pt": "Manteiga",
-                "en": "Butter (each)",
-                "fr": "Beurre (chacun)",
-                "es": "Mantequilla (cada uno)"
-              },
-              "preco": "(cada) 0,20€"
-            },
-            {
-              "nome": {
-                "pt": "Ovos Rotos",
-                "en": "Broken Eggs (fries with fried eggs)",
-                "fr": "Œufs Cassés (frites et œufs frits)",
-                "es": "Huevos Rotos (papas fritas con huevos fritos)"
-              },
-              "preco": "10,00€"
-            },
-            {
-              "nome": {
-                "pt": "Alheira com Broa",
-                "en": "Alheira Sausage with Cornbread",
-                "fr": "Saucisse Alheira avec Pain de Maïs",
-                "es": "Salchicha Alheira con Pan de Maíz"
-              },
-              "preco": "10,50€"
-            },
-            {
-              "nome": {
-                "pt": "Gambas São Caetano",
-                "en": "São Caetano-Style Shrimp",
-                "fr": "Crevettes à la São Caetano",
-                "es": "Camarones al Estilo São Caetano"
-              },
-              "preco": "10,00€"
-            },
-            {
-              "nome": {
-                "pt": "Pimentos Padrón",
-                "en": "Padrón Peppers",
-                "fr": "Piments Padrón",
-                "es": "Pimientos Padrón"
-              },
-              "preco": "8,00€"
-            },
-            {
-              "nome": {
-                "pt": "Tábua à São Caetano",
-                "en": "São Caetano Board",
-                "fr": "Planche à la São Caetano",
-                "es": "Tabla São Caetano"
+                "pt": "Couvert",
+                "en": "Bread & Butter",
+                "fr": "Couvert",
+                "es": "Cubierto"
               },
               "desc": {
-                "pt": "Enchidos, presunto, melão, broa frita, camarão",
-                "en": "Charcuterie, ham, melon, fried cornbread, shrimp",
-                "fr": "Charcuterie, jambon, melon, pain de maïs frit, crevettes",
-                "es": "Embutidos, jamón, melón, pan de maíz frito, camarones"
+                "pt": "Pão e manteiga com flor de sal",
+                "en": "Bread and butter with fleur de sel",
+                "fr": "Pain et beurre à la fleur de sel",
+                "es": "Pan y mantequilla con flor de sal"
               },
-              "preco": "28,00€"
+              "preco": "2 €"
             },
-            {
-              "nome": {
-                "pt": "½ Tábua São Caetano",
-                "en": "Half São Caetano Board",
-                "fr": "Demi-Planche São Caetano",
-                "es": "Media Tabla São Caetano"
-              },
-              "preco": "18,00€"
-            },
-            {
-              "nome": {
-                "pt": "Chouriço Assado",
-                "en": "Roasted Chouriço",
-                "fr": "Chorizo Rôti",
-                "es": "Chorizo Asado"
-              },
-              "preco": "8,00€"
-            },
-            {
-              "nome": {
-                "pt": "Tábua de Presunto",
-                "en": "Ham Board",
-                "fr": "Planche de Jambon",
-                "es": "Tabla de Jamón"
-              },
-              "preco": "15,00€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "sopas-saladas",
-      "emoji": "🥗",
-      "tipo": "comida",
-      "tile": {
-        "pt": "Sopas e Saladas",
-        "en": "Soups & Salads",
-        "fr": "Soupes et Salades",
-        "es": "Sopas y Ensaladas"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Sopas e Saladas",
-            "en": "Soups & Salads",
-            "fr": "Soupes et Salades",
-            "es": "Sopas y Ensaladas"
-          },
-          "itens": [
             {
               "nome": {
                 "pt": "Sopa do Dia",
@@ -164,428 +42,229 @@
                 "fr": "Soupe du Jour",
                 "es": "Sopa del Día"
               },
-              "preco": "1,80€"
+              "preco": "2 €"
             },
             {
               "nome": {
-                "pt": "Salada à Chef",
-                "en": "Chef's Salad",
-                "fr": "Salade du Chef",
-                "es": "Ensalada del Chef"
+                "pt": "Bolinhos de Bacalhau (10 unid.)",
+                "en": "Codfish Fritters (10 pcs)",
+                "fr": "Beignets de Morue (10 pièces)",
+                "es": "Buñuelos de Bacalao (10 uds)"
               },
-              "preco": "12,50€"
+              "preco": "5 €"
             },
             {
               "nome": {
-                "pt": "Salada de Atum",
-                "en": "Tuna Salad",
-                "fr": "Salade de Thon",
-                "es": "Ensalada de Atún"
+                "pt": "Pimentos Padrón",
+                "en": "Padrón Peppers",
+                "fr": "Piments Padrón",
+                "es": "Pimientos de Padrón"
               },
-              "preco": "11,50€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "brasa",
-      "emoji": "🔥",
-      "tipo": "comida",
-      "tile": {
-        "pt": "Especialidades na Brasa",
-        "en": "Charcoal Grill Specialties",
-        "fr": "Spécialités à la Braise",
-        "es": "Especialidades a la Parrilla"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Especialidades na Brasa",
-            "en": "Charcoal Grill Specialties",
-            "fr": "Spécialités à la Braise",
-            "es": "Especialidades a la Parrilla"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Lulas grelhadas",
-                "en": "Grilled Squid",
-                "fr": "Calamars Grillés",
-                "es": "Calamares a la Parrilla"
-              },
-              "preco": "16,50€ / 32,00€"
+              "preco": "5 €"
             },
             {
               "nome": {
-                "pt": "Espetada de Lulas e Gambas",
-                "en": "Squid and Shrimp Skewer",
-                "fr": "Brochette de Calamars et Crevettes",
-                "es": "Brocheta de Calamares y Camarones"
+                "pt": "Cogumelos Salteados com Bacon",
+                "en": "Sautéed Mushrooms with Bacon",
+                "fr": "Champignons Sautés au Bacon",
+                "es": "Champiñones Salteados con Bacon"
               },
-              "preco": "23,50€ / 39,50€"
+              "preco": "6 €"
             },
             {
               "nome": {
-                "pt": "Espetada de Polvo",
-                "en": "Octopus Skewer",
-                "fr": "Brochette de Poulpe",
-                "es": "Brocheta de Pulpo"
-              },
-              "preco": "28,50€ / 41,50€"
-            },
-            {
-              "nome": {
-                "pt": "Espetada de Polvo, Lulas e Gambas",
-                "en": "Octopus, Squid and Shrimp Skewer",
-                "fr": "Brochette de Poulpe, Calamars et Crevettes",
-                "es": "Brocheta de Pulpo, Calamares y Camarones"
-              },
-              "preco": "31,00€ / 46,00€"
-            },
-            {
-              "nome": {
-                "pt": "Espetada Terra e Mar",
-                "en": "Surf and Turf Skewer",
-                "fr": "Brochette Terre et Mer",
-                "es": "Brocheta Tierra y Mar"
-              },
-              "preco": "28,50€ / 48,50€"
-            },
-            {
-              "nome": {
-                "pt": "Picanha",
-                "en": "Picanha Steak",
-                "fr": "Picanha",
-                "es": "Picaña"
-              },
-              "preco": "19,80€ / 27,00€"
-            },
-            {
-              "nome": {
-                "pt": "Frango s/ guarnição",
-                "en": "Chicken without Side Dish",
-                "fr": "Poulet sans Accompagnement",
-                "es": "Pollo sin Acompañamiento"
-              },
-              "preco": "4,50€ / 17,50€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "infantil",
-      "emoji": "🧑‍🤝‍🧑",
-      "tipo": "comida",
-      "tile": {
-        "pt": "Menu Infantil",
-        "en": "Kids Menu",
-        "fr": "Menu Enfants",
-        "es": "Menú Infantil"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Menu Infantil",
-            "en": "Kids Menu",
-            "fr": "Menu Enfants",
-            "es": "Menú Infantil"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Salsicha Kid",
-                "en": "Kids Sausage",
-                "fr": "Saucisse Enfant",
-                "es": "Salchicha Infantil"
-              },
-              "preco": "6,00€"
-            },
-            {
-              "nome": {
-                "pt": "Hambúrguer Kid",
-                "en": "Kids Burger",
-                "fr": "Hamburger Enfant",
-                "es": "Hamburguesa Infantil"
-              },
-              "preco": "7,50€"
-            },
-            {
-              "nome": {
-                "pt": "Mini Prego",
-                "en": "Mini Steak Sandwich",
-                "fr": "Mini Sandwich à la Viande",
-                "es": "Mini Sándwich de Carne"
-              },
-              "preco": "8,50€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "partilhados",
-      "emoji": "🍖",
-      "tipo": "comida",
-      "tile": {
-        "pt": "Grelhados e Pratos Partilhados",
-        "en": "Grilled Dishes & Sharing Plates",
-        "fr": "Grillades et Plats à Partager",
-        "es": "Platos a la Parrilla y Platos para Compartir"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Grelhados e Pratos Partilhados",
-            "en": "Grilled Dishes & Sharing Plates",
-            "fr": "Grillades et Plats à Partager",
-            "es": "Platos a la Parrilla y Platos para Compartir"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Costelinhas s/ Guarnição",
-                "en": "Ribs without Side Dish",
-                "fr": "Travers de Porc sans Accompagnement",
-                "es": "Costillas sin Acompañamiento"
-              },
-              "preco": "7,50€ / 15,00€"
-            },
-            {
-              "nome": {
-                "pt": "Grelhado Misto – 2 pessoas",
-                "en": "Mixed Grill – 2 people",
-                "fr": "Grillade Mixte – 2 personnes",
-                "es": "Parrillada Mixta – 2 personas"
+                "pt": "Hot Wings",
+                "en": "Hot Wings",
+                "fr": "Hot Wings",
+                "es": "Hot Wings"
               },
               "desc": {
-                "pt": "Frango, costelinhas, picanha, salsicha criola",
-                "en": "Chicken, ribs, picanha steak and creole sausage",
-                "fr": "Poulet, travers de porc, picanha et saucisse créole",
-                "es": "Pollo, costillas, bistec de picaña y salchicha criolla"
+                "pt": "Asinhas de frango com molho de sweet chilli",
+                "en": "Chicken wings with sweet chilli sauce",
+                "fr": "Ailes de poulet, sauce sweet chili",
+                "es": "Alitas de pollo con salsa sweet chili"
               },
-              "preco": "19,50€"
+              "preco": "6 €"
             },
             {
               "nome": {
-                "pt": "Grelhado Misto – 4 pessoas",
-                "en": "Mixed Grill – 4 people",
-                "fr": "Grillade Mixte – 4 personnes",
-                "es": "Parrillada Mixta – 4 personas"
-              },
-              "preco": "29,50€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "individuais",
-      "emoji": "🍽️",
-      "tipo": "comida",
-      "tile": {
-        "pt": "Pratos Individuais",
-        "en": "Individual Dishes",
-        "fr": "Plats Individuels",
-        "es": "Platos Individuales"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Pratos Individuais",
-            "en": "Individual Dishes",
-            "fr": "Plats Individuels",
-            "es": "Platos Individuales"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Bife na Púcara",
-                "en": "Beef Stew Púcara-Style",
-                "fr": "Bœuf en Cocotte « Púcara »",
-                "es": "Estofado de Res Estilo Púcara"
-              },
-              "preco": "14,00€"
-            },
-            {
-              "nome": {
-                "pt": "Mini Posta",
-                "en": "Mini Steak",
-                "fr": "Mini Pavé de Bœuf",
-                "es": "Mini Filete"
-              },
-              "preco": "14,00€"
-            },
-            {
-              "nome": {
-                "pt": "Mini Braga",
-                "en": "Mini Braga-Style Steak",
-                "fr": "Mini Steak à la Braga",
-                "es": "Mini Filete Estilo Braga"
-              },
-              "preco": "14,00€"
-            },
-            {
-              "nome": {
-                "pt": "Alheira",
-                "en": "Alheira Sausage",
-                "fr": "Saucisse Alheira",
-                "es": "Salchicha Alheira"
-              },
-              "preco": "9,50€"
-            },
-            {
-              "nome": {
-                "pt": "Omelete Mista",
-                "en": "Mixed Omelette",
-                "fr": "Omelette Mixte",
-                "es": "Tortilla Mixta"
-              },
-              "preco": "8,50€"
-            },
-            {
-              "nome": {
-                "pt": "Bife de Frango",
-                "en": "Chicken Steak",
-                "fr": "Steak de Poulet",
-                "es": "Filete de Pollo"
-              },
-              "preco": "9,50€"
-            },
-            {
-              "nome": {
-                "pt": "Pica-Pau",
-                "en": "Pica-Pau (Diced Beef Bites)",
-                "fr": "Pica-Pau (Émincé de Bœuf)",
-                "es": "Pica-Pau (Trozos de Carne Picada)"
-              },
-              "preco": "10,50€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "peixe",
-      "emoji": "🐟",
-      "tipo": "comida",
-      "tile": {
-        "pt": "Peixe",
-        "en": "Fish",
-        "fr": "Poisson",
-        "es": "Pescado"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Peixe",
-            "en": "Fish",
-            "fr": "Poisson",
-            "es": "Pescado"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Filetes de Pescada com Arroz de Camarão",
-                "en": "Hake Fillets with Shrimp Rice",
-                "fr": "Filets de Merlu au Riz de Crevettes",
-                "es": "Filetes de Merluza con Arroz de Camarones"
-              },
-              "preco": "17,50€ / 28,00€"
-            },
-            {
-              "nome": {
-                "pt": "Robalo Grelhado",
-                "en": "Grilled Sea Bass",
-                "fr": "Bar Grillé",
-                "es": "Robalo a la Parrilla"
-              },
-              "preco": "11,50€"
-            },
-            {
-              "nome": {
-                "pt": "Dourada Grelhada",
-                "en": "Grilled Sea Bream",
-                "fr": "Daurade Grillée",
-                "es": "Dorada a la Parrilla"
-              },
-              "preco": "11,50€"
-            },
-            {
-              "nome": {
-                "pt": "Bacalhau à Braga",
-                "en": "Braga-Style Codfish",
-                "fr": "Morue à la Braga",
-                "es": "Bacalao Estilo Braga"
-              },
-              "preco": "22,50€ / 32,00€"
-            },
-            {
-              "nome": {
-                "pt": "Bacalhau à São Caetano",
-                "en": "São Caetano-Style Codfish",
-                "fr": "Morue à la São Caetano",
-                "es": "Bacalao Estilo São Caetano"
+                "pt": "Gyozas (6 unid.)",
+                "en": "Gyozas (6 pcs)",
+                "fr": "Gyozas (6 pièces)",
+                "es": "Gyozas (6 uds)"
               },
               "desc": {
-                "pt": "Batata à rodela com maionese",
-                "en": "Sliced potatoes with mayonnaise",
-                "fr": "Pommes de terre en rondelles avec mayonnaise",
-                "es": "Papas en rodajas con mayonesa"
+                "pt": "Bolinho de massa de arroz japonês, recheado com frango e legumes",
+                "en": "Japanese rice-flour dumplings filled with chicken and vegetables",
+                "fr": "Raviolis japonais à la farine de riz, farcis au poulet et légumes",
+                "es": "Empanadillas japonesas de arroz rellenas de pollo y verduras"
               },
-              "preco": "21,00€ / 31,00€"
+              "preco": "6 €"
             },
             {
               "nome": {
-                "pt": "Bacalhau à Zé do Pipo",
-                "en": "Zé do Pipo-Style Codfish",
-                "fr": "Morue à la Zé do Pipo",
-                "es": "Bacalao Estilo Zé do Pipo"
+                "pt": "Ovos Rotos",
+                "en": "Broken Eggs",
+                "fr": "Œufs Cassés",
+                "es": "Huevos Rotos"
               },
               "desc": {
-                "pt": "Puré com maionese",
-                "en": "Mashed potato with mayonnaise",
-                "fr": "Purée avec mayonnaise",
-                "es": "Puré de papas con mayonesa"
+                "pt": "Batata frita, presunto e ovos estrelados",
+                "en": "Fries, cured ham and fried eggs",
+                "fr": "Frites, jambon cru et œufs au plat",
+                "es": "Patatas fritas, jamón y huevos fritos"
               },
-              "preco": "25,00€ / 33,00€"
+              "preco": "9 €"
             },
             {
               "nome": {
-                "pt": "Bacalhau com Broa",
-                "en": "Codfish with Cornbread Crust",
-                "fr": "Morue à la Croûte de Maïs",
-                "es": "Bacalao con Corteza de Pan de Maíz"
+                "pt": "Carpaccio de Salmão Fumado",
+                "en": "Smoked Salmon Carpaccio",
+                "fr": "Carpaccio de Saumon Fumé",
+                "es": "Carpaccio de Salmón Ahumado"
               },
-              "preco": "26,00€ / 34,00€"
+              "preco": "12 €"
             },
             {
               "nome": {
-                "pt": "Bacalhau na Brasa",
-                "en": "Charcoal-Grilled Codfish",
-                "fr": "Morue Grillée au Charbon",
-                "es": "Bacalao a la Parrilla"
+                "pt": "Petinga (10 unid.)",
+                "en": "Fried Baby Sardines (10 pcs)",
+                "fr": "Petites Sardines Frites (10 pièces)",
+                "es": "Sardinillas Fritas (10 uds)"
               },
-              "preco": "28,00€ / 36,00€"
+              "desc": {
+                "pt": "Sardinha pequena frita",
+                "en": "Small fried sardines",
+                "fr": "Petites sardines frites",
+                "es": "Sardinas pequeñas fritas"
+              },
+              "preco": "5 €"
             },
             {
               "nome": {
-                "pt": "Polvo à Lagareiro",
-                "en": "Octopus Lagareiro-Style",
-                "fr": "Poulpe à la Lagareiro",
-                "es": "Pulpo Estilo Lagareiro"
+                "pt": "Gambas c/ Chutney de Manga",
+                "en": "Prawns with Mango Chutney",
+                "fr": "Crevettes au Chutney de Mangue",
+                "es": "Gambas con Chutney de Mango"
               },
-              "preco": "25,50€ / 38,00€"
+              "desc": {
+                "pt": "Gambas salteadas com uma redução de manga e gengibre",
+                "en": "Sautéed prawns with a mango and ginger reduction",
+                "fr": "Crevettes sautées, réduction de mangue et gingembre",
+                "es": "Gambas salteadas con reducción de mango y jengibre"
+              },
+              "preco": "12,50 €"
             },
             {
               "nome": {
-                "pt": "Escangalhado de Polvo",
-                "en": "Smashed Octopus with Potatoes",
-                "fr": "Poulpe Écrasé aux Pommes de Terre",
-                "es": "Pulpo Desmenuzado con Papas"
+                "pt": "Gambas ao Alho",
+                "en": "Garlic Prawns",
+                "fr": "Crevettes à l'Ail",
+                "es": "Gambas al Ajillo"
               },
-              "preco": "27,00€ / 40,00€"
+              "desc": {
+                "pt": "Gambas salteadas c/ azeite, alho e salsa",
+                "en": "Prawns sautéed with olive oil, garlic and parsley",
+                "fr": "Crevettes sautées à l'huile d'olive, ail et persil",
+                "es": "Gambas salteadas con aceite, ajo y perejil"
+              },
+              "preco": "9 €"
+            },
+            {
+              "nome": {
+                "pt": "Búzios em Molho Verde",
+                "en": "Whelks in Green Sauce",
+                "fr": "Bulots en Sauce Verte",
+                "es": "Caracolas en Salsa Verde"
+              },
+              "desc": {
+                "pt": "200 g de búzios com cebola, salsa e tempero",
+                "en": "200 g of whelks with onion, parsley and seasoning",
+                "fr": "200 g de bulots à l'oignon, persil et assaisonnement",
+                "es": "200 g de caracolas con cebolla, perejil y aliño"
+              },
+              "preco": "15 €"
+            },
+            {
+              "nome": {
+                "pt": "Camarão Tigre Grelhado (2 unid.)",
+                "en": "Grilled Tiger Prawns (2 pcs)",
+                "fr": "Gambas Tigre Grillées (2 pièces)",
+                "es": "Langostinos Tigre a la Parrilla (2 uds)"
+              },
+              "desc": {
+                "pt": "Batata palha caseira e salada",
+                "en": "Homemade straw potatoes and salad",
+                "fr": "Pommes paille maison et salade",
+                "es": "Patatas paja caseras y ensalada"
+              },
+              "preco": "25 €"
+            },
+            {
+              "nome": {
+                "pt": "Tábua de Presunto",
+                "en": "Cured Ham Board",
+                "fr": "Planche de Jambon Cru",
+                "es": "Tabla de Jamón"
+              },
+              "preco": "5,50 €"
+            },
+            {
+              "nome": {
+                "pt": "Tábua Mista à Singular",
+                "en": "Singular Mixed Board",
+                "fr": "Planche Mixte à la Singular",
+                "es": "Tabla Mixta Singular"
+              },
+              "desc": {
+                "pt": "Presunto, seleção de queijos, tostinhas e geleia tradicional",
+                "en": "Cured ham, cheese selection, toasts and traditional jam",
+                "fr": "Jambon cru, sélection de fromages, toasts et confiture traditionnelle",
+                "es": "Jamón, selección de quesos, tostas y mermelada tradicional"
+              },
+              "preco": "12 €"
+            },
+            {
+              "nome": {
+                "pt": "Chouriço Assado (2 unid.)",
+                "en": "Roasted Chouriço (2 pcs)",
+                "fr": "Chorizo Rôti (2 pièces)",
+                "es": "Chorizo Asado (2 uds)"
+              },
+              "preco": "4 €"
+            },
+            {
+              "nome": {
+                "pt": "Pratinho de Salpicão",
+                "en": "Salpicão Sausage Plate",
+                "fr": "Assiette de Salpicão",
+                "es": "Platito de Salpicão"
+              },
+              "preco": "3 €"
+            },
+            {
+              "nome": {
+                "pt": "Crocante de Pota",
+                "en": "Crispy Squid",
+                "fr": "Encornet Croustillant",
+                "es": "Crujiente de Pota"
+              },
+              "preco": "5,50 €"
+            },
+            {
+              "nome": {
+                "pt": "Polvo em Molho Verde",
+                "en": "Octopus in Green Sauce",
+                "fr": "Poulpe en Sauce Verte",
+                "es": "Pulpo en Salsa Verde"
+              },
+              "desc": {
+                "pt": "250 g de polvo com cebola, salsa e tempero",
+                "en": "250 g of octopus with onion, parsley and seasoning",
+                "fr": "250 g de poulpe à l'oignon, persil et assaisonnement",
+                "es": "250 g de pulpo con cebolla, perejil y aliño"
+              },
+              "preco": "15 €"
             }
           ]
         }
@@ -609,966 +288,382 @@
             "fr": "Viande",
             "es": "Carne"
           },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Bife São Caetano",
-                "en": "Steak São Caetano-Style",
-                "fr": "Steak à la São Caetano",
-                "es": "Filete Estilo São Caetano"
-              },
-              "desc": {
-                "pt": "Batata às rodelas, molho da casa",
-                "en": "Sliced potatoes, house sauce",
-                "fr": "Pommes de terre en rondelles, sauce maison",
-                "es": "Papas en rodajas, salsa de la casa"
-              },
-              "preco": "16,00€ / 24,00€"
-            },
-            {
-              "nome": {
-                "pt": "Posta Tropical",
-                "en": "Tropical Steak",
-                "fr": "Pavé Tropical",
-                "es": "Filete Tropical"
-              },
-              "desc": {
-                "pt": "Salada, fruta, batata às rodelas e molho",
-                "en": "Salad, fruit, sliced potatoes and sauce",
-                "fr": "Salade, fruits, pommes de terre en rondelles et sauce",
-                "es": "Ensalada, frutas, papas en rodajas y salsa"
-              },
-              "preco": "18,50€ / 28,00€"
-            },
-            {
-              "nome": {
-                "pt": "Posta à Casa",
-                "en": "House-Style Steak",
-                "fr": "Pavé Maison",
-                "es": "Filete Estilo Casa"
-              },
-              "desc": {
-                "pt": "Batata a murro, grelos",
-                "en": "Smashed potatoes, turnip greens",
-                "fr": "Pommes de terre écrasées, pousses de navet",
-                "es": "Puré de papas, brotes de nabo"
-              },
-              "preco": "19,50€ / 29,50€"
-            },
-            {
-              "nome": {
-                "pt": "Bifinhos c/ Cogumelos",
-                "en": "Beef Strips with Mushrooms",
-                "fr": "Émincé de Bœuf aux Champignons",
-                "es": "Tiras de Carne con Champiñones"
-              },
-              "preco": "17,00€ / 24,00€"
-            },
-            {
-              "nome": {
-                "pt": "Bife na Telha",
-                "en": "Steak on a Clay Tile",
-                "fr": "Steak sur Tuile",
-                "es": "Filete en Azulejo de Arcilla"
-              },
-              "desc": {
-                "pt": "Batata às rodelas, grelos e queijo brie",
-                "en": "Sliced potatoes, turnip greens and brie cheese",
-                "fr": "Pommes de terre en rondelles, pousses de navet et fromage brie",
-                "es": "Papas en rodajas, brotes de nabo y queso brie"
-              },
-              "preco": "16,50€ / 23,00€"
-            },
-            {
-              "nome": {
-                "pt": "Brasa na Mesa",
-                "en": "Charcoal Grill at the Table",
-                "fr": "Braise à Table",
-                "es": "Parrilla en la Mesa"
-              },
-              "preco": "34,00€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "vegetariana",
-      "emoji": "🥦",
-      "tipo": "comida",
-      "tile": {
-        "pt": "Vegetariana",
-        "en": "Vegetarian",
-        "fr": "Végétarien",
-        "es": "Vegetariana"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Vegetariana",
-            "en": "Vegetarian",
-            "fr": "Végétarien",
-            "es": "Vegetariana"
+          "subtitulo": {
+            "pt": "Guarnições: 1 à escolha (Arroz Branco, Batata Frita, Batata à Murro, Salada Ibérica ou Legumes Salteados)",
+            "en": "Sides: choose 1 (White rice, fries, smashed potato, Iberian salad or sautéed vegetables)",
+            "fr": "Accompagnements : 1 au choix (Riz blanc, frites, pommes écrasées, salade ibérique ou légumes sautés)",
+            "es": "Guarniciones: 1 a elegir (Arroz blanco, patatas fritas, patata chafada, ensalada ibérica o verduras salteadas)"
           },
           "itens": [
             {
               "nome": {
-                "pt": "Folhado de Legumes",
-                "en": "Vegetable Puff Pastry",
-                "fr": "Feuilleté de Légumes",
-                "es": "Hojaldre de Verduras"
+                "pt": "Posta de Novilho",
+                "en": "Veal Steak",
+                "fr": "Pavé de Veau",
+                "es": "Filete de Ternera"
               },
-              "preco": "11,50€"
+              "preco": "22 €"
             },
             {
               "nome": {
-                "pt": "Massa Salteada c/ Variedade de Legumes",
-                "en": "Sautéed Pasta with Mixed Vegetables",
-                "fr": "Pâtes Sautées aux Légumes Variés",
-                "es": "Pasta Salteada con Verduras Variadas"
+                "pt": "Naco de Alcatra (Grelhada)",
+                "en": "Grilled Rump Steak",
+                "fr": "Pièce de Rumsteck (Grillée)",
+                "es": "Tapa de Cadera (a la Parrilla)"
               },
-              "preco": "10,50€"
+              "preco": "12 €"
+            },
+            {
+              "nome": {
+                "pt": "T-Bone",
+                "en": "T-Bone",
+                "fr": "T-Bone",
+                "es": "T-Bone"
+              },
+              "preco": "42 € / Kg"
+            },
+            {
+              "nome": {
+                "pt": "Tomahawk",
+                "en": "Tomahawk",
+                "fr": "Tomahawk",
+                "es": "Tomahawk"
+              },
+              "preco": "42 € / Kg"
+            },
+            {
+              "nome": {
+                "pt": "Tomahawk Maturado 21 dias",
+                "en": "Tomahawk Aged 21 days",
+                "fr": "Tomahawk Maturé 21 jours",
+                "es": "Tomahawk Madurado 21 días"
+              },
+              "preco": "48 € / Kg"
+            },
+            {
+              "nome": {
+                "pt": "Bife de Vazia",
+                "en": "Sirloin Steak",
+                "fr": "Faux-filet",
+                "es": "Entrecot"
+              },
+              "preco": "14 €"
             }
           ]
         }
       ]
     },
     {
-      "id": "snacks",
-      "emoji": "🌭",
+      "id": "massas",
+      "emoji": "🍝",
       "tipo": "comida",
       "tile": {
-        "pt": "Snacks",
-        "en": "Snacks",
-        "fr": "Snacks",
-        "es": "Snacks"
+        "pt": "Massas",
+        "en": "Pasta",
+        "fr": "Pâtes",
+        "es": "Pastas"
       },
       "grupos": [
         {
           "summary": {
-            "pt": "Snacks",
-            "en": "Snacks",
-            "fr": "Snacks",
-            "es": "Snacks"
+            "pt": "Massas",
+            "en": "Pasta",
+            "fr": "Pâtes",
+            "es": "Pastas"
+          },
+          "itens": [
+            {
+              "nome": {
+                "pt": "Gambas Aglio e Olio",
+                "en": "Prawns Aglio e Olio",
+                "fr": "Crevettes Aglio e Olio",
+                "es": "Gambas Aglio e Olio"
+              },
+              "desc": {
+                "pt": "Gambas salteadas c/ azeite e alho",
+                "en": "Prawns sautéed with olive oil and garlic",
+                "fr": "Crevettes sautées à l'huile d'olive et ail",
+                "es": "Gambas salteadas con aceite y ajo"
+              },
+              "preco": "12 €"
+            },
+            {
+              "nome": {
+                "pt": "Della Nonna",
+                "en": "Della Nonna",
+                "fr": "Della Nonna",
+                "es": "Della Nonna"
+              },
+              "desc": {
+                "pt": "Cogumelos, bacon, tomate e natas",
+                "en": "Mushrooms, bacon, tomato and cream",
+                "fr": "Champignons, bacon, tomate et crème",
+                "es": "Champiñones, bacon, tomate y nata"
+              },
+              "preco": "11 €"
+            },
+            {
+              "nome": {
+                "pt": "Carbonara",
+                "en": "Carbonara",
+                "fr": "Carbonara",
+                "es": "Carbonara"
+              },
+              "preco": "10 €"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "peixe",
+      "emoji": "🐟",
+      "tipo": "comida",
+      "tile": {
+        "pt": "Peixe",
+        "en": "Fish",
+        "fr": "Poisson",
+        "es": "Pescado"
+      },
+      "grupos": [
+        {
+          "summary": {
+            "pt": "Peixe",
+            "en": "Fish",
+            "fr": "Poisson",
+            "es": "Pescado"
           },
           "subtitulo": {
-            "pt": "Francesinhas e Cachorros",
-            "en": "Francesinhas & Hot Dogs",
-            "fr": "Francesinhas et Hot-Dogs",
-            "es": "Francesinhas y Hot Dogs"
+            "pt": "Guarnições: 2 à escolha (Arroz Branco, Batata Frita, Batata à Murro, Salada Ibérica ou Legumes Salteados)",
+            "en": "Sides: choose 2 (White rice, fries, smashed potato, Iberian salad or sautéed vegetables)",
+            "fr": "Accompagnements : 2 au choix (Riz blanc, frites, pommes écrasées, salade ibérique ou légumes sautés)",
+            "es": "Guarniciones: 2 a elegir (Arroz blanco, patatas fritas, patata chafada, ensalada ibérica o verduras salteadas)"
           },
           "itens": [
             {
               "nome": {
-                "pt": "Francesinha no Forno s/ Ovo",
-                "en": "Oven-Baked Francesinha without Egg",
-                "fr": "Francesinha au Four sans Œuf"
-              },
-              "preco": "11,00€"
-            },
-            {
-              "nome": {
-                "pt": "Francesinha no Forno c/ Ovo",
-                "en": "Oven-Baked Francesinha with Egg",
-                "fr": "Francesinha au Four avec Œuf"
-              },
-              "foto": "francesinha-forno-com-ovo",
-              "preco": "12,50€"
-            },
-            {
-              "nome": {
-                "pt": "1/2 Francesinha c/ ou s/ Ovo",
-                "en": "Half Francesinha with or without Egg",
-                "fr": "Demi-Francesinha avec ou sans Œuf"
-              },
-              "preco": "9,50€"
-            },
-            {
-              "nome": {
-                "pt": "Francesinha em Massa Folhada",
-                "en": "Francesinha in Puff Pastry",
-                "fr": "Francesinha en Pâte Feuilletée"
-              },
-              "preco": "13,50€"
-            },
-            {
-              "nome": {
-                "pt": "Cachorro Normal",
-                "en": "Regular Hot Dog",
-                "fr": "Hot-Dog Nature"
-              },
-              "preco": "6,50€"
-            },
-            {
-              "nome": {
-                "pt": "Cachorro à São Caetano",
-                "en": "Hot Dog São Caetano-Style",
-                "fr": "Hot-Dog à la São Caetano"
+                "pt": "Lombo de Robalo",
+                "en": "Sea Bass Fillet",
+                "fr": "Filet de Bar",
+                "es": "Lomo de Lubina"
               },
               "desc": {
-                "pt": "Linguiça e salsicha fresca",
-                "en": "Smoked sausage and fresh sausage",
-                "fr": "Chorizo et saucisse fraîche"
+                "pt": "Batata a murro e legumes salteados",
+                "en": "Smashed potatoes and sautéed vegetables",
+                "fr": "Pommes de terre écrasées et légumes sautés",
+                "es": "Patata chafada y verduras salteadas"
               },
-              "preco": "9,50€"
+              "preco": "13 €"
             },
             {
               "nome": {
-                "pt": "Cachorro Especial",
-                "en": "Special Hot Dog",
-                "fr": "Hot-Dog Spécial"
+                "pt": "Lombo de Salmão",
+                "en": "Salmon Fillet",
+                "fr": "Filet de Saumon",
+                "es": "Lomo de Salmón"
               },
-              "preco": "10,50€"
+              "desc": {
+                "pt": "Batata a murro e legumes",
+                "en": "Smashed potatoes and vegetables",
+                "fr": "Pommes de terre écrasées et légumes",
+                "es": "Patata chafada y verduras"
+              },
+              "preco": "12,50 €"
             },
             {
               "nome": {
-                "pt": "Cachorro em Massa Folhada",
-                "en": "Hot Dog in Puff Pastry",
-                "fr": "Hot-Dog en Pâte Feuilletée"
+                "pt": "Bacalhau à Brás",
+                "en": "Codfish à Brás",
+                "fr": "Morue à Brás",
+                "es": "Bacalao a Brás"
               },
-              "preco": "12,50€"
+              "desc": {
+                "pt": "Servido com salada ibérica",
+                "en": "Served with Iberian salad",
+                "fr": "Servi avec salade ibérique",
+                "es": "Servido con ensalada ibérica"
+              },
+              "preco": "11,50 €"
             },
             {
               "nome": {
-                "pt": "Hambúrguer à São Caetano",
-                "en": "Burger São Caetano-Style",
-                "fr": "Hamburger à la São Caetano"
+                "pt": "Polvo à Lagareiro",
+                "en": "Octopus Lagareiro-style",
+                "fr": "Poulpe à la Lagareiro",
+                "es": "Pulpo a la Lagareiro"
               },
-              "preco": "12,50€"
+              "preco": "17,50 €"
             }
           ]
         }
       ]
     },
     {
-      "id": "sandes",
-      "emoji": "🥪",
+      "id": "saladas",
+      "emoji": "🥗",
       "tipo": "comida",
       "tile": {
-        "pt": "Sandes & Tostas",
-        "en": "Sandwiches & Toasts",
-        "fr": "Sandwichs et Croque-Monsieurs",
-        "es": "Sándwiches y Tostadas"
+        "pt": "Saladas",
+        "en": "Salads",
+        "fr": "Salades",
+        "es": "Ensaladas"
       },
       "grupos": [
         {
           "summary": {
-            "pt": "Sandes & Tostas",
-            "en": "Sandwiches & Toasts",
-            "fr": "Sandwichs et Croque-Monsieurs",
-            "es": "Sándwiches y Tostadas"
+            "pt": "Saladas",
+            "en": "Salads",
+            "fr": "Salades",
+            "es": "Ensaladas"
           },
           "itens": [
             {
               "nome": {
-                "pt": "Americana",
-                "en": "Americana Sandwich",
-                "fr": "Sandwich Americana"
+                "pt": "Salada de Atum",
+                "en": "Tuna Salad",
+                "fr": "Salade de Thon",
+                "es": "Ensalada de Atún"
               },
-              "preco": "7,50€"
+              "preco": "10 €"
             },
             {
               "nome": {
-                "pt": "Prego no Prato",
+                "pt": "Salada de Gambas",
+                "en": "Prawn Salad",
+                "fr": "Salade de Crevettes",
+                "es": "Ensalada de Gambas"
+              },
+              "preco": "12 €"
+            },
+            {
+              "nome": {
+                "pt": "Salada de Salmão Fumado",
+                "en": "Smoked Salmon Salad",
+                "fr": "Salade de Saumon Fumé",
+                "es": "Ensalada de Salmón Ahumado"
+              },
+              "preco": "13 €"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guarnicoes",
+      "emoji": "🍟",
+      "tipo": "comida",
+      "tile": {
+        "pt": "Guarnições",
+        "en": "Side Dishes",
+        "fr": "Accompagnements",
+        "es": "Guarniciones"
+      },
+      "grupos": [
+        {
+          "summary": {
+            "pt": "Guarnições",
+            "en": "Side Dishes",
+            "fr": "Accompagnements",
+            "es": "Guarniciones"
+          },
+          "itens": [
+            {
+              "nome": {
+                "pt": "Arroz Branco",
+                "en": "White Rice",
+                "fr": "Riz Blanc",
+                "es": "Arroz Blanco"
+              },
+              "preco": "3 €"
+            },
+            {
+              "nome": {
+                "pt": "Batata a Murro",
+                "en": "Smashed Potatoes",
+                "fr": "Pommes de terre écrasées",
+                "es": "Patata Chafada"
+              },
+              "preco": "3 €"
+            },
+            {
+              "nome": {
+                "pt": "Legumes Salteados",
+                "en": "Sautéed Vegetables",
+                "fr": "Légumes Sautés",
+                "es": "Verduras Salteadas"
+              },
+              "preco": "3 €"
+            },
+            {
+              "nome": {
+                "pt": "Batata Frita",
+                "en": "Fries",
+                "fr": "Frites",
+                "es": "Patatas Fritas"
+              },
+              "preco": "3 €"
+            },
+            {
+              "nome": {
+                "pt": "Salada Ibérica",
+                "en": "Iberian Salad",
+                "fr": "Salade Ibérique",
+                "es": "Ensalada Ibérica"
+              },
+              "preco": "3 €"
+            },
+            {
+              "nome": {
+                "pt": "Batata Rústica",
+                "en": "Rustic Potatoes",
+                "fr": "Pommes de terre rustiques",
+                "es": "Patata Rústica"
+              },
+              "preco": "3 €"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snack-prato",
+      "emoji": "🍽️",
+      "tipo": "comida",
+      "tile": {
+        "pt": "Snack (Prato)",
+        "en": "Snack (Plate)",
+        "fr": "Snack (Assiette)",
+        "es": "Snack (Plato)"
+      },
+      "grupos": [
+        {
+          "summary": {
+            "pt": "Snack (Prato)",
+            "en": "Snack (Plate)",
+            "fr": "Snack (Assiette)",
+            "es": "Snack (Plato)"
+          },
+          "subtitulo": {
+            "pt": "Servido c/ batata frita",
+            "en": "Served with fries",
+            "fr": "Servi avec frites",
+            "es": "Servido con patatas fritas"
+          },
+          "itens": [
+            {
+              "nome": {
+                "pt": "Prego em Prato",
                 "en": "Steak Sandwich on a Plate",
-                "fr": "Sandwich à la Viande sur Assiette"
+                "fr": "Steak (assiette)",
+                "es": "Filete en Plato"
               },
-              "preco": "11,50€"
-            },
-            {
-              "nome": {
-                "pt": "Prego no Pão",
-                "en": "Steak Sandwich in Bread",
-                "fr": "Sandwich à la Viande"
+              "desc": {
+                "pt": "Bife de alcatra (Black Angus), ovo, batata frita e arroz branco",
+                "en": "Rump steak (Black Angus), egg, fries and white rice",
+                "fr": "Rumsteck (Black Angus), œuf, frites et riz blanc",
+                "es": "Filete de cadera (Black Angus), huevo, patatas fritas y arroz blanco"
               },
-              "preco": "9,50€"
-            },
-            {
-              "nome": {
-                "pt": "Tosta Mista",
-                "en": "Mixed Toast",
-                "fr": "Croque-Monsieur"
-              },
-              "preco": "3,50€"
-            },
-            {
-              "nome": {
-                "pt": "Tosta Mista Especial",
-                "en": "Special Mixed Toast",
-                "fr": "Croque-Monsieur Spécial"
-              },
-              "preco": "8,50€"
-            },
-            {
-              "nome": {
-                "pt": "Tosta de Atum c/ Ananás",
-                "en": "Tuna and Pineapple Toast",
-                "fr": "Toast au Thon et Ananas"
-              },
-              "preco": "7,50€"
-            },
-            {
-              "nome": {
-                "pt": "Prego no Pão Especial",
-                "en": "Special Steak Sandwich",
-                "fr": "Sandwich à la Viande Spécial"
-              },
-              "preco": "15,00€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "domingo",
-      "emoji": "🍲",
-      "tipo": "comida",
-      "tile": {
-        "pt": "Menu de Domingo",
-        "en": "Sunday Menu",
-        "fr": "Menu du Dimanche",
-        "es": "Menú de Domingo"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Menu de Domingo",
-            "en": "Sunday Menu",
-            "fr": "Menu du Dimanche",
-            "es": "Menú de Domingo"
-          },
-          "subtitulo": {
-            "pt": "Meia dose / Dose",
-            "en": "Half portion / Full portion",
-            "fr": "Demi-portion / Portion",
-            "es": "Media porción / Porción completa"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Vitela Assada",
-                "en": "Roast Veal",
-                "fr": "Veau Rôti"
-              },
-              "preco": "14,00€ / 21,00€"
-            },
-            {
-              "nome": {
-                "pt": "Cabrito",
-                "en": "Roast Kid Goat",
-                "fr": "Chevreau Rôti"
-              },
-              "preco": "17,00€ / 26,00€"
-            },
-            {
-              "nome": {
-                "pt": "Tripas à Moda do Porto",
-                "en": "Porto-Style Tripe",
-                "fr": "Tripes à la Porto"
-              },
-              "preco": "10,50€ / 16,00€"
-            },
-            {
-              "nome": {
-                "pt": "Lombo",
-                "en": "Roast Pork Loin",
-                "fr": "Longe de Porc Rôtie"
-              },
-              "preco": "12,50€ / 21,50€"
-            },
-            {
-              "nome": {
-                "pt": "Cozido à Portuguesa",
-                "en": "Portuguese Boiled Dinner",
-                "fr": "Pot-au-Feu à la Portugaise"
-              },
-              "preco": "15,00€ / 24,50€"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "vinhos",
-      "emoji": "🍷",
-      "tipo": "vinhos",
-      "tile": {
-        "pt": "Vinhos & Bebidas",
-        "en": "Wines & Drinks",
-        "fr": "Vins & Boissons",
-        "es": "Vinos y Bebidas"
-      },
-      "h2": {
-        "pt": "Vinhos & Bebidas",
-        "en": "Wines & Drinks",
-        "fr": "Vins & Boissons",
-        "es": "Vinos y Bebidas"
-      },
-      "subtitulo": {
-        "pt": "Carta de Vinhos — Parque São Caetano",
-        "en": "Wine List — Parque São Caetano",
-        "fr": "Carte des Vins — Parque São Caetano",
-        "es": "Carta de Vinos — Parque São Caetano"
-      },
-      "notaFinal": {
-        "pt": "IVA incluído à taxa legal em vigor.",
-        "en": "VAT included at the legal rate in force.",
-        "fr": "TVA incluse au taux légal en vigueur.",
-        "es": "IVA incluido a la tasa legal vigente."
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "Vinho da Casa",
-            "en": "House Wine",
-            "fr": "Vin de la Maison",
-            "es": "Vino de la Casa"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Caneca",
-                "en": "Jug",
-                "fr": "Carafe",
-                "es": "Jarra"
-              }
-            },
-            {
-              "tabela": {
-                "doses": [
-                  "0,25 L",
-                  "0,50 L",
-                  "1 L"
-                ],
-                "precos": [
-                  "2,50€",
-                  "3,50€",
-                  "7,50€"
-                ]
-              }
-            },
-            {
-              "nome": {
-                "pt": "Garrafa Maduro Branco",
-                "en": "Bottle — House White",
-                "fr": "Bouteille — Vin Blanc Maison",
-                "es": "Botella — Vino Blanco de la Casa"
-              }
-            },
-            {
-              "tabela": {
-                "doses": [
-                  "0,37 L",
-                  "0,75 L"
-                ],
-                "precos": [
-                  "4,00€",
-                  "8,00€"
-                ]
-              }
-            },
-            {
-              "nome": {
-                "pt": "Garrafa Maduro Tinto",
-                "en": "Bottle — House Red",
-                "fr": "Bouteille — Vin Rouge Maison",
-                "es": "Botella — Vino Tinto de la Casa"
-              }
-            },
-            {
-              "tabela": {
-                "doses": [
-                  "0,37 L",
-                  "0,75 L"
-                ],
-                "precos": [
-                  "4,50€",
-                  "8,50€"
-                ]
-              }
-            },
-            {
-              "nome": {
-                "pt": "Outras Garrafas — Verde",
-                "en": "Other Bottles — Verde",
-                "fr": "Autres Bouteilles — Verde",
-                "es": "Otras Botellas — Verde"
-              },
-              "preco": "8,50€"
-            },
-            {
-              "nome": {
-                "pt": "Outras Garrafas — Espadal",
-                "en": "Other Bottles — Espadal",
-                "fr": "Autres Bouteilles — Espadal",
-                "es": "Otras Botellas — Espadal"
-              },
-              "preco": "9,00€"
-            }
-          ]
-        },
-        {
-          "summary": {
-            "pt": "Maduro Branco",
-            "en": "White Wines",
-            "fr": "Vins Blancs",
-            "es": "Vinos Blancos"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Almotriga"
-              },
-              "vinho": "almotriga-branco",
-              "preco": "20,00€"
-            },
-            {
-              "nome": {
-                "pt": "Planalto"
-              },
-              "vinho": "planalto",
-              "preco": "15,00€"
-            },
-            {
-              "nome": {
-                "pt": "Dona Ermelinda"
-              },
-              "vinho": "dona-ermelinda-branco",
-              "preco": "22,50€"
-            },
-            {
-              "nome": {
-                "pt": "Alandra 0,75 L"
-              },
-              "vinho": "alandra",
-              "preco": "8,00€"
-            },
-            {
-              "nome": {
-                "pt": "Alandra 0,37 L"
-              },
-              "vinho": "alandra",
-              "preco": "4,50€"
-            },
-            {
-              "nome": {
-                "pt": "Assobio"
-              },
-              "vinho": "assobio-branco",
-              "preco": "21,00€"
-            },
-            {
-              "nome": {
-                "pt": "Carm Reserva"
-              },
-              "vinho": "carm-reserva-branco",
-              "preco": "33,00€"
-            },
-            {
-              "nome": {
-                "pt": "Almotriga Premium"
-              },
-              "vinho": "almotriga-premium",
-              "preco": "39,00€"
-            },
-            {
-              "nome": {
-                "pt": "Duas Quintas"
-              },
-              "vinho": "duas-quintas-branco",
-              "preco": "30,00€"
-            },
-            {
-              "nome": {
-                "pt": "Adega de Borba 0,75 L"
-              },
-              "vinho": "adega-de-borba-branco",
-              "preco": "13,00€"
-            },
-            {
-              "nome": {
-                "pt": "Adega de Borba 0,37 L"
-              },
-              "vinho": "adega-de-borba-branco",
-              "preco": "7,50€"
-            },
-            {
-              "nome": {
-                "pt": "Pouca Terra"
-              },
-              "vinho": "pouca-terra-branco",
-              "preco": "20,00€"
-            },
-            {
-              "nome": {
-                "pt": "Bom Malandro"
-              },
-              "vinho": "bom-malandro-branco",
-              "preco": "21,50€"
-            },
-            {
-              "nome": {
-                "pt": "Conde de Monsul"
-              },
-              "vinho": "conde-de-monsul-branco",
-              "preco": "13,50€"
-            },
-            {
-              "nome": {
-                "pt": "Fagote"
-              },
-              "vinho": "fagote-branco",
-              "preco": "21,50€"
-            },
-            {
-              "nome": {
-                "pt": "E.A (Cartuxa) 0,75 L"
-              },
-              "vinho": "ea-cartuxa-branco",
-              "preco": "18,00€"
-            },
-            {
-              "nome": {
-                "pt": "E.A (Cartuxa) 0,37 L"
-              },
-              "vinho": "ea-cartuxa-branco",
-              "preco": "9,00€"
-            },
-            {
-              "nome": {
-                "pt": "Monte Velho 0,75 L"
-              },
-              "vinho": "monte-velho-branco",
-              "preco": "12,50€"
-            },
-            {
-              "nome": {
-                "pt": "Monte Velho 0,37 L"
-              },
-              "vinho": "monte-velho-branco",
-              "preco": "7,50€"
-            }
-          ]
-        },
-        {
-          "summary": {
-            "pt": "Maduro Tinto",
-            "en": "Red Wines",
-            "fr": "Vins Rouges",
-            "es": "Vinos Tintos"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Almotriga"
-              },
-              "vinho": "almotriga-tinto",
-              "preco": "21,00€"
-            },
-            {
-              "nome": {
-                "pt": "Assobio"
-              },
-              "vinho": "assobio-tinto",
-              "preco": "22,00€"
-            },
-            {
-              "nome": {
-                "pt": "Dona Ermelinda"
-              },
-              "vinho": "dona-ermelinda-tinto",
-              "preco": "23,50€"
-            },
-            {
-              "nome": {
-                "pt": "Adega de Borba"
-              },
-              "vinho": "adega-de-borba-tinto",
-              "preco": "14,00€"
-            },
-            {
-              "nome": {
-                "pt": "Carm Reserva"
-              },
-              "vinho": "carm-reserva-tinto",
-              "preco": "40,00€"
-            },
-            {
-              "nome": {
-                "pt": "Almotriga Premium"
-              },
-              "vinho": "almotriga-premium",
-              "preco": "38,50€"
-            },
-            {
-              "nome": {
-                "pt": "Duas Quintas"
-              },
-              "vinho": "duas-quintas-tinto",
-              "preco": "31,00€"
-            },
-            {
-              "nome": {
-                "pt": "Pouca Terra"
-              },
-              "vinho": "pouca-terra-tinto",
-              "preco": "21,00€"
-            },
-            {
-              "nome": {
-                "pt": "Bom Malandro"
-              },
-              "vinho": "bom-malandro-tinto",
-              "preco": "19,50€"
-            },
-            {
-              "nome": {
-                "pt": "Conde de Monsul"
-              },
-              "vinho": "conde-de-monsul-tinto",
-              "preco": "14,50€"
-            },
-            {
-              "nome": {
-                "pt": "Monte Perdigões"
-              },
-              "vinho": "monte-perdigoes",
-              "preco": "23,50€"
-            },
-            {
-              "nome": {
-                "pt": "Chaminé (Tinto)",
-                "en": "Chaminé (Red)",
-                "fr": "Chaminé (Rouge)"
-              },
-              "vinho": "chamine",
-              "preco": "22,50€"
-            },
-            {
-              "nome": {
-                "pt": "Fagote (Tinto)",
-                "en": "Fagote (Red)",
-                "fr": "Fagote (Rouge)"
-              },
-              "vinho": "fagote-tinto",
-              "preco": "22,50€"
-            },
-            {
-              "nome": {
-                "pt": "E.A (Cartuxa) 0,75 L"
-              },
-              "vinho": "ea-cartuxa-tinto",
-              "preco": "19,00€"
-            },
-            {
-              "nome": {
-                "pt": "E.A (Cartuxa) 0,37 L"
-              },
-              "vinho": "ea-cartuxa-tinto",
-              "preco": "10,00€"
-            },
-            {
-              "nome": {
-                "pt": "Monte Velho 0,75 L"
-              },
-              "vinho": "monte-velho-tinto",
-              "preco": "13,50€"
-            },
-            {
-              "nome": {
-                "pt": "Monte Velho 0,37 L"
-              },
-              "vinho": "monte-velho-tinto",
-              "preco": "8,50€"
-            }
-          ]
-        },
-        {
-          "summary": {
-            "pt": "Verdes",
-            "en": "Vinho Verde",
-            "fr": "Vinho Verde",
-            "es": "Vino Verde"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Casal Garcia"
-              },
-              "vinho": "casal-garcia",
-              "preco": "10,50€"
-            },
-            {
-              "nome": {
-                "pt": "Quinta Aveleda"
-              },
-              "vinho": "quinta-aveleda",
-              "preco": "11,50€"
-            },
-            {
-              "nome": {
-                "pt": "Aveleda Alvarinho"
-              },
-              "vinho": "aveleda-alvarinho",
-              "preco": "16,00€"
-            },
-            {
-              "nome": {
-                "pt": "Tamariz Alvarinho"
-              },
-              "vinho": "tamariz-alvarinho",
-              "preco": "18,00€"
-            },
-            {
-              "nome": {
-                "pt": "Muralhas"
-              },
-              "vinho": "muralhas",
-              "preco": "18,00€"
-            }
-          ]
-        },
-        {
-          "summary": {
-            "pt": "Espumantes",
-            "en": "Sparkling Wines",
-            "fr": "Vins Mousseux",
-            "es": "Vinos Espumosos"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Corte Real"
-              },
-              "vinho": "corte-real",
-              "preco": "9,00€"
-            },
-            {
-              "nome": {
-                "pt": "Terras do Demo Bruto",
-                "en": "Terras do Demo (Brut)",
-                "fr": "Terras do Demo (Brut)"
-              },
-              "vinho": "terras-do-demo",
-              "preco": "28,00€"
-            },
-            {
-              "nome": {
-                "pt": "Fita Azul Doce",
-                "en": "Fita Azul (Sweet)",
-                "fr": "Fita Azul (Doux)"
-              },
-              "vinho": "fita-azul",
-              "preco": "15,00€"
-            },
-            {
-              "nome": {
-                "pt": "Raposeira Meio Seco",
-                "en": "Raposeira (Medium Dry)",
-                "fr": "Raposeira (Demi-Sec)"
-              },
-              "vinho": "raposeira",
-              "preco": "24,00€"
-            }
-          ]
-        },
-        {
-          "summary": {
-            "pt": "Rosés",
-            "en": "Rosés",
-            "fr": "Rosés",
-            "es": "Rosados"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Mateus Rosé 0,75 L"
-              },
-              "vinho": "mateus-rose",
-              "preco": "12,75€"
-            },
-            {
-              "nome": {
-                "pt": "Mateus Rosé 0,37 L"
-              },
-              "vinho": "mateus-rose",
-              "preco": "8,50€"
-            }
-          ]
-        },
-        {
-          "summary": {
-            "pt": "Sangrias",
-            "en": "Sangria",
-            "fr": "Sangria",
-            "es": "Sangría"
-          },
-          "itens": [
-            {
-              "nome": {
-                "pt": "Tinta / Branca",
-                "en": "Red / White",
-                "fr": "Rouge / Blanc",
-                "es": "Tinto / Blanco"
-              }
-            },
-            {
-              "tabela": {
-                "doses": [
-                  "0,5 L",
-                  "1 L",
-                  "2 L"
-                ],
-                "precos": [
-                  "7,50€",
-                  "14,00€",
-                  "26,00€"
-                ]
-              }
-            },
-            {
-              "nome": {
-                "pt": "Frutos Vermelhos",
-                "en": "Red Berries",
-                "fr": "Fruits Rouges",
-                "es": "Frutos Rojos"
-              }
-            },
-            {
-              "tabela": {
-                "doses": [
-                  "0,5 L",
-                  "1 L",
-                  "2 L"
-                ],
-                "precos": [
-                  "9,50€",
-                  "18,00€",
-                  "34,00€"
-                ]
-              }
-            },
-            {
-              "nome": {
-                "pt": "Maracujá",
-                "en": "Passion Fruit",
-                "fr": "Fruit de la Passion",
-                "es": "Fruta de la Pasión"
-              }
-            },
-            {
-              "tabela": {
-                "doses": [
-                  "0,5 L",
-                  "1 L",
-                  "2 L"
-                ],
-                "precos": [
-                  "9,00€",
-                  "17,00€",
-                  "32,00€"
-                ]
-              }
+              "preco": "12 €"
             }
           ]
         }
