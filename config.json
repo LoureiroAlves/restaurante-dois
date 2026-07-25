@@ -4,7 +4,7 @@
     "subtitulo": "O teu slogan aqui",
     "cor": "#ffffff",
     "realce": true,
-    "fotosAtivas": false,
+    "fotosAtivas": true,
     "fotos": [
       "imagens/1784939100333-ver-fotografias-recentes.png",
       "imagens/1784939103898-whatsapp-image-2026-03-13-at-17.36.23.jpg",
@@ -18,7 +18,7 @@
     "linha4": "",
     "cor": "#ffffff",
     "realce": true,
-    "fotosAtivas": false,
+    "fotosAtivas": true,
     "fotos": [
       "imagens/1784939166901-ver-fotografias-recentes.png"
     ],
