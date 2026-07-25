@@ -19,7 +19,9 @@
     "cor": "#ffffff",
     "realce": true,
     "fotosAtivas": false,
-    "fotos": [],
+    "fotos": [
+      "imagens/1784939166901-ver-fotografias-recentes.png"
+    ],
     "especial": {
       "ativo": false,
       "inicio": "",
