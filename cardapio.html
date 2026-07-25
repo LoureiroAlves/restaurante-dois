@@ -655,6 +655,8 @@
 
   /* ===== Lista de compras ===== */
   .item .nome{ flex:1; }
+  /* O bloco à esquerda (nome, ou nome+descrição) cresce sempre, para o preço encostar à direita */
+  .item > div:first-child{ flex:1; min-width:0; }
   .btn-add-lista{
     flex:0 0 auto; width:27px; height:27px; border-radius:50%;
     border:none; background:var(--dourado); color:#fff; font-size:1.15rem;
