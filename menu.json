@@ -1,30 +1,57 @@
 {
-  "restaurante": "Nome do Restaurante 2",
+  "restaurante": "Tasca do Zé (teste)",
   "categorias": [
     {
       "id": "entradas",
       "emoji": "🥖",
       "tipo": "comida",
       "tile": {
-        "pt": "Entradas"
+        "pt": "Entradas",
+        "en": "Starters",
+        "fr": "Entrées",
+        "es": "Entradas"
       },
       "grupos": [
         {
           "summary": {
-            "pt": "Entradas"
+            "pt": "Entradas",
+            "en": "Starters",
+            "fr": "Entrées",
+            "es": "Entradas"
           },
           "itens": [
             {
               "nome": {
-                "pt": "Exemplo — Pão e azeitonas"
+                "pt": "Pão da casa",
+                "en": "House bread",
+                "fr": "Pain maison",
+                "es": "Pan de la casa"
               },
               "preco": "1,50€"
             },
             {
               "nome": {
-                "pt": "Exemplo — Tábua de enchidos"
+                "pt": "Azeitonas temperadas",
+                "en": "Seasoned olives",
+                "fr": "Olives assaisonnées",
+                "es": "Aceitunas aliñadas"
               },
-              "preco": "12,00€"
+              "preco": "2,00€"
+            },
+            {
+              "nome": {
+                "pt": "Queijo da serra",
+                "en": "Serra cheese",
+                "fr": "Fromage de la Serra",
+                "es": "Queso de la sierra"
+              },
+              "desc": {
+                "pt": "Curado, com doce de abóbora",
+                "en": "Cured, with pumpkin jam",
+                "fr": "Affiné, avec confiture de courge",
+                "es": "Curado, con dulce de calabaza"
+              },
+              "preco": "6,50€"
             }
           ]
         }
@@ -35,28 +62,93 @@
       "emoji": "🍽️",
       "tipo": "comida",
       "tile": {
-        "pt": "Pratos Principais"
+        "pt": "Pratos Principais",
+        "en": "Main Dishes",
+        "fr": "Plats Principaux",
+        "es": "Platos Principales"
       },
       "grupos": [
         {
           "summary": {
-            "pt": "Pratos Principais"
+            "pt": "Pratos Principais",
+            "en": "Main Dishes",
+            "fr": "Plats Principaux",
+            "es": "Platos Principales"
           },
           "itens": [
             {
               "nome": {
-                "pt": "Exemplo — Bife da casa"
+                "pt": "Bacalhau à Zé",
+                "en": "Zé-Style Codfish",
+                "fr": "Morue à la Zé",
+                "es": "Bacalao al Estilo Zé"
               },
               "desc": {
-                "pt": "Com batata e salada"
+                "pt": "Com batata a murro e grelos",
+                "en": "With smashed potatoes and turnip greens",
+                "fr": "Avec pommes de terre écrasées et pousses de navet",
+                "es": "Con papas chafadas y grelos"
               },
-              "preco": "14,00€"
+              "preco": "16,00€"
             },
             {
               "nome": {
-                "pt": "Exemplo — Bacalhau à brás"
+                "pt": "Bife da vazia",
+                "en": "Sirloin steak",
+                "fr": "Steak de faux-filet",
+                "es": "Entrecot"
               },
-              "preco": "13,50€"
+              "preco": "14,50€"
+            },
+            {
+              "nome": {
+                "pt": "Polvo à lagareiro",
+                "en": "Octopus Lagareiro-style",
+                "fr": "Poulpe à la lagareiro",
+                "es": "Pulpo a la lagareiro"
+              },
+              "preco": "18,00€"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sobremesas",
+      "emoji": "🍮",
+      "tipo": "comida",
+      "tile": {
+        "pt": "Sobremesas",
+        "en": "Desserts",
+        "fr": "Desserts",
+        "es": "Postres"
+      },
+      "grupos": [
+        {
+          "summary": {
+            "pt": "Sobremesas",
+            "en": "Desserts",
+            "fr": "Desserts",
+            "es": "Postres"
+          },
+          "itens": [
+            {
+              "nome": {
+                "pt": "Pudim da casa",
+                "en": "House flan",
+                "fr": "Flan maison",
+                "es": "Flan de la casa"
+              },
+              "preco": "3,50€"
+            },
+            {
+              "nome": {
+                "pt": "Mousse de chocolate",
+                "en": "Chocolate mousse",
+                "fr": "Mousse au chocolat",
+                "es": "Mousse de chocolate"
+              },
+              "preco": "3,50€"
             }
           ]
         }
@@ -67,32 +159,53 @@
       "emoji": "🍷",
       "tipo": "vinhos",
       "tile": {
-        "pt": "Bebidas"
+        "pt": "Bebidas",
+        "en": "Drinks",
+        "fr": "Boissons",
+        "es": "Bebidas"
       },
       "h2": {
-        "pt": "Bebidas"
+        "pt": "Bebidas",
+        "en": "Drinks",
+        "fr": "Boissons",
+        "es": "Bebidas"
       },
       "subtitulo": {
-        "pt": "Carta de bebidas"
+        "pt": "Carta de bebidas",
+        "en": "Drinks list",
+        "fr": "Carte des boissons",
+        "es": "Carta de bebidas"
       },
       "notaFinal": {
-        "pt": "IVA incluído à taxa legal em vigor."
+        "pt": "IVA incluído à taxa legal em vigor.",
+        "en": "VAT included at the legal rate in force.",
+        "fr": "TVA incluse au taux légal en vigueur.",
+        "es": "IVA incluido a la tasa legal vigente."
       },
       "grupos": [
         {
           "summary": {
-            "pt": "Vinho da Casa"
+            "pt": "Vinho da Casa",
+            "en": "House Wine",
+            "fr": "Vin de la Maison",
+            "es": "Vino de la Casa"
           },
           "itens": [
             {
               "nome": {
-                "pt": "Copo de vinho"
+                "pt": "Copo de vinho",
+                "en": "Glass of wine",
+                "fr": "Verre de vin",
+                "es": "Copa de vino"
               },
               "preco": "1,50€"
             },
             {
               "nome": {
-                "pt": "Caneca"
+                "pt": "Caneca",
+                "en": "Jug",
+                "fr": "Carafe",
+                "es": "Jarra"
               }
             },
             {
@@ -110,50 +223,36 @@
               }
             }
           ]
-        }
-      ]
-    },
-    {
-      "emoji": "",
-      "tipo": "comida",
-      "tile": {
-        "pt": "CARNE"
-      },
-      "grupos": [
+        },
         {
           "summary": {
-            "pt": "CARNE"
+            "pt": "Refrigerantes",
+            "en": "Soft Drinks",
+            "fr": "Boissons Fraîches",
+            "es": "Refrescos"
           },
           "itens": [
             {
               "nome": {
-                "pt": "Carne Maturada"
+                "pt": "Água 0,5 L",
+                "en": "Water 0.5 L",
+                "fr": "Eau 0,5 L",
+                "es": "Agua 0,5 L"
               },
-              "preco": "35€ KG"
+              "preco": "1,20€"
+            },
+            {
+              "nome": {
+                "pt": "Sumo / Refrigerante",
+                "en": "Juice / Soft drink",
+                "fr": "Jus / Soda",
+                "es": "Zumo / Refresco"
+              },
+              "preco": "1,80€"
             }
-          ],
-          "subtitulo": {
-            "pt": "com 5 meses de maturação"
-          }
+          ]
         }
-      ],
-      "id": "carne"
-    },
-    {
-      "emoji": "",
-      "tipo": "comida",
-      "tile": {
-        "pt": "MENUS DE GRUPO"
-      },
-      "grupos": [
-        {
-          "summary": {
-            "pt": "MENUS DE GRUPO"
-          },
-          "itens": []
-        }
-      ],
-      "id": "menus-de-grupo"
+      ]
     }
   ]
 }
