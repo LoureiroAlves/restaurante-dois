@@ -23,7 +23,7 @@
       "imagens/1784939166901-ver-fotografias-recentes.png"
     ],
     "especial": {
-      "ativo": false,
+      "ativo": true,
       "inicio": "08:55",
       "fim": "08:50",
       "l1": "Quarta feira - Prato do Dia",
