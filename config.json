@@ -96,5 +96,9 @@
   "redes": {
     "instagram": "",
     "facebook": ""
+  },
+  "intro": {
+    "ativo": true,
+    "duracao": 7
   }
 }
