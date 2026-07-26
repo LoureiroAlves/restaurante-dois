@@ -90,7 +90,7 @@
   "layout": "4",
   "modelo": "grelha",
   "fonte": "bebas",
-  "jogos": false,
+  "jogos": true,
   "redes": {
     "instagram": "",
     "facebook": ""
