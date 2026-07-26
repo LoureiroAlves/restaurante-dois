@@ -99,6 +99,14 @@
   },
   "intro": {
     "ativo": true,
-    "duracao": 7
+    "duracao": 7,
+    "fundo": "foto",
+    "tamanho": 2.7,
+    "subTamanho": 1.1,
+    "titulo": "",
+    "subtitulo": "",
+    "botao": "",
+    "reveal": "stripes",
+    "foto": ""
   }
 }
