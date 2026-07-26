@@ -7,7 +7,9 @@
     "fotosAtivas": true,
     "fotos": [
       "imagens/1784980795495-img-1573.jpg"
-    ]
+    ],
+    "tituloTamanho": 2.5,
+    "subtituloTamanho": 0.82
   },
   "rodape": {
     "linha1": "Bem-vindos!",
