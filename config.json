@@ -89,9 +89,16 @@
     "total": 8,
     "premio": ""
   },
-  "layout": "4",
+  "layout": "10",
   "modelo": "grelha",
   "fonte": "bebas",
+  "fonteTexto": "auto",
+  "tileTamanho": "normal",
+  "cores": null,
+  "fundo": {
+    "tipo": "liso",
+    "imagem": ""
+  },
   "jogos": false,
   "redes": {
     "instagram": "",
