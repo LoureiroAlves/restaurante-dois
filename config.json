@@ -93,7 +93,7 @@
   "modelo": "grelha",
   "fonte": "bebas",
   "fonteTexto": "auto",
-  "tileTamanho": "pequeno",
+  "tileTamanho": "grande",
   "cores": {
     "castanho": "#2b2f36",
     "dourado": "#9fa0a3",
