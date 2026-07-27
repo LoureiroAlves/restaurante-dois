@@ -90,7 +90,7 @@
     "premio": ""
   },
   "layout": "10",
-  "modelo": "grelha",
+  "modelo": "lista",
   "fonte": "bebas",
   "fonteTexto": "fredoka",
   "tileTamanho": "grande",
