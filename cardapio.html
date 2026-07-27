@@ -9,7 +9,7 @@
   /* ===== Ecrã de abertura / cortina de carregamento ===== */
   /* Enquanto carrega, esconde tudo menos o ecrã de abertura (evita flash da barra fixa/cabeçalho ao abrir a app) */
   body.carregando > *:not(#introOverlay){ visibility:hidden !important; }
-  #introOverlay{ position:fixed; inset:0; z-index:99999; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px; overflow:hidden; background:#1f2530; }
+  #introOverlay{ position:fixed; inset:0; z-index:99999; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px; overflow:hidden; background:var(--intro-bg,#1f2530); }
   #introOverlay.animar{ background:linear-gradient(140deg, var(--castanho,#3a2c18) 0%, var(--dourado-escuro,#6b4a1f) 55%, var(--dourado,#a8712f) 100%); background-size:200% 200%; animation:introGrad 9s ease infinite; }
   @keyframes introGrad{ 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
   #introOverlay.sair{ transform:translateY(-100%); transition:transform .55s cubic-bezier(.7,0,.25,1); pointer-events:none; }
@@ -39,6 +39,15 @@
   // A cortina de abertura cobre o ecrã enquanto os dados carregam (evita o flash de conteúdo).
   // Se o "ecrã de abertura" estiver ligado, vira uma animação com o nome; senão, some assim que carrega.
   window.__introAtiva = false; window.__introReveal = 'slide'; window.__menuOk = false; window.__cfgOk = false;
+  // Pintar o ecrã de carregamento com a cor do tema deste restaurante (guardada da última visita),
+  // para não mostrar o neutro azul num restaurante de outra cor.
+  try{
+    var _tc = localStorage.getItem('temaCor');
+    if(_tc){
+      document.documentElement.style.setProperty('--intro-bg', _tc);
+      var _m = document.querySelector('meta[name=theme-color]'); if(_m) _m.content = _tc;
+    }
+  }catch(e){}
   window.__esconderIntro = function(){
     var o = document.getElementById('introOverlay');
     if(!o || o.dataset.saiu) return;
@@ -81,7 +90,7 @@
     min-height:100vh;
     padding-bottom:calc(112px + env(safe-area-inset-bottom));
   }
-  html{ background:#1f2530; }
+  html{ background:var(--intro-bg,#1f2530); }
   header{
     position:relative; z-index:50;
     background:var(--castanho);
@@ -2050,8 +2059,10 @@
     const r = document.documentElement;
     Object.keys(t).forEach(k => r.style.setProperty(k, t[k]));
     r.style.backgroundColor = t['--castanho'];
+    r.style.setProperty('--intro-bg', t['--castanho']);
     const meta = document.querySelector('meta[name=theme-color]');
     if(meta) meta.content = t['--castanho'];
+    try{ localStorage.setItem('temaCor', t['--castanho']); }catch(e){}
   }
 
   // Tipo de letra dos títulos, escolhido à parte (sobrepõe-se ao do layout)
