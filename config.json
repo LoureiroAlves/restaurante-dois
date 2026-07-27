@@ -91,6 +91,7 @@
   },
   "layout": "10",
   "modelo": "grelha",
+  "abrirEfeito": "flip",
   "fonte": "fredoka",
   "fonteTexto": "fredoka",
   "tileTamanho": "grande",
