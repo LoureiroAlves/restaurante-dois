@@ -93,10 +93,14 @@
   "modelo": "grelha",
   "fonte": "bebas",
   "fonteTexto": "auto",
-  "tileTamanho": "normal",
-  "cores": null,
+  "tileTamanho": "pequeno",
+  "cores": {
+    "castanho": "#2b2f36",
+    "dourado": "#9fa0a3",
+    "bege": "#ececef"
+  },
   "fundo": {
-    "tipo": "liso",
+    "tipo": "gradiente",
     "imagem": ""
   },
   "jogos": false,
