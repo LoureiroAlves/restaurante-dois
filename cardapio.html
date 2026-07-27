@@ -277,6 +277,9 @@
     pointer-events:auto;
     transition:transform .38s cubic-bezier(.22,.8,.25,1), opacity .28s ease, visibility 0s;
   }
+  /* Efeito de abertura "Flip 3D" (config.abrirEfeito === 'flip') */
+  body.abrir-flip .categoria-painel{ transform:perspective(1500px) rotateY(-90deg); transform-origin:50% 50%; transition:transform .5s cubic-bezier(.3,.7,.25,1), opacity .3s ease, visibility 0s linear .5s; }
+  body.abrir-flip .categoria-painel.aberto{ transform:perspective(1500px) rotateY(0deg); transition:transform .5s cubic-bezier(.3,.7,.25,1), opacity .3s ease, visibility 0s; }
   .categoria-painel-header{
     position:sticky; top:0; z-index:2;
     display:flex; align-items:center; gap:10px;
@@ -1851,8 +1854,41 @@
     if(window.aplicarJogos) window.aplicarJogos(window._jogosAtivos !== false);
     aplicarIdioma(idiomaAtual);
     if(window.montarBotoesLista) window.montarBotoesLista();
+    if(window.ligarTilt) window.ligarTilt();
     window.__menuOk = true; window.__tryReveal();
   }
+
+  // Inclinação 3D dos separadores (só no rato — no telemóvel não interferir com o toque/scroll)
+  window.ligarTilt = function(){
+    document.querySelectorAll('.tile').forEach(function(t){
+      if(t.dataset.tilt) return; t.dataset.tilt = '1';
+      t.addEventListener('pointermove', function(e){
+        if(e.pointerType && e.pointerType !== 'mouse') return;
+        if(t.classList.contains('active')) return;
+        const r = t.getBoundingClientRect();
+        const x = (e.clientX - r.left)/r.width - 0.5, y = (e.clientY - r.top)/r.height - 0.5;
+        t.style.transform = 'perspective(600px) rotateX(' + (-y*9) + 'deg) rotateY(' + (x*9) + 'deg) translateZ(6px)';
+      });
+      const repor = function(){ t.style.transform = ''; };
+      t.addEventListener('pointerleave', repor);
+      t.addEventListener('pointercancel', repor);
+    });
+  };
+  // Parallax subtil do cabeçalho ao fazer scroll
+  (function(){
+    let tick = false;
+    window.addEventListener('scroll', function(){
+      if(tick) return; tick = true;
+      requestAnimationFrame(function(){
+        const y = window.scrollY || 0;
+        const hf = document.querySelector('#headerFotos');
+        if(hf) hf.style.transform = 'translateY(' + (y*0.35) + 'px) scale(1.05)';
+        const brand = document.querySelector('header .brand');
+        if(brand) brand.style.transform = 'translateY(' + (y*0.12) + 'px)';
+        tick = false;
+      });
+    }, { passive:true });
+  })();
   fetch('menu.json?t=' + Date.now())
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
     .then(menu => { window._menu = menu; construirMenu(menu); })
@@ -2177,6 +2213,7 @@
       if(config.fonte && config.fonte !== 'auto') aplicarFonte(config.fonte);
       if(config.fonteTexto && FONTES_TITULO[config.fonteTexto]) document.documentElement.style.setProperty('--fonte-texto', FONTES_TITULO[config.fonteTexto]);
       document.body.classList.toggle('modelo-grelha', (config.modelo || 'lista') === 'grelha');
+      document.body.classList.toggle('abrir-flip', config.abrirEfeito === 'flip');
       // Tamanho dos tiles (estrutura)
       document.body.classList.remove('tiles-pequeno','tiles-grande');
       if(config.tileTamanho === 'pequeno') document.body.classList.add('tiles-pequeno');
