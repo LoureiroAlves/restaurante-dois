@@ -100,7 +100,7 @@
     "bege": "#ececef"
   },
   "fundo": {
-    "tipo": "gradiente",
+    "tipo": "liso",
     "imagem": ""
   },
   "jogos": false,
