@@ -9,7 +9,8 @@
       "imagens/1784980795495-img-1573.jpg"
     ],
     "tituloTamanho": 2.8,
-    "subtituloTamanho": 1
+    "subtituloTamanho": 1,
+    "encolher": true
   },
   "rodape": {
     "linha1": "Bem-vindos!",
