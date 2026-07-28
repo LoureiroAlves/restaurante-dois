@@ -115,11 +115,12 @@
     font-style:italic;
     margin-top:3px;
   }
-  /* Elementos flutuantes saem quando uma secção está aberta (não aparecem durante o flip) — só por CSS, sem conflitos */
-  header, #cartBtn, #linkFidelidade{ transition:transform .42s cubic-bezier(.22,.8,.25,1); }
+  /* Quando uma secção está aberta: cabeçalho e barra saem em slide; carrinho e fidelidade desaparecem em fade (não deslizam para não cruzar a barra) */
+  header{ transition:transform .42s cubic-bezier(.22,.8,.25,1); }
   body.secao-aberta header{ transform:translateY(-110%); }
   body.secao-aberta .info-fixa{ transform:translateY(130%); }
-  body.secao-aberta #cartBtn, body.secao-aberta #linkFidelidade{ transform:translateY(240%); }
+  #cartBtn, #linkFidelidade{ transition:opacity .18s ease, visibility .18s ease; }
+  body.secao-aberta #cartBtn, body.secao-aberta #linkFidelidade{ opacity:0; visibility:hidden; pointer-events:none; }
   .header-icons{
     display:flex; justify-content:space-between; align-items:center;
     margin-top:10px;
