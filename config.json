@@ -10,7 +10,7 @@
     ],
     "tituloTamanho": 2.8,
     "subtituloTamanho": 1,
-    "encolher": false
+    "fixo": true
   },
   "rodape": {
     "linha1": "Bem-vindos!",
