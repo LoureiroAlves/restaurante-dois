@@ -136,6 +136,7 @@
   .layout-card .sws{ display:flex; gap:5px; }
   .layout-card .sw{ width:24px; height:24px; border-radius:6px; border:1px solid rgba(0,0,0,0.08); }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -167,6 +168,24 @@
   </details>
 
   <button type="button" class="acao" id="btnCarregar" style="background:var(--castanho);">📥 Carregar definições atuais</button>
+
+  <!-- PARTILHAR / QR -->
+  <details id="secPartilha">
+    <summary>🔗 Partilhar / QR code</summary>
+    <div class="bloco-conteudo">
+      <div class="subtitulo" style="margin-top:6px;">O link e o código QR do teu cardápio. Imprime o QR para as mesas ou partilha o link.</div>
+      <label style="margin-top:10px;">Link do cardápio</label>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <input type="text" id="linkCardapio" readonly style="flex:1; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit; background:var(--bege); color:var(--castanho);">
+        <button type="button" id="btnCopiarLink" style="padding:9px 12px; border-radius:8px; border:1.5px solid var(--linha); background:var(--branco); color:var(--castanho); cursor:pointer; white-space:nowrap;">Copiar</button>
+      </div>
+      <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;">
+        <button type="button" id="btnAbrirCardapio" style="padding:9px 12px; border-radius:8px; border:1.5px solid var(--linha); background:var(--branco); color:var(--castanho); cursor:pointer;">Abrir cardápio</button>
+        <button type="button" id="btnDescarregarQR" style="padding:9px 12px; border-radius:8px; border:1.5px solid var(--linha); background:var(--branco); color:var(--castanho); cursor:pointer;">Descarregar QR (PNG)</button>
+      </div>
+      <div id="qrCardapio" style="margin-top:14px; display:flex; justify-content:center; padding:14px; background:#fff; border:1.5px solid var(--linha); border-radius:12px;"></div>
+    </div>
+  </details>
 
   <!-- LAYOUT / ASPETO -->
   <details id="secLayout">
@@ -647,6 +666,36 @@
   const CONFIG_PATH = 'config.json';
   const CONFIG_API = 'https://api.github.com/repos/' + REPO + '/contents/' + CONFIG_PATH;
   const RAW_BASE = 'https://raw.githubusercontent.com/' + REPO + '/main/';
+
+  // ---- Partilhar / QR code do cardápio ----
+  (function(){
+    let base = location.href.split('#')[0].split('?')[0];
+    const CARDAPIO_URL = /editar\.html$/i.test(base) ? base.replace(/editar\.html$/i, 'cardapio.html') : base.replace(/\/[^\/]*$/, '/') + 'cardapio.html';
+    const linkEl = document.getElementById('linkCardapio');
+    if(linkEl) linkEl.value = CARDAPIO_URL;
+    const qrBox = document.getElementById('qrCardapio');
+    if(qrBox && window.QRCode){
+      try{ new QRCode(qrBox, { text: CARDAPIO_URL, width: 200, height: 200, colorDark: '#4a3820', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M }); }catch(e){}
+    }
+    const btnCopiar = document.getElementById('btnCopiarLink');
+    if(btnCopiar) btnCopiar.addEventListener('click', function(){
+      const ok = function(){ btnCopiar.textContent = 'Copiado!'; setTimeout(function(){ btnCopiar.textContent = 'Copiar'; }, 1500); };
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(CARDAPIO_URL).then(ok).catch(function(){ linkEl.select(); document.execCommand('copy'); ok(); }); }
+      else { linkEl.select(); document.execCommand('copy'); ok(); }
+    });
+    const btnAbrir = document.getElementById('btnAbrirCardapio');
+    if(btnAbrir) btnAbrir.addEventListener('click', function(){ window.open(CARDAPIO_URL, '_blank'); });
+    const btnQR = document.getElementById('btnDescarregarQR');
+    if(btnQR) btnQR.addEventListener('click', function(){
+      const cv = qrBox.querySelector('canvas');
+      const img = qrBox.querySelector('img');
+      let dataUrl = '';
+      if(cv){ try{ dataUrl = cv.toDataURL('image/png'); }catch(e){} }
+      if(!dataUrl && img && img.src){ dataUrl = img.src; }
+      if(!dataUrl){ alert('QR ainda não está pronto — tenta novamente daqui a um instante.'); return; }
+      const a = document.createElement('a'); a.href = dataUrl; a.download = 'qr-cardapio.png'; document.body.appendChild(a); a.click(); a.remove();
+    });
+  })();
 
   const tokenInput = document.getElementById('token');
   const lembrarInput = document.getElementById('lembrar');
