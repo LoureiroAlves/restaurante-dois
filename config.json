@@ -33,7 +33,7 @@
     "carrossel": {
       "ativo": true,
       "modo": "dia",
-      "intervalo": 5,
+      "intervalo": 4,
       "inicio": "19:27",
       "fim": "21:53",
       "slides": [
@@ -133,7 +133,7 @@
         "4": {
           "slides": [
             {
-              "ativo": true,
+              "ativo": false,
               "titulo": "Quinta-feira Prato do Dia",
               "linhas": [
                 "Lombo recheado",
@@ -142,7 +142,7 @@
               ]
             },
             {
-              "ativo": true,
+              "ativo": false,
               "titulo": "Sugestão",
               "linhas": [
                 "Bife da vazia",
@@ -159,19 +159,28 @@
         "5": {
           "slides": [
             {
-              "ativo": false,
-              "titulo": "",
-              "linhas": []
+              "ativo": true,
+              "titulo": "SEXTA FEIRA",
+              "linhas": [
+                "Lombo recheado",
+                "Fígado de cebolada"
+              ]
             },
             {
-              "ativo": false,
-              "titulo": "",
-              "linhas": []
+              "ativo": true,
+              "titulo": "NA BRASA",
+              "linhas": [
+                "Bacalhau assado na brasa",
+                "Costelinhas grelhadas na brsa"
+              ]
             },
             {
-              "ativo": false,
-              "titulo": "",
-              "linhas": []
+              "ativo": true,
+              "titulo": "SUGESTÃO",
+              "linhas": [
+                "bacalhau à lagareiro",
+                "Tripas à moda do porto"
+              ]
             }
           ]
         },
