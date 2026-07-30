@@ -36,8 +36,8 @@
       "ativo": true,
       "modo": "dia",
       "intervalo": 5,
-      "inicio": "",
-      "fim": "",
+      "inicio": "19:27",
+      "fim": "19:30",
       "slides": [
         {
           "titulo": "Prato do Dia",
