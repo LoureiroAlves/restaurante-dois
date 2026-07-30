@@ -61,13 +61,13 @@
     "morada": "Morada aqui",
     "telefone": "📞 000 000 000",
     "cor": "#ffffff",
-    "fotosAtivas": true,
+    "fotosAtivas": false,
     "fotos": [
       "imagens/1784980733830-gemini-generated-image-h2pookh2pookh2po.png"
     ],
     "fotoZoom": 136,
-    "fotoPanX": -0.596923828125,
-    "fotoPanY": 17.50773625327303,
+    "fotoPanX": 0.3635564119950623,
+    "fotoPanY": 16.066997874854096,
     "textoX": 50,
     "textoY": 50
   },
