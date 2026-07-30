@@ -20,9 +20,7 @@
     "cor": "#ffffff",
     "realce": true,
     "fotosAtivas": true,
-    "fotos": [
-      "imagens/1785439072818-img-1702.jpg"
-    ],
+    "fotos": [],
     "especial": {
       "ativo": false,
       "inicio": "08:55",
