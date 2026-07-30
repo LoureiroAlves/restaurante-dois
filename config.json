@@ -243,7 +243,7 @@
     "bege": "#ececef"
   },
   "fundo": {
-    "tipo": "liso",
+    "tipo": "imagem",
     "imagem": ""
   },
   "jogos": false,
