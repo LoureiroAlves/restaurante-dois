@@ -236,7 +236,7 @@
   "abrirEfeito": "flip",
   "fonte": "fredoka",
   "fonteTexto": "fredoka",
-  "tileTamanho": "grande",
+  "tileTamanho": "pequeno",
   "cores": {
     "castanho": "#2b2f36",
     "dourado": "#9fa0a3",
