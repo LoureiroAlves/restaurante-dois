@@ -24,7 +24,7 @@
       "imagens/1784939166901-ver-fotografias-recentes.png"
     ],
     "especial": {
-      "ativo": true,
+      "ativo": false,
       "inicio": "08:55",
       "fim": "08:50",
       "l1": "Quarta feira - Prato do Dia",
@@ -33,7 +33,8 @@
       "l4": "Bla bla bla bla"
     },
     "carrossel": {
-      "ativo": false,
+      "ativo": true,
+      "modo": "dia",
       "intervalo": 5,
       "inicio": "",
       "fim": "",
@@ -53,7 +54,146 @@
           "linhas": [],
           "ocultarDomingo": false
         }
-      ]
+      ],
+      "dias": {
+        "0": {
+          "slides": [
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            }
+          ]
+        },
+        "1": {
+          "slides": [
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            }
+          ]
+        },
+        "2": {
+          "slides": [
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            }
+          ]
+        },
+        "3": {
+          "slides": [
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            }
+          ]
+        },
+        "4": {
+          "slides": [
+            {
+              "ativo": true,
+              "titulo": "Quinta-feira Prato do Dia",
+              "linhas": [
+                "Lombo recheado",
+                "Fígado de cebolada",
+                "Arroz de bacalhau"
+              ]
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            }
+          ]
+        },
+        "5": {
+          "slides": [
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            }
+          ]
+        },
+        "6": {
+          "slides": [
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            },
+            {
+              "ativo": false,
+              "titulo": "",
+              "linhas": []
+            }
+          ]
+        }
+      }
     }
   },
   "footer": {
