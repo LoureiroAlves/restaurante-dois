@@ -37,7 +37,7 @@
       "modo": "dia",
       "intervalo": 5,
       "inicio": "19:27",
-      "fim": "19:30",
+      "fim": "21:53",
       "slides": [
         {
           "titulo": "Prato do Dia",
@@ -144,9 +144,12 @@
               ]
             },
             {
-              "ativo": false,
-              "titulo": "",
-              "linhas": []
+              "ativo": true,
+              "titulo": "Sugestão",
+              "linhas": [
+                "Bife da vazia",
+                "Entrecôte"
+              ]
             },
             {
               "ativo": false,
