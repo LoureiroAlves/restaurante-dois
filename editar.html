@@ -421,24 +421,36 @@
           </div>
         </div>
 
-        <label for="carrTitulo1" style="margin-top:14px;">Cartão 1 — título</label>
-        <input type="text" id="carrTitulo1" placeholder="Ex: Prato do Dia">
-        <label for="carrLinhas1">Pratos (um por linha)</label>
-        <textarea id="carrLinhas1" rows="3" placeholder="Francesinha&#10;Bifana no Prato&#10;Salada de Bacalhau" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
-        <div class="lembrar" style="margin-top:6px;">
-          <input type="checkbox" id="carrDomingo1" checked>
-          <label for="carrDomingo1" style="margin:0; font-weight:400; color:var(--castanho-suave); display:inline;">Esconder este cartão ao domingo</label>
+        <label for="carrModo" style="margin-top:14px;">Cartões</label>
+        <select id="carrModo" style="width:100%; padding:10px 12px; border-radius:10px; border:1.5px solid var(--linha); background:var(--branco); font-family:inherit; color:var(--castanho); font-size:0.95rem;">
+          <option value="fixo">Iguais todos os dias</option>
+          <option value="dia">Prato do dia — diferentes por dia da semana</option>
+        </select>
+
+        <div id="blocoFixo">
+          <label for="carrTitulo1" style="margin-top:14px;">Cartão 1 — título</label>
+          <input type="text" id="carrTitulo1" placeholder="Ex: Prato do Dia">
+          <label for="carrLinhas1">Pratos (um por linha)</label>
+          <textarea id="carrLinhas1" rows="3" placeholder="Francesinha&#10;Bifana no Prato&#10;Salada de Bacalhau" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
+          <div class="lembrar" style="margin-top:6px;">
+            <input type="checkbox" id="carrDomingo1" checked>
+            <label for="carrDomingo1" style="margin:0; font-weight:400; color:var(--castanho-suave); display:inline;">Esconder este cartão ao domingo</label>
+          </div>
+
+          <label for="carrTitulo2" style="margin-top:14px;">Cartão 2 — título</label>
+          <input type="text" id="carrTitulo2" placeholder="Ex: Na Brasa">
+          <label for="carrLinhas2">Pratos (um por linha)</label>
+          <textarea id="carrLinhas2" rows="3" placeholder="Picanha&#10;Costelinhas" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
+
+          <label for="carrTitulo3" style="margin-top:14px;">Cartão 3 — título</label>
+          <input type="text" id="carrTitulo3" placeholder="Ex: Sugestão">
+          <label for="carrLinhas3">Pratos (um por linha)</label>
+          <textarea id="carrLinhas3" rows="3" placeholder="Bacalhau à Lagareiro&#10;Polvo à Lagareiro" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
         </div>
 
-        <label for="carrTitulo2" style="margin-top:14px;">Cartão 2 — título</label>
-        <input type="text" id="carrTitulo2" placeholder="Ex: Na Brasa">
-        <label for="carrLinhas2">Pratos (um por linha)</label>
-        <textarea id="carrLinhas2" rows="3" placeholder="Picanha&#10;Costelinhas" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
-
-        <label for="carrTitulo3" style="margin-top:14px;">Cartão 3 — título</label>
-        <input type="text" id="carrTitulo3" placeholder="Ex: Sugestão">
-        <label for="carrLinhas3">Pratos (um por linha)</label>
-        <textarea id="carrLinhas3" rows="3" placeholder="Bacalhau à Lagareiro&#10;Polvo à Lagareiro" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
+        <div id="blocoDias" style="display:none; margin-top:6px;">
+          <div style="font-size:0.8rem; color:var(--castanho-suave); margin-bottom:8px;">Cada dia mostra os seus próprios cartões. Liga/desliga cada cartão por dia.</div>
+        </div>
       </div>
 
       <label for="corRodape">Cor do texto</label>
@@ -645,11 +657,11 @@
     header: { titulo:'', subtitulo:'', cor:'#ffffff', realce:true, fotosAtivas:true, fotos:[], tituloTamanho:1.7, subtituloTamanho:0.82, fixo:false },
     rodape: { linha1:'', linha2:'', linha3:'', linha4:'', cor:'#ffffff', realce:true, fotosAtivas:true, fotos:[],
       especial:{ ativo:false, inicio:'', fim:'', l1:'', l2:'', l3:'', l4:'' },
-      carrossel:{ ativo:false, intervalo:5, inicio:'', fim:'', slides:[
+      carrossel:{ ativo:false, modo:'fixo', intervalo:5, inicio:'', fim:'', slides:[
         { titulo:'Prato do Dia', linhas:[], ocultarDomingo:true },
         { titulo:'Na Brasa', linhas:[], ocultarDomingo:false },
         { titulo:'Sugestão', linhas:[], ocultarDomingo:false }
-      ] } },
+      ], dias:{} } },
     footer: { nome:'', morada:'', telefone:'', cor:'#ffffff', fotosAtivas:false, fotos:[], fotoZoom:100, fotoPanX:0, fotoPanY:0, textoX:50, textoY:50 },
     adJogos: { ativo:false, foto:'', fotoZoom:100, fotoPanX:0, fotoPanY:0, texto:'', textoX:50, textoY:80, cor:'#ffffff', duracao:5 },
     sazonal: true,
@@ -817,7 +829,7 @@
           { titulo:'Sugestão', linhas:[], ocultarDomingo:false }
         ] };
         const carGuardado = (parsed.rodape && parsed.rodape.carrossel) || {};
-        config.rodape.carrossel = { ativo: !!carGuardado.ativo, intervalo: carGuardado.intervalo || 5, inicio: carGuardado.inicio || '', fim: carGuardado.fim || '', slides: (Array.isArray(carGuardado.slides) && carGuardado.slides.length) ? carGuardado.slides : carDef.slides };
+        config.rodape.carrossel = { ativo: !!carGuardado.ativo, modo: carGuardado.modo || 'fixo', intervalo: carGuardado.intervalo || 5, inicio: carGuardado.inicio || '', fim: carGuardado.fim || '', slides: (Array.isArray(carGuardado.slides) && carGuardado.slides.length) ? carGuardado.slides : carDef.slides, dias: (carGuardado.dias && typeof carGuardado.dias === 'object') ? carGuardado.dias : {} };
         config.footer = Object.assign({ nome:'', morada:'', telefone:'', cor:'#ffffff', fotosAtivas:false, fotos:[], fotoZoom:100, fotoPanX:0, fotoPanY:0, textoX:50, textoY:50 }, parsed.footer || {});
         config.adJogos = Object.assign({ ativo:false, foto:'', fotoZoom:100, fotoPanX:0, fotoPanY:0, texto:'', textoX:50, textoY:80, cor:'#ffffff', duracao:5 }, parsed.adJogos || {});
         config.sazonal = parsed.sazonal !== false;
@@ -919,6 +931,9 @@
     document.getElementById('carrLinhas2').value = (sl[1] && Array.isArray(sl[1].linhas)) ? sl[1].linhas.join('\n') : '';
     document.getElementById('carrTitulo3').value = (sl[2] && sl[2].titulo) || '';
     document.getElementById('carrLinhas3').value = (sl[2] && Array.isArray(sl[2].linhas)) ? sl[2].linhas.join('\n') : '';
+    document.getElementById('carrModo').value = car.modo || 'fixo';
+    preencherDias(car.dias);
+    aplicarModoCarr();
     document.getElementById('footerNome').value = config.footer.nome || '';
     document.getElementById('footerMorada').value = config.footer.morada || '';
     document.getElementById('footerTelefone').value = config.footer.telefone || '';
@@ -1200,6 +1215,7 @@
       const linhasDe = id => document.getElementById(id).value.split('\n').map(s => s.trim()).filter(Boolean);
       config.rodape.carrossel = {
         ativo: document.getElementById('carrosselAtivo').checked,
+        modo: document.getElementById('carrModo').value,
         intervalo: parseInt(document.getElementById('carrIntervalo').value, 10) || 5,
         inicio: document.getElementById('carrInicio').value,
         fim: document.getElementById('carrFim').value,
@@ -1207,7 +1223,8 @@
           { titulo: document.getElementById('carrTitulo1').value.trim(), linhas: linhasDe('carrLinhas1'), ocultarDomingo: document.getElementById('carrDomingo1').checked },
           { titulo: document.getElementById('carrTitulo2').value.trim(), linhas: linhasDe('carrLinhas2'), ocultarDomingo: false },
           { titulo: document.getElementById('carrTitulo3').value.trim(), linhas: linhasDe('carrLinhas3'), ocultarDomingo: false }
-        ]
+        ],
+        dias: lerDias()
       };
       config.footer = {
         nome: document.getElementById('footerNome').value.trim(),
@@ -1324,6 +1341,78 @@
   document.getElementById('carrosselAtivo').addEventListener('change', e => {
     document.getElementById('blocoCarrossel').style.display = e.target.checked ? 'block' : 'none';
   });
+
+  // ---- Prato do dia (cartões por dia da semana) ----
+  const DIAS_ORDEM = [1,2,3,4,5,6,0];
+  const DIAS_NOME = { 0:'Domingo', 1:'Segunda-feira', 2:'Terça-feira', 3:'Quarta-feira', 4:'Quinta-feira', 5:'Sexta-feira', 6:'Sábado' };
+  function renderDiasSkeleton(){
+    const box = document.getElementById('blocoDias');
+    if(!box || box.dataset.pronto) return;
+    box.dataset.pronto = '1';
+    DIAS_ORDEM.forEach(function(d){
+      const det = document.createElement('details');
+      det.style.cssText = 'border:1.5px solid var(--linha); border-radius:10px; margin-bottom:8px; background:var(--branco);';
+      const sum = document.createElement('summary');
+      sum.style.cssText = 'padding:10px 12px; cursor:pointer; font-weight:700; color:var(--castanho);';
+      sum.textContent = DIAS_NOME[d];
+      det.appendChild(sum);
+      const inner = document.createElement('div');
+      inner.style.cssText = 'padding:0 12px 12px;';
+      for(let c=1;c<=3;c++){
+        const bloco = document.createElement('div');
+        bloco.style.cssText = 'margin-top:10px; padding-top:10px; border-top:1px dashed var(--linha);';
+        bloco.innerHTML =
+          '<div class="lembrar" style="margin:0 0 6px;"><input type="checkbox" id="d'+d+'c'+c+'Ativo"><label for="d'+d+'c'+c+'Ativo" style="margin:0; font-weight:700; color:var(--dourado-escuro); display:inline;">Cartão '+c+'</label></div>' +
+          '<input type="text" id="d'+d+'c'+c+'Tit" placeholder="Título (ex: Prato do Dia)" style="width:100%; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit; margin-bottom:6px;">' +
+          '<textarea id="d'+d+'c'+c+'Lin" rows="2" placeholder="Um prato por linha" style="width:100%; padding:9px; border-radius:8px; border:1.5px solid var(--linha); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>';
+        inner.appendChild(bloco);
+      }
+      det.appendChild(inner);
+      box.appendChild(det);
+    });
+  }
+  function aplicarModoCarr(){
+    const modo = document.getElementById('carrModo').value;
+    document.getElementById('blocoFixo').style.display = (modo === 'dia') ? 'none' : 'block';
+    document.getElementById('blocoDias').style.display = (modo === 'dia') ? 'block' : 'none';
+  }
+  function preencherDias(dias){
+    renderDiasSkeleton();
+    dias = dias || {};
+    DIAS_ORDEM.forEach(function(d){
+      const cfgDia = dias[d] || dias[String(d)] || {};
+      const slides = Array.isArray(cfgDia.slides) ? cfgDia.slides : [];
+      for(let c=1;c<=3;c++){
+        const s = slides[c-1] || {};
+        const at = document.getElementById('d'+d+'c'+c+'Ativo');
+        const ti = document.getElementById('d'+d+'c'+c+'Tit');
+        const li = document.getElementById('d'+d+'c'+c+'Lin');
+        if(at) at.checked = !!s.ativo;
+        if(ti) ti.value = s.titulo || '';
+        if(li) li.value = (s.linhas || []).join('\n');
+      }
+    });
+  }
+  function lerDias(){
+    const dias = {};
+    DIAS_ORDEM.forEach(function(d){
+      const slides = [];
+      for(let c=1;c<=3;c++){
+        const at = document.getElementById('d'+d+'c'+c+'Ativo');
+        const ti = document.getElementById('d'+d+'c'+c+'Tit');
+        const li = document.getElementById('d'+d+'c'+c+'Lin');
+        slides.push({
+          ativo: at ? at.checked : false,
+          titulo: ti ? ti.value.trim() : '',
+          linhas: li ? li.value.split('\n').map(function(x){ return x.trim(); }).filter(Boolean) : []
+        });
+      }
+      dias[d] = { slides: slides };
+    });
+    return dias;
+  }
+  renderDiasSkeleton();
+  document.getElementById('carrModo').addEventListener('change', aplicarModoCarr);
   document.getElementById('fidAtivo').addEventListener('change', e => {
     document.getElementById('blocoFid').style.display = e.target.checked ? 'block' : 'none';
   });
